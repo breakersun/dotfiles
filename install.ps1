@@ -84,6 +84,9 @@ if (-not (Get-Command -Name scoop -ErrorAction SilentlyContinue)) {
     refreshenv
 }
 
+# bucket for chezmoi
+scoop bucket add twpayne https://github.com/twpayne/scoop-bucket
+
 foreach ($app in $Apps) {
     if (-not (Test-ScoopApp($app))) {
         scoop install $app
