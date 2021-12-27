@@ -19,12 +19,12 @@ param (
     [System.IO.FileInfo]$ModuleFilePath = "$env:HOMEDRIVE\$env:HOMEPATH\.config",
 
     [String[]]$Apps = @(
-        bat
-        chezmoi
-        fzf
-        neovim
-        ripgrep
-        starship
+        'bat'
+        'chezmoi'
+        'fzf'
+        'neovim'
+        'ripgrep'
+        'starship'
     )
 )
 
