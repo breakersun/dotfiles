@@ -112,10 +112,3 @@ Invoke-PSDepend -Path "$ModuleFilePath\requirements.psd1" -Force
 # Initialize Chezmoi
 chezmoi init --apply breakersun
 chezmoi diff
-
-# install FiraCode
-$FiraInstall = Invoke-RestMethod -Uri 'https://raw.githubusercontent.com/ryanoasis/nerd-fonts/master/install.ps1'
-$FiraScript = [scriptblock]::Create($FiraInstall)
-$FiraScript.Invoke('FiraCode')
-
-Invoke-Expression $((Invoke-WebRequest -Uri "https://raw.githubusercontent.com/ryanoasis/nerd-fonts/master/install.ps1").Content)
