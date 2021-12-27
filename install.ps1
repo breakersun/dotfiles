@@ -31,18 +31,18 @@ function Set-ScoopLocation {
         https://scoop-docs.vercel.app/docs/getting-started/Quick-Start.html#installing-scoop
     #>
 
-    $SCOOP = Read-Host -Prompt 'Please enter Scoop install location(Enter to skip): '
+    $SCOOP = Read-Host -Prompt 'Please enter Scoop install location(Enter to skip) '
     if (Test-Path -Path "$SCOOP") {
         Write-Host "Scoop install location at $SCOOP"
-        [Environment]::SetEnvironmentVariable('SCOOP', "$SCOOP", 'Machine')
+        [Environment]::SetEnvironmentVariable('SCOOP', "$SCOOP", 'User')
     } else {
         Write-Host "Scoop install location not found, skipped"
     }
 
-    $SCOOP_GLOBAL = Read-Host -Prompt 'Please enter Scoop Apps install location(Enter to skip): '
+    $SCOOP_GLOBAL = Read-Host -Prompt 'Please enter Scoop Apps install location(Enter to skip) '
     if (Test-Path -Path "$SCOOP_GLOBAL") {
         Write-Host "Scoop install location at $SCOOP_GLOBAL"
-        [Environment]::SetEnvironmentVariable('SCOOP_GLOBAL', "$SCOOP_GLOBAL", 'Machine')
+        [Environment]::SetEnvironmentVariable('SCOOP_GLOBAL', "$SCOOP_GLOBAL", 'User')
     } else {
         Write-Host "Scoop Apps install location not found, skipped"
     }
