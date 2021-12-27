@@ -91,6 +91,7 @@ if (-not (Get-Command -Name scoop -ErrorAction SilentlyContinue)) {
     refreshenv
 }
 
+scoop bucket add extra
 # bucket for chezmoi
 scoop bucket add twpayne https://github.com/twpayne/scoop-bucket
 
