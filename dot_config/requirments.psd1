@@ -4,16 +4,10 @@
         Import = $true
     }
 
-    PowerShellGet        = 'latest'
-    PSFzf           = @{
-        DependsOn = 'PowerShellGet'
-    }
-    ZLocation       = @{
-        DependsOn = 'PowerShellGet'
-    }
-    'Terminal-Icons'  = @{
-        DependsOn = 'PowerShellGet'
-    }
+    PowerShellGet    = 'latest'
+    PSFzf            = 'latest'
+    ZLocation        = 'latest'
+    'Terminal-Icons' = 'latest'
     PSReadLine           = @{
         DependsOn  = 'PowerShellGet'
         Install    = $false

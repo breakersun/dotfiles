@@ -104,4 +104,4 @@ New-Item -ItemType Directory $ModuleFilePath -ErrorAction SilentlyContinue
 Invoke-WebRequest -Uri $ModuleUri -UseBasicParsing -OutFile "$ModuleFilePath\requirements.psd1"
 
 Write-Host 'Installing PowerShell modules...' -ForegroundColor Magenta
-Invoke-PSDepend -Path "$ModuleFilePath\requirements.psd1" -Import -Force
+Invoke-PSDepend -Path "$ModuleFilePath\requirements.psd1" -Force
