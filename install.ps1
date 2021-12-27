@@ -15,5 +15,23 @@
 
 [CmdletBinding()]
 param (
-    [System.Uri] $ModuleUri =
+    [System.Uri]$ModuleUri = 'https://raw.githubusercontent.com/breakersun/dotfiles/main/dot_config/requirments.psd1',
+    [System.IO.FileInfo]$ModuleFilePath = "$env:HOMEDRIVE\$env:HOMEPATH\.config",
+
+    [String[]]$Packages = @(
+        'starship'
+        'fzf'
+    )
 )
+
+# Scoop setup
+write-host 'Configuring Scoop...' -ForegroundColor Magenta
+
+if (-not (Get-Command -Name scoop -ErrorAction SilentlyContinue)) {
+    # allow to install by script
+    Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Force -Verbose
+    # install scoop
+    Invoke-WebRequest -useb get.scoop.sh | Invoke-Expression
+    # update environment
+    refreshenv
+}
