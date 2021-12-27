@@ -18,7 +18,7 @@ param (
     [System.Uri]$ModuleUri = 'https://raw.githubusercontent.com/breakersun/dotfiles/main/dot_config/requirments.psd1',
     [System.IO.FileInfo]$ModuleFilePath = "$env:HOMEDRIVE\$env:HOMEPATH\.config",
 
-    [String[]]$Packages = @(
+    [String[]]$Apps = @(
         'starship'
         'fzf'
     )
@@ -48,6 +48,22 @@ function Set-ScoopLocation {
     }
 }
 
+function Test-ScoopApp {
+    param (
+        [Parameter(Mandatory)]
+        [String]$App
+    )
+    Process {
+        if (Test-Path -Path $env:SCOOP) {
+            $appInstalled = Test-Path -Path "$env:SCOOP\apps\$App"
+        } else {
+            Write-Host "Can't find a chocolatey install directory..."
+        }
+
+        return $appInstalled
+    }
+}
+
 # Scoop setup
 write-host 'Configuring Scoop...' -ForegroundColor Magenta
 
@@ -60,4 +76,11 @@ if (-not (Get-Command -Name scoop -ErrorAction SilentlyContinue)) {
     Invoke-WebRequest -useb get.scoop.sh | Invoke-Expression
     # update environment
     refreshenv
+}
+
+$missing_apps = [System.Collections.ArrayList]::new()
+foreach ($app in $Apps) {
+    if (-not (Test-ScoopApp($app))) {
+        $missing_apps.Add($app)
+    }
 }
