@@ -25,6 +25,7 @@ param (
         'neovim'
         'ripgrep'
         'starship'
+        'windows-terminal'
     )
 )
 
