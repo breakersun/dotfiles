@@ -42,6 +42,8 @@ function Set-ScoopLocation {
         [Environment]::SetEnvironmentVariable('SCOOP', $env:SCOOP, 'User')
     } else {
         $SCOOP = 'd:\scoop'
+        $env:SCOOP=$SCOOP
+        New-Item -Path "d:\" -Name "scoop" -ItemType "directory"
         Write-Host "Scoop Default Install to $SCOOP"
     }
 
@@ -52,6 +54,8 @@ function Set-ScoopLocation {
         [Environment]::SetEnvironmentVariable('SCOOP_GLOBAL', $env:SCOOP_GLOBAL, 'Machine')
     } else {
         $SCOOP_GLOBAL = 'd:\scoop_apps'
+        $env:SCOOP_GLOBAL=$SCOOP_GLOBAL
+        New-Item -Path "d:\" -Name "scoop_apps" -ItemType "directory"
         Write-Host "Scoop Apps Default Install to $SCOOP_GLOBAL"
     }
 }
