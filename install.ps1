@@ -105,3 +105,8 @@ Invoke-WebRequest -Uri $ModuleUri -UseBasicParsing -OutFile "$ModuleFilePath\req
 
 Write-Host 'Installing PowerShell modules...' -ForegroundColor Magenta
 Invoke-PSDepend -Path "$ModuleFilePath\requirements.psd1" -Force
+
+
+# Initialize Chezmoi
+chezmoi init --apply breakersun
+chezmoi diff
