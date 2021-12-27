@@ -80,15 +80,8 @@ if (-not (Get-Command -Name scoop -ErrorAction SilentlyContinue)) {
     refreshenv
 }
 
-$missing_apps = [System.Collections.ArrayList]::new()
 foreach ($app in $Apps) {
     if (-not (Test-ScoopApp($app))) {
-        $missing_apps.Add($app)
+        scoop install $app
     }
-}
-if ($missing_apps.Count -gt 0) {
-    write-host "Installing missing apps: $missing_apps" -ForegroundColor Green
-    scoop install $missing_apps
-} else {
-    write-host "All apps are installed" -ForegroundColor Green
 }
