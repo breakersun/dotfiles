@@ -19,6 +19,7 @@ param (
     [System.IO.FileInfo]$ModuleFilePath = "$env:HOMEDRIVE\$env:HOMEPATH\.config",
 
     [String[]]$Apps = @(
+        'vcredist2019'
         'bat'
         'chezmoi'
         'fzf'
