@@ -41,7 +41,8 @@ function Set-ScoopLocation {
         $env:SCOOP=$SCOOP
         [Environment]::SetEnvironmentVariable('SCOOP', $env:SCOOP, 'User')
     } else {
-        Write-Host "Scoop install location not found, skipped"
+        $SCOOP = 'd:\scoop'
+        Write-Host "Scoop Default Install to $SCOOP"
     }
 
     $SCOOP_GLOBAL = Read-Host -Prompt 'Please enter Scoop Apps install location(Enter to skip) '
@@ -50,7 +51,8 @@ function Set-ScoopLocation {
         $env:SCOOP_GLOBAL=$SCOOP_GLOBAL
         [Environment]::SetEnvironmentVariable('SCOOP_GLOBAL', $env:SCOOP_GLOBAL, 'Machine')
     } else {
-        Write-Host "Scoop Apps install location not found, skipped"
+        $SCOOP_GLOBAL = 'd:\scoop_apps'
+        Write-Host "Scoop Apps Default Install to $SCOOP_GLOBAL"
     }
 }
 
@@ -110,3 +112,10 @@ Invoke-PSDepend -Path "$ModuleFilePath\requirements.psd1" -Force
 # Initialize Chezmoi
 chezmoi init --apply breakersun
 chezmoi diff
+
+# install FiraCode
+$FiraInstall = Invoke-RestMethod -Uri 'https://raw.githubusercontent.com/ryanoasis/nerd-fonts/master/install.ps1'
+$FiraScript = [scriptblock]::Create($FiraInstall)
+$FiraScript.Invoke('FiraCode')
+
+Invoke-Expression $((Invoke-WebRequest -Uri "https://raw.githubusercontent.com/ryanoasis/nerd-fonts/master/install.ps1").Content)
