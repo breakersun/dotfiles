@@ -1,7 +1,6 @@
 @{
     PSDependOptions      = @{
         Target = 'CurrentUser'
-        Import = $true
     }
 
     PSFzf           = 'latest'
