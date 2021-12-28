@@ -1,5 +1,5 @@
 [cd]
-  command = "powershell"
+  command = "pwsh"
   args = ["-NoLogo", "-NoExit", "-Command", "& {Set-Location $env:HOMEPATH/.local/share/chezmoi}"]
 
 [edit]
