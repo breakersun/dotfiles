@@ -36,10 +36,14 @@
     {
         "defaults": 
         {
+            "acrylicOpacity": 0.91000000000000003,
+            "colorScheme": "Campbell(Mod)",
+            "experimental.retroTerminalEffect": false,
             "font": 
             {
                 "face": "FuraCode Nerd Font Retina"
-            }
+            },
+            "useAcrylic": false
         },
         "list": 
         [
