@@ -61,3 +61,5 @@ Set-PsFzfOption -PSReadlineChordProvider 'Ctrl+f' -PSReadlineChordReverseHistory
 $env:FZF_DEFAULT_COMMAND='rg --files --hidden -g !*.idea -g !*__pycache* -g !*.git'
 
 Import-Module -Name Terminal-Icons
+
+function preview { fzf --preview 'bat --color=always --style=numbers --line-range=:500 {}' }
