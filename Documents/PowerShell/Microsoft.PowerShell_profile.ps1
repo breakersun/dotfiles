@@ -40,6 +40,25 @@ $parameters = @{
 }
 Set-PSReadLineKeyHandler @parameters
 
+# function to call TotalCommander
+function tcmd {
+    param (
+        [Parameter(Mandatory=$false, Position=0)]
+        [string] $FolderPath = $PWD,
+        [Parameter(Mandatory=$false, Position=1)]
+        [Alias('r')]
+        [switch]$RightPane
+    )
+
+    if ($RightPane) {
+        $pane = 'R'
+    } else {
+        $pane = 'L'
+    }
+
+    & "D:\Program Files\TotalCMD64\TotalCMD64.exe" /O /T /$pane="$FolderPath"
+}
+
 # sunlong add for starship
 Invoke-Expression (&starship init powershell)
 
