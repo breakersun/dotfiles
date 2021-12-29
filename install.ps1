@@ -116,6 +116,9 @@ Write-Host 'Installing PowerShell modules...' -ForegroundColor Magenta
 Invoke-PSDepend -Path "$ModuleFilePath\requirements.psd1" -Force
 
 
+# Install Git[Git.Git] using winget
+winget install -e --id Git.Git
+
 # Initialize Chezmoi
 chezmoi init --apply breakersun
 chezmoi diff
