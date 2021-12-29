@@ -77,7 +77,8 @@ Set-PSReadLineOption -PredictionViewStyle ListView
 
 # sunlong for psfzf key-bindings
 Set-PsFzfOption -PSReadlineChordProvider 'Ctrl+f' -PSReadlineChordReverseHistory 'Ctrl+r'
-$env:FZF_DEFAULT_COMMAND='rg --files --hidden -g !*.idea -g !*__pycache* -g !*.git'
+Set-PsFzfOption -EnableFd
+$env:FZF_DEFAULT_COMMAND='fd -E *pycache*'
 
 Import-Module -Name Terminal-Icons
 
