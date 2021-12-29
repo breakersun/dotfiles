@@ -22,6 +22,7 @@ param (
         'vcredist2019'
         'bat'
         'chezmoi'
+        'fd'
         'fzf'
         'neovim'
         'ripgrep'
