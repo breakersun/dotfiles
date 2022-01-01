@@ -32,6 +32,7 @@ param (
         '7zip'
         'beyondcompare'
         'listary'
+        'obsidian'
     )
 )
 
