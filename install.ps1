@@ -30,6 +30,8 @@ param (
         'windows-terminal'
         'sumatrapdf'
         '7zip'
+        'beyondcompare'
+        'listary'
     )
 )
 
