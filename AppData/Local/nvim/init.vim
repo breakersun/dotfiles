@@ -1,3 +1,8 @@
+syntax on
+set noswapfile
+set hlsearch
+set ignorecase
+set incsearch
 set number
 set mouse=a
 set clipboard+=unnamedplus
