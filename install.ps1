@@ -45,7 +45,7 @@ function Set-ScoopLocation {
     #>
 
     $SCOOP = Read-Host -Prompt 'Please enter Scoop install location(Enter to skip) '
-    if (Test-Path -Path "$SCOOP") {
+    if (Test-Path -Path "$SCOOP" -ErrorAction SilentlyContinue) {
         Write-Host "Scoop install location at $SCOOP"
     } else {
         $SCOOP = 'd:\scoop'
@@ -56,7 +56,7 @@ function Set-ScoopLocation {
     [Environment]::SetEnvironmentVariable('SCOOP', $env:SCOOP, 'User')
 
     $SCOOP_GLOBAL = Read-Host -Prompt 'Please enter Scoop Apps install location(Enter to skip) '
-    if (Test-Path -Path "$SCOOP_GLOBAL") {
+    if (Test-Path -Path "$SCOOP_GLOBAL" -ErrorAction SilentlyContinue) {
         Write-Host "Scoop install location at $SCOOP_GLOBAL"
     } else {
         $SCOOP_GLOBAL = 'd:\scoop_apps'
