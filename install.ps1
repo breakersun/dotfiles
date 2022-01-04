@@ -45,26 +45,28 @@ function Set-ScoopLocation {
     #>
 
     $SCOOP = Read-Host -Prompt 'Please enter Scoop install location(Enter to skip) '
-    if (Test-Path -Path "$SCOOP" -ErrorAction SilentlyContinue) {
-        Write-Host "Scoop install location at $SCOOP"
-    } else {
+    if ($null -eq $SCOOP) {
         $SCOOP = 'd:\scoop'
-        New-Item -Path "d:\" -Name "scoop" -ItemType "directory"
-        Write-Host "Scoop Default Install to $SCOOP"
     }
     $env:SCOOP=$SCOOP
     [Environment]::SetEnvironmentVariable('SCOOP', $env:SCOOP, 'User')
+    Write-Host "Scoop install location at $SCOOP"
+    # if (Test-Path -Path "$SCOOP" -ErrorAction SilentlyContinue) {
+    # } else {
+    #     New-Item -Path "d:\" -Name "scoop" -ItemType "directory"
+    # }
 
     $SCOOP_GLOBAL = Read-Host -Prompt 'Please enter Scoop Apps install location(Enter to skip) '
-    if (Test-Path -Path "$SCOOP_GLOBAL" -ErrorAction SilentlyContinue) {
-        Write-Host "Scoop install location at $SCOOP_GLOBAL"
-    } else {
+    if ($null -eq $SCOOP_GLOBAL) {
         $SCOOP_GLOBAL = 'd:\scoop_apps'
-        New-Item -Path "d:\" -Name "scoop_apps" -ItemType "directory"
-        Write-Host "Scoop Apps Default Install to $SCOOP_GLOBAL"
     }
     $env:SCOOP_GLOBAL=$SCOOP_GLOBAL
     [Environment]::SetEnvironmentVariable('SCOOP_GLOBAL', $env:SCOOP_GLOBAL, 'Machine')
+    Write-Host "Scoop install location at $SCOOP_GLOBAL"
+    # if (Test-Path -Path "$SCOOP_GLOBAL" -ErrorAction SilentlyContinue) {
+    # } else {
+    #     New-Item -Path "d:\" -Name "scoop_apps" -ItemType "directory"
+    # }
 }
 
 function Test-ScoopApp {
