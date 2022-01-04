@@ -34,6 +34,7 @@ param (
         'listary'
         'obsidian'
         'openvpn'
+        'mobaxterm'
     )
 )
 
