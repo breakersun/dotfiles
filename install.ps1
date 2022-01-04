@@ -35,6 +35,7 @@ param (
         'obsidian'
         'openvpn'
         'mobaxterm'
+        'autohotkey'
     )
 )
 
