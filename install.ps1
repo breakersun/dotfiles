@@ -44,11 +44,11 @@ function Set-ScoopLocation {
         https://scoop-docs.vercel.app/docs/getting-started/Quick-Start.html#installing-scoop
     #>
 
-    $SCOOP = Read-Host -Prompt 'Please enter Scoop install location(Enter to skip) '
-    if ($null -eq $SCOOP) {
-        $SCOOP = 'd:\scoop'
-    }
-    $env:SCOOP=$SCOOP
+    # $SCOOP = Read-Host -Prompt 'Please enter Scoop install location(Enter to skip) '
+    # if ($null -eq $SCOOP) {
+    #     $SCOOP = 'd:\scoop'
+    # }
+    $env:SCOOP='d:\scoop'
     [Environment]::SetEnvironmentVariable('SCOOP', $env:SCOOP, 'User')
     Write-Host "Scoop install location at $SCOOP"
     # if (Test-Path -Path "$SCOOP" -ErrorAction SilentlyContinue) {
@@ -56,11 +56,11 @@ function Set-ScoopLocation {
     #     New-Item -Path "d:\" -Name "scoop" -ItemType "directory"
     # }
 
-    $SCOOP_GLOBAL = Read-Host -Prompt 'Please enter Scoop Apps install location(Enter to skip) '
-    if ($null -eq $SCOOP_GLOBAL) {
-        $SCOOP_GLOBAL = 'd:\scoop_apps'
-    }
-    $env:SCOOP_GLOBAL=$SCOOP_GLOBAL
+    # $SCOOP_GLOBAL = Read-Host -Prompt 'Please enter Scoop Apps install location(Enter to skip) '
+    # if ($null -eq $SCOOP_GLOBAL) {
+    #     $SCOOP_GLOBAL = 'd:\scoop_apps'
+    # }
+    $env:SCOOP_GLOBAL='d:\scoop_apps'
     [Environment]::SetEnvironmentVariable('SCOOP_GLOBAL', $env:SCOOP_GLOBAL, 'Machine')
     Write-Host "Scoop install location at $SCOOP_GLOBAL"
     # if (Test-Path -Path "$SCOOP_GLOBAL" -ErrorAction SilentlyContinue) {
