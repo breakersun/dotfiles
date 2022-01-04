@@ -13,6 +13,7 @@ display_switch.exe
   AppData
   dot_config/icons
   dot_config/profile.ps1
+  dot_config/*.psd1
 {{ end }}
 
 {{ if eq .chezmoi.os "windows" }}
