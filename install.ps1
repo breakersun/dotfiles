@@ -33,6 +33,7 @@ param (
         'beyondcompare'
         'listary'
         'obsidian'
+        'openvpn'
     )
 )
 
