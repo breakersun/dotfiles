@@ -158,7 +158,45 @@
       "builtin_commands": [  ],
       "custom_commands": [  ],
       "folder": [  ],
-      "web_search": [  ]
+      "web_search": [ {
+         "enabled": false,
+         "guid": "{dd896809-2af4-405b-834f-45816615e3e3}"
+      }, {
+         "enabled": false,
+         "guid": "{b36cf1bb-5527-42d8-bf91-d034bcbf057b}"
+      }, {
+         "enabled": false,
+         "guid": "{5ac62036-62aa-49d3-866b-d041bc7b1b76}"
+      }, {
+         "enabled": false,
+         "guid": "{4ed886fb-1df0-4fd0-abc1-810fc180e647}"
+      }, {
+         "enabled": false,
+         "guid": "{95147e79-6274-4127-98bb-09d9ffa2a39a}"
+      }, {
+         "enabled": false,
+         "guid": "{610a486d-0028-4739-8eb6-50f5247c918f}"
+      }, {
+         "enabled": false,
+         "guid": "{c78295a6-2cf8-4569-bf42-33f1e5c030d7}"
+      }, {
+         "enabled": false,
+         "guid": "{2db0261a-1114-4c8d-8cc8-62a89aeb1a35}"
+      }, {
+         "enabled": false,
+         "guid": "{455e1dc4-5e38-4b00-85da-d0bf46c68f4f}"
+      }, {
+         "enabled": false,
+         "guid": "{1744aa0c-751a-495f-aac5-6910e7406229}"
+      }, {
+         "enabled": true,
+         "icon": {
+
+         },
+         "keyword": "magic",
+         "title": "Magic '{query}'",
+         "url": "https://issues.labcollab.net/browse/MAGIC-{query}"
+      } ]
    },
    "launch_apps": {
       "search_folders": {
