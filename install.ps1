@@ -123,4 +123,5 @@ iwr -useb https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim |`
 # redirect chrome locations:
 # junction64.exe ~\AppData\Local\Google\Chrome D:\Chrome
 
-
+# activate
+# https://github.com/TGSAN/CMWTAT_Digital_Edition
