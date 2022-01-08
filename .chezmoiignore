@@ -14,6 +14,7 @@ display_switch.exe
   dot_config/icons
   dot_config/profile.ps1
   dot_config/requirements.psd1
+  .wslconfig
 {{ end }}
 
 {{ if eq .chezmoi.os "windows" }}
