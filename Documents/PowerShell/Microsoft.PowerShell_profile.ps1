@@ -78,7 +78,7 @@ Set-PSReadLineOption -PredictionViewStyle ListView
 # sunlong for psfzf key-bindings
 Set-PsFzfOption -PSReadlineChordProvider 'Ctrl+f' -PSReadlineChordReverseHistory 'Ctrl+r'
 Set-PsFzfOption -EnableFd
-$env:FZF_DEFAULT_COMMAND='fd -E *pycache* -c always'
+$env:FZF_DEFAULT_COMMAND='fd -E *pycache*'
 
 Import-Module -Name Terminal-Icons
 
