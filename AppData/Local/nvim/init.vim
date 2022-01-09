@@ -35,8 +35,10 @@ Plug 'ggandor/lightspeed.nvim'
 
 Plug 'liuchengxu/vim-which-key'
 
+Plug 'neovim/nvim-lspconfig'
+
 "Plug 'adi/vim-indent-rainbow'
-Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
+"Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
 call plug#end()
 
 let mapleader = ' '
@@ -71,3 +73,4 @@ let g:NERDTreeWinPos = "right"
 let g:which_key_map =  {'pf' : 'FuzzyFiles', 'pv' : 'NERDTree'}
 let g:which_key_map.c = {'name' : '+NERDComment' }
 call which_key#register('<Space>', "g:which_key_map")
+lua require('leo')
