@@ -37,6 +37,7 @@ Plug 'liuchengxu/vim-which-key'
 
 Plug 'neovim/nvim-lspconfig'
 
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 "Plug 'adi/vim-indent-rainbow'
 "Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
 call plug#end()
