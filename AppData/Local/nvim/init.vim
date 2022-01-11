@@ -19,6 +19,8 @@ Plug 'junegunn/fzf.vim'
 Plug 'preservim/nerdtree'
 
 Plug 'tpope/vim-fugitive'
+Plug 'lewis6991/gitsigns.nvim'
+Plug 'nvim-lua/plenary.nvim'
 
 "Plug 'itchyny/lightline.vim'
 Plug 'vim-airline/vim-airline'
