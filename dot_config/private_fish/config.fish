@@ -8,3 +8,5 @@ starship init fish | source
 
 fzf_key_bindings
 
+alias chezmoi=/home/leo/bin/chezmoi
+alias lvim=/home/leo/.local/bin/lvim
