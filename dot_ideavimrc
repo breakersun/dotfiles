@@ -1,1 +1,9 @@
 " Find more examples here: https://jb.gg/share-ideavimrc
+
+" enable clipboard
+set clipboard+=unnamed
+set clipboard+=ideaput
+
+" disable bell noise
+set visualbell
+set noerrorbells
