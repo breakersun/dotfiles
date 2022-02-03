@@ -1,9 +1,10 @@
 " Find more examples here: https://jb.gg/share-ideavimrc
 
-" enable clipboard
 set clipboard+=unnamed
 set clipboard+=ideaput
-
-" disable bell noise
-set visualbell
-set noerrorbells
+set scrolloff=5
+set visualbell noerrorbells
+set incsearch hlsearch
+set number relativenumber
+set ignorecase
+set iskeyword+=-
