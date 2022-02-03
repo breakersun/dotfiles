@@ -1,5 +1,7 @@
 " Find more examples here: https://jb.gg/share-ideavimrc
 
+let mapleader=" "
+
 set clipboard+=unnamed
 set clipboard+=ideaput
 set scrolloff=5
@@ -8,3 +10,7 @@ set incsearch hlsearch
 set number relativenumber
 set ignorecase
 set iskeyword+=-
+set which-key
+set notimeout
+set timeoutlen = 5000
+Plug 'machakann/vim-highlightedyank'
