@@ -6,7 +6,7 @@ set clipboard+=unnamed
 set clipboard+=ideaput
 set scrolloff=5
 set visualbell noerrorbells
-set incsearch hlsearch
+set incsearch hlsearch showcmd
 set number relativenumber
 set ignorecase
 set iskeyword+=-
@@ -15,4 +15,7 @@ set notimeout
 set timeoutlen = 5000
 Plug 'machakann/vim-highlightedyank'
 set ideajoin
+set showmode
 set NERDTree
+set easymotion
+set surround
