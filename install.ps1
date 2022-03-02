@@ -76,6 +76,15 @@ function Test-ScoopApp {
     }
 }
 
+# check current powershell version
+if ($$PSVersionTable.PSVersion.Major -lt 7) {
+    Start-Process "https://github.com/PowerShell/powershell/releases"
+    Start-Process "https://github.com/microsoft/winget-cli/releases"
+    write-host 'Please install latest Powershell, such as winget install powershell' -ForegroundColor Magenta
+    write-host 'Abort' -ForegroundColor Magenta
+    break
+}
+
 # Scoop setup
 write-host 'Configuring Scoop...' -ForegroundColor Magenta
 
