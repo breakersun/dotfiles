@@ -37,6 +37,7 @@ param (
         'openvpn'
         'mobaxterm'
         'autohotkey'
+        'msys2'
     )
 )
 
