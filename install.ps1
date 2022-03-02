@@ -54,6 +54,10 @@ function Set-ScoopLocation {
     $env:SCOOP_GLOBAL='d:\scoop_apps'
     [Environment]::SetEnvironmentVariable('SCOOP_GLOBAL', $env:SCOOP_GLOBAL, 'Machine')
     Write-Host "Scoop install location at $env:SCOOP_GLOBAL"
+
+    $env:Path+=';D:\scoop\apps\git\current\usr\bin'
+    [Environment]::SetEnvironmentVariable('Path', $env:Path, 'Machine')
+    Write-Host "Git-Bash at D:\scoop\apps\git\current\usr\bin"
 }
 
 function Test-ScoopApp {
