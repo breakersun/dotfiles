@@ -38,6 +38,7 @@ param (
         'mobaxterm'
         'autohotkey'
         'msys2'
+        'gitversion'
     )
 )
 
