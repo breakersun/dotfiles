@@ -39,6 +39,7 @@ param (
         'autohotkey'
         'msys2'
         'gitversion'
+        'notepadplusplus'
     )
 )
 
