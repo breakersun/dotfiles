@@ -1,0 +1,24 @@
+" Find more examples here: https://jb.gg/share-ideavimrc
+set idearefactormode=keep
+
+let mapleader=" "
+
+set clipboard+=unnamed
+set clipboard+=ideaput
+set scrolloff=5
+set visualbell noerrorbells
+set incsearch hlsearch showcmd
+set number relativenumber
+set ignorecase
+set iskeyword+=-
+set which-key
+set notimeout
+set timeoutlen = 5000
+Plug 'machakann/vim-highlightedyank'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'tpope/vim-commentary'
+set ideajoin
+set showmode
+set NERDTree
+set easymotion
+set surround

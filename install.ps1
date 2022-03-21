@@ -19,6 +19,7 @@ param (
     [System.IO.FileInfo]$ModuleFilePath = "$env:HOMEDRIVE\$env:HOMEPATH\.config",
 
     [String[]]$Apps = @(
+        'git'
         'vcredist2019'
         'bat'
         'chezmoi'
@@ -36,6 +37,9 @@ param (
         'openvpn'
         'mobaxterm'
         'autohotkey'
+        'msys2'
+        'gitversion'
+        'notepadplusplus'
     )
 )
 
@@ -53,6 +57,10 @@ function Set-ScoopLocation {
     $env:SCOOP_GLOBAL='d:\scoop_apps'
     [Environment]::SetEnvironmentVariable('SCOOP_GLOBAL', $env:SCOOP_GLOBAL, 'Machine')
     Write-Host "Scoop install location at $env:SCOOP_GLOBAL"
+
+    $env:Path+=';D:\scoop\apps\git\current\usr\bin'
+    [Environment]::SetEnvironmentVariable('Path', $env:Path, 'Machine')
+    Write-Host "Git-Bash at D:\scoop\apps\git\current\usr\bin"
 }
 
 function Test-ScoopApp {
@@ -69,6 +77,15 @@ function Test-ScoopApp {
 
         return $appInstalled
     }
+}
+
+# check current powershell version
+if ($$PSVersionTable.PSVersion.Major -lt 7) {
+    Start-Process "https://github.com/PowerShell/powershell/releases"
+    Start-Process "https://github.com/microsoft/winget-cli/releases"
+    write-host 'Please install latest Powershell, such as winget install powershell' -ForegroundColor Magenta
+    write-host 'Abort' -ForegroundColor Magenta
+    break
 }
 
 # Scoop setup
@@ -110,7 +127,8 @@ Invoke-PSDepend -Path "$ModuleFilePath\requirements.psd1" -Force
 
 
 # Install Git[Git.Git] using winget
-winget install -e --id Git.Git
+# bettern install git with scoop
+# winget install -e --id Git.Git
 
 # Initialize Chezmoi
 chezmoi init --apply breakersun

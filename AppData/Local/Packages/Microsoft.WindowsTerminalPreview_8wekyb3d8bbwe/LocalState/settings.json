@@ -42,7 +42,9 @@
             {
                 "face": "FiraCode NF Retina"
             },
-            "startingDirectory": null
+            "opacity": 100,
+            "startingDirectory": null,
+            "useAcrylic": true
         },
         "list": 
         [
@@ -71,6 +73,7 @@
                 "source": "Windows.Terminal.Azure"
             },
             {
+                "commandline": "C:\\WINDOWS\\system32\\wsl.exe -d Ubuntu-20.04 fish",
                 "guid": "{07b52e3e-de2c-5db4-bd2d-ba144ed6c273}",
                 "hidden": false,
                 "name": "Ubuntu-20.04",
