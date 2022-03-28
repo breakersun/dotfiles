@@ -44,7 +44,7 @@
             },
             "opacity": 100,
             "startingDirectory": null,
-            "useAcrylic": true
+            "useAcrylic": false
         },
         "list": 
         [

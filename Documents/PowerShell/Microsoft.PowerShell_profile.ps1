@@ -83,3 +83,7 @@ $env:FZF_DEFAULT_COMMAND='fd -E *pycache*'
 Import-Module -Name Terminal-Icons
 
 function preview { fzf --preview 'bat --color=always --style=numbers --line-range=:500 {}' }
+
+# for thefuck project https://github.com/nvbn/thefuck
+iex "$(thefuck --alias)"
+$env:PYTHONIOENCODING="utf-8"
