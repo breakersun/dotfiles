@@ -12,3 +12,21 @@ format = "🕙 $time($style) "
 style = "bright-white"
 disabled = false
 
+[git_status]
+up_to_date = "[✓](bold green) "
+conflicted = "⚔️ "
+ahead = "🏎️ 💨 ×${count} "
+behind = "🐢 ×${count} "
+diverged = "🔱 🏎️ 💨 ×${ahead_count} 🐢 ×${behind_count} "
+untracked = "🛤️ ×${count} "
+stashed = "📦 "
+modified = "📝 ×${count} "
+staged = '[++\($count\)](green) '
+renamed = "📛 ×${count} "
+deleted = "🗑️ ×${count} "
+style = "bright-white"
+format = "$all_status$ahead_behind"
+[git_commit]
+tag_disabled = false
+commit_hash_length = 7
+tag_symbol = "🔖 "
