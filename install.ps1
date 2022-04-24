@@ -143,3 +143,7 @@ iwr -useb https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim |`
 
 # activate
 # https://github.com/TGSAN/CMWTAT_Digital_Edition
+$hotkeys_dir=$HOME\.local\share\autohotkey_script'
+git clone 'https://github.com/breakersun/autohotkey_script' $hotkeys_dir 
+$StartUp="$Env:USERPROFILE\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup"
+New-Item -ItemType SymbolicLink -Path $StartUp -Name "autohot.lnk" -Value "$hotkeys_dir\startup.ahk"
