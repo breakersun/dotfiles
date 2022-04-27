@@ -85,5 +85,9 @@ Import-Module -Name Terminal-Icons
 function preview { fzf --preview 'bat --color=always --style=numbers --line-range=:500 {}' }
 
 # for thefuck project https://github.com/nvbn/thefuck
-iex "$(thefuck --alias)"
-$env:PYTHONIOENCODING="utf-8"
+# iex "$(thefuck --alias)"
+# $env:PYTHONIOENCODING="utf-8"
+
+# for oh-my-posh
+# Import-Module oh-my-posh
+# Set-PoshPrompt -Theme blue-owl
