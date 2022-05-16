@@ -40,6 +40,7 @@ param (
         'msys2'
         'gitversion'
         'notepadplusplus'
+        'gsudo'
     )
 )
 
