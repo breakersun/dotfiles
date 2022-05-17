@@ -41,6 +41,7 @@ param (
         'gitversion'
         'notepadplusplus'
         'gsudo'
+        'lazygit'
     )
 )
 
