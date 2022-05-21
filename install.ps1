@@ -42,6 +42,7 @@ param (
         'notepadplusplus'
         'gsudo'
         'lazygit'
+        'FiraCode-NF'
     )
 )
 
@@ -107,6 +108,7 @@ if (-not (Get-Command -Name scoop -ErrorAction SilentlyContinue)) {
 scoop bucket add extras
 # bucket for chezmoi
 scoop bucket add twpayne https://github.com/twpayne/scoop-bucket
+scoop bucket add nerd-fonts
 
 foreach ($app in $Apps) {
     if (-not (Test-ScoopApp($app))) {
