@@ -1,4 +1,4 @@
-
+format="$all\u001b7${fill}$time($style)\u001b8"
 add_newline = true
 
 [character]
@@ -8,9 +8,12 @@ vicmd_symbol = "[❮](bold blue)"
 
 [time]
 time_format = "%T"
-format = "🕙 $time($style) "
-style = "bright-white"
-disabled = true
+# format = "🕙 $time($style) "
+style = "bold blue"
+disabled = false
+
+[fill]
+symbol = " "
 
 [git_status]
 up_to_date = "[✓](bold green) "
