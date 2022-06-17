@@ -43,6 +43,7 @@ param (
         'gsudo'
         'lazygit'
         'FiraCode-NF'
+        'ditto'
     )
 )
 
