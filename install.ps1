@@ -131,9 +131,10 @@ Write-Host 'Installing PowerShell modules...' -ForegroundColor Magenta
 Invoke-PSDepend -Path "$ModuleFilePath\requirements.psd1" -Force
 
 
-# Install Git[Git.Git] using winget
-# bettern install git with scoop
+# Install Git[Git.Git] using winget; Now better install git with scoop
 # winget install -e --id Git.Git
+# Install Tortoisegit (since it's not available under scoop)
+winget install Tortoisegit.Tortoisegit
 
 # Initialize Chezmoi
 chezmoi init --apply breakersun
