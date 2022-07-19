@@ -19,6 +19,7 @@ param (
     [System.IO.FileInfo]$ModuleFilePath = "$env:HOMEDRIVE\$env:HOMEPATH\.config",
 
     [String[]]$Apps = @(
+        'googlechrome'
         'git'
         'vcredist2019'
         'bat'
