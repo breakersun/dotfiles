@@ -85,7 +85,7 @@ function Test-ScoopApp {
 }
 
 # check current powershell version
-if ($$PSVersionTable.PSVersion.Major -lt 7) {
+if ($PSVersionTable.PSVersion.Major -lt 7) {
     Start-Process "https://github.com/PowerShell/powershell/releases"
     Start-Process "https://github.com/microsoft/winget-cli/releases"
     write-host 'Please install latest Powershell, such as winget install powershell' -ForegroundColor Magenta
@@ -150,7 +150,18 @@ iwr -useb https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim |`
 
 # activate
 # https://github.com/TGSAN/CMWTAT_Digital_Edition
-$hotkeys_dir=$HOME\.local\share\autohotkey_script'
+$hotkeys_dir='$HOME\.local\share\autohotkey_script'
 git clone 'https://github.com/breakersun/autohotkey_script' $hotkeys_dir 
 $StartUp="$Env:USERPROFILE\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup"
 New-Item -ItemType SymbolicLink -Path $StartUp -Name "autohot.lnk" -Value "$hotkeys_dir\startup.ahk"
+
+#etup flyPY Chinese IME
+$regFile = @"
+Windows Registry Editor Version 5.00
+
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\services\Tcpip\Parameters]
+"MaxUserPort"=dword:00005000
+"TcpTimedWaitDelay"=dword:0000001e
+"@
+Invoke-Command -ComputerName computerName -ScriptBlock {param($regFile) $regFile | out-file $env:temp\a.reg; 
+    reg.exe import $env:temp\a.reg } -ArgumentList $regFile
