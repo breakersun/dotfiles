@@ -20,6 +20,7 @@ param (
 
     [String[]]$Apps = @(
         'googlechrome'
+        'gcc'
         'git'
         'vcredist2019'
         'bat'
