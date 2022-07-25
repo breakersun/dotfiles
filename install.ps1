@@ -159,9 +159,11 @@ New-Item -ItemType SymbolicLink -Path $StartUp -Name "autohot.lnk" -Value "$hotk
 $regFile = @"
 Windows Registry Editor Version 5.00
 
-[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\services\Tcpip\Parameters]
-"MaxUserPort"=dword:00005000
-"TcpTimedWaitDelay"=dword:0000001e
+[HKEY_CURRENT_USER\SOFTWARE\Microsoft\InputMethod\Settings\CHS]
+"EnableExtraDomainType"=dword:00000001
+"Enable Double Pinyin"=dword:00000001
+"DoublePinyinScheme"=dword:0000000a
+"UserDefinedDoublePinyinScheme0"="flyPY*2*^*iuvdjhcwfg^xmlnpbksqszxkrltvyovt"
 "@
 Invoke-Command -ComputerName computerName -ScriptBlock {param($regFile) $regFile | out-file $env:temp\a.reg; 
     reg.exe import $env:temp\a.reg } -ArgumentList $regFile
