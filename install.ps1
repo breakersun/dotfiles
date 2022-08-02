@@ -46,6 +46,7 @@ param (
         'lazygit'
         'FiraCode-NF'
         'ditto'
+        'vscode'
     )
 )
 
