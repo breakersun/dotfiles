@@ -8,6 +8,8 @@ set scrolloff=4
 set nobackup
 set nowritebackup
 
+let mapleader = ' ' 
+
 let &t_SI="\e[5 q"
 let &t_SR="\e[3 q"
 let &t_EI="\e[1 q"
@@ -25,6 +27,7 @@ Plug 'ghifarit53/tokyonight-vim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+Plug 'liuchengxu/vim-which-key'
 call plug#end()
 
 call wilder#setup({'modes': [':', '/', '?']})
@@ -182,3 +185,8 @@ nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
+
+
+nnoremap <S-l> : bnext<CR>
+nnoremap <S-h> : bprevious<CR>
+nnoremap <silent> <leader> :WhichKey '<Space>'<CR>
