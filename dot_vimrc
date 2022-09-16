@@ -21,8 +21,10 @@ Plug 'tpope/vim-vinegar'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'ghifarit53/tokyonight-vim'
-Plug 'sheerun/vim-polyglot'
+"Plug 'sheerun/vim-polyglot'
 Plug 'jiangmiao/auto-pairs'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 call plug#end()
 
 call wilder#setup({'modes': [':', '/', '?']})
@@ -38,6 +40,7 @@ colorscheme tokyonight
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_theme='dark'
 
+let g:fzf_command_prefix = 'Fzf'
 "coc settings
 set signcolumn=yes
 
