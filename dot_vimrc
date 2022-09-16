@@ -21,6 +21,8 @@ Plug 'tpope/vim-vinegar'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'ghifarit53/tokyonight-vim'
+Plug 'sheerun/vim-polyglot'
+Plug 'jiangmiao/auto-pairs'
 call plug#end()
 
 call wilder#setup({'modes': [':', '/', '?']})
