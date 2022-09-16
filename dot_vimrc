@@ -18,6 +18,7 @@ call plug#begin()
 Plug 'gelguy/wilder.nvim'
 Plug 'morhetz/gruvbox'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'tpope/vim-vinegar'
 call plug#end()
 
 call wilder#setup({'modes': [':', '/', '?']})
