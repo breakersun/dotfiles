@@ -16,11 +16,11 @@ autocmd VimLeave * silent !echo -ne "\e[5 q"
 
 call plug#begin()
 Plug 'gelguy/wilder.nvim'
-Plug 'morhetz/gruvbox'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'tpope/vim-vinegar'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'ghifarit53/tokyonight-vim'
 call plug#end()
 
 call wilder#setup({'modes': [':', '/', '?']})
@@ -29,8 +29,9 @@ call wilder#set_option('renderer', wilder#popupmenu_renderer(wilder#popupmenu_bo
       \ 'border': 'rounded',
       \ })))
 
-let g:gruvbox_contrast_dark='hard'
-autocmd vimenter * ++nested colorscheme gruvbox
+let g:tokyonight_style = 'night' " available: night, storm
+let g:tokyonight_enable_italic = 1
+colorscheme tokyonight
 
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_theme='dark'
