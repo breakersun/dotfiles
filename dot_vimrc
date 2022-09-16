@@ -19,6 +19,8 @@ Plug 'gelguy/wilder.nvim'
 Plug 'morhetz/gruvbox'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'tpope/vim-vinegar'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 call plug#end()
 
 call wilder#setup({'modes': [':', '/', '?']})
@@ -29,6 +31,9 @@ call wilder#set_option('renderer', wilder#popupmenu_renderer(wilder#popupmenu_bo
 
 let g:gruvbox_contrast_dark='hard'
 autocmd vimenter * ++nested colorscheme gruvbox
+
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_theme='dark'
 
 "coc settings
 set signcolumn=yes
