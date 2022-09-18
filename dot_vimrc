@@ -28,6 +28,9 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'liuchengxu/vim-which-key'
+Plug 'voldikss/vim-floaterm'
+
+Plug 'machakann/vim-highlightedyank'
 call plug#end()
 
 call wilder#setup({'modes': [':', '/', '?']})
@@ -190,3 +193,8 @@ nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 nnoremap <S-l> : bnext<CR>
 nnoremap <S-h> : bprevious<CR>
 nnoremap <silent> <leader> :WhichKey '<Space>'<CR>
+
+" floaterm toggle
+let g:floaterm_keymap_prev   = '<leader>ftp'
+let g:floaterm_keymap_next   = '<leader>ftn'
+let g:floaterm_keymap_toggle = '<leader>ft'
