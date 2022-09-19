@@ -34,6 +34,7 @@ Plug 'voldikss/vim-floaterm'
 Plug 'tpope/vim-commentary'
 Plug 'machakann/vim-highlightedyank'
 Plug 'machakann/vim-sandwich'
+Plug 'tpope/vim-sleuth'
 call plug#end()
 
 call wilder#setup({'modes': [':', '/', '?']})
@@ -201,3 +202,9 @@ nnoremap <silent> <leader> :WhichKey '<Space>'<CR>
 let g:floaterm_keymap_prev   = '<leader>ftp'
 let g:floaterm_keymap_next   = '<leader>ftn'
 let g:floaterm_keymap_toggle = '<leader>ft'
+
+augroup _trimspaces
+  autocmd!
+  autocmd BufNewFile,BufRead *.h setlocal filetype=c
+  autocmd FileType c,cpp,python,lua autocmd BufWritePre <buffer> %s/\s\+$//e
+augroup end
