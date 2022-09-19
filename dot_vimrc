@@ -1,3 +1,4 @@
+syntax on
 set nocompatible
 set belloff=all
 set clipboard=unnamed
@@ -7,6 +8,7 @@ set termguicolors
 set scrolloff=4
 set nobackup
 set nowritebackup
+set hlsearch
 
 let mapleader = ' ' 
 
@@ -29,8 +31,9 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'liuchengxu/vim-which-key'
 Plug 'voldikss/vim-floaterm'
-
+Plug 'tpope/vim-commentary'
 Plug 'machakann/vim-highlightedyank'
+Plug 'machakann/vim-sandwich'
 call plug#end()
 
 call wilder#setup({'modes': [':', '/', '?']})
