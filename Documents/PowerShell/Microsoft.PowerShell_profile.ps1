@@ -61,7 +61,6 @@ function tcmd {
 
 # sunlong add for starship
 Invoke-Expression (&starship init powershell)
-
 # sunlong add for auto completion
 Set-PSReadlineKeyHandler -Key Tab -Function MenuComplete
 
@@ -87,7 +86,3 @@ function preview { fzf --preview 'bat --color=always --style=numbers --line-rang
 # for thefuck project https://github.com/nvbn/thefuck
 # iex "$(thefuck --alias)"
 # $env:PYTHONIOENCODING="utf-8"
-
-# for oh-my-posh
-# Import-Module oh-my-posh
-# Set-PoshPrompt -Theme blue-owl
