@@ -38,6 +38,7 @@
         "defaults": 
         {
             "colorScheme": "Campbell(Mod)",
+            "cursorShape": "filledBox",
             "font": 
             {
                 "face": "FiraCode NF Retina"
@@ -61,6 +62,7 @@
                 "name": "Command Prompt"
             },
             {
+                "experimental.retroTerminalEffect": false,
                 "guid": "{574e775e-4f2a-5b96-ac1e-a2962a402336}",
                 "hidden": false,
                 "name": "PowerShell",
@@ -314,5 +316,7 @@
             "yellow": "#808000"
         }
     ],
+    "tabWidthMode": "titleLength",
+    "themes": [],
     "windowingBehavior": "useAnyExisting"
 }

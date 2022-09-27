@@ -146,13 +146,16 @@
          "path": "D:\\Program Files\\TotalCMD64\\TotalCMD64.exe"
       },
       "fuzzy_matching": true,
+      "language_file": "zh-CN.ini",
       "set_focus_to_xp_explorer": false
    },
    "history": {
 
    },
    "hotkey": {
-
+      "enter_actions": 0,
+      "next_item": 0,
+      "previous_item": 0
    },
    "keywords": {
       "builtin_commands": [  ],
