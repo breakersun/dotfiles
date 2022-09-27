@@ -47,6 +47,7 @@ param (
         'FiraCode-NF'
         'ditto'
         'vscode'
+        'lsd'
     )
 )
 
