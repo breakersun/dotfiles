@@ -48,6 +48,9 @@ param (
         'ditto'
         'vscode'
         'lsd'
+        'keepass'
+        'keepass-plugin-keeanywhere'
+        'keepass-plugin-keeagent'
     )
 )
 
