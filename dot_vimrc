@@ -194,9 +194,9 @@ nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 
-nnoremap <silent><Esc><Esc> <Esc>:nohlsearch<CR>
-nnoremap <S-l> : bnext<CR>
-nnoremap <S-h> : bprevious<CR>
+nnoremap <silent> <Esc><Esc> <Esc>:nohlsearch<CR>
+nnoremap <S-l> :bnext<CR>
+nnoremap <S-h> :bprevious<CR>
 nnoremap <silent> <leader> :WhichKey '<Space>'<CR>
 
 " floaterm toggle
