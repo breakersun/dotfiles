@@ -51,6 +51,7 @@ param (
         'keepass'
         'keepass-plugin-keeanywhere'
         'keepass-plugin-keeagent'
+        'picgo'
     )
 )
 
@@ -116,6 +117,8 @@ if (-not (Get-Command -Name scoop -ErrorAction SilentlyContinue)) {
 scoop bucket add extras
 # bucket for chezmoi
 scoop bucket add twpayne https://github.com/twpayne/scoop-bucket
+# bucket for picgo
+scoop bucket add helbing https://github.com/helbing/scoop-bucket
 scoop bucket add nerd-fonts
 
 foreach ($app in $Apps) {
@@ -142,6 +145,7 @@ Invoke-PSDepend -Path "$ModuleFilePath\requirements.psd1" -Force
 # winget install -e --id Git.Git
 # Install Tortoisegit (since it's not available under scoop)
 winget install Tortoisegit.Tortoisegit
+winget install Fndroid.ClashForWindows 
 
 # Initialize Chezmoi
 chezmoi init --apply breakersun
