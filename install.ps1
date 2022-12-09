@@ -28,6 +28,7 @@ param (
         'fd'
         'fzf'
         'neovim'
+        'neovide'
         'ripgrep'
         'starship'
         'windows-terminal'
