@@ -53,6 +53,7 @@ param (
         'keepass-plugin-keeanywhere'
         'keepass-plugin-keeagent'
         'picgo'
+        'global'
     )
 )
 
