@@ -86,7 +86,7 @@ function Test-ScoopApp {
         if (Test-Path -Path $env:SCOOP) {
             $appInstalled = Test-Path -Path "$env:SCOOP\apps\$App"
         } else {
-            Write-Host "Can't find a chocolatey install directory..."
+            Write-Host "Can't find a Scoop install directory..."
         }
 
         return $appInstalled
@@ -108,8 +108,10 @@ write-host 'Configuring Scoop...' -ForegroundColor Magenta
 if (-not (Get-Command -Name scoop -ErrorAction SilentlyContinue)) {
     # allow to install by script
     Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Force -Verbose
-    # config scoop install location
-    Set-ScoopLocation
+    if (Test-Path -Path "D:\") {
+        # if there is D:\, config scoop install location to D:\
+        Set-ScoopLocation
+    }
     # install scoop
     Invoke-WebRequest -useb get.scoop.sh | Invoke-Expression
     # update environment
