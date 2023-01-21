@@ -164,18 +164,18 @@ $StartUp="$Env:USERPROFILE\AppData\Roaming\Microsoft\Windows\Start Menu\Programs
 New-Item -ItemType SymbolicLink -Path $StartUp -Name "autohot.lnk" -Value "$hotkeys_dir\startup.ahk"
 
 #etup flyPY Chinese IME
-$regFile = @"
-Windows Registry Editor Version 5.00
-
-[HKEY_CURRENT_USER\SOFTWARE\Microsoft\InputMethod\Settings\CHS]
-"EnableExtraDomainType"=dword:00000001
-"Enable Double Pinyin"=dword:00000001
-"DoublePinyinScheme"=dword:0000000a
-"UserDefinedDoublePinyinScheme0"="flyPY*2*^*iuvdjhcwfg^xmlnpbksqszxkrltvyovt"
-"@
-Invoke-Command -ComputerName computerName -ScriptBlock {param($regFile) $regFile | out-file $env:temp\a.reg; 
-    reg.exe import $env:temp\a.reg } -ArgumentList $regFile
+# $regFile = @"
+# Windows Registry Editor Version 5.00
+#
+# [HKEY_CURRENT_USER\SOFTWARE\Microsoft\InputMethod\Settings\CHS]
+# "EnableExtraDomainType"=dword:00000001
+# "Enable Double Pinyin"=dword:00000001
+# "DoublePinyinScheme"=dword:0000000a
+# "UserDefinedDoublePinyinScheme0"="flyPY*2*^*iuvdjhcwfg^xmlnpbksqszxkrltvyovt"
+# "@
+# Invoke-Command -ComputerName computerName -ScriptBlock {param($regFile) $regFile | out-file $env:temp\a.reg; 
+#     reg.exe import $env:temp\a.reg } -ArgumentList $regFile
 
 
 # pull neovim configs
-git -C $env:LOCALAPPDATA clone --branch mason https://github.com/breakersun/nvim.git
+git -C $env:LOCALAPPDATA clone --branch lazy https://github.com/breakersun/nvim.git
