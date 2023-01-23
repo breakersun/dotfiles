@@ -58,6 +58,8 @@ param (
 )
 
 
+$ScoopCustomeInstalled = ''
+
 function Set-ScoopLocation {
     <#
     .LINK
@@ -75,6 +77,8 @@ function Set-ScoopLocation {
     $env:Path+=';D:\scoop\apps\git\current\usr\bin'
     [Environment]::SetEnvironmentVariable('Path', $env:Path, 'Machine')
     Write-Host "Git-Bash at D:\scoop\apps\git\current\usr\bin"
+
+    $ScoopCustomeInstalled = 'd:\scoop'
 }
 
 function Test-ScoopApp {
@@ -83,10 +87,10 @@ function Test-ScoopApp {
         [String]$App
     )
     Process {
-        if (Test-Path -Path $env:SCOOP) {
+        if ($ScoopCustomeInstalled) {
             $appInstalled = Test-Path -Path "$env:SCOOP\apps\$App"
         } else {
-            Write-Host "Can't find a Scoop install directory..."
+            $appInstalled = Test-Path -Path "~\scoop\apps"
         }
 
         return $appInstalled
@@ -115,7 +119,8 @@ if (-not (Get-Command -Name scoop -ErrorAction SilentlyContinue)) {
     # install scoop
     Invoke-WebRequest -useb get.scoop.sh | Invoke-Expression
     # update environment
-    refreshenv
+    # this command is not working
+    # refreshenv
 }
 
 scoop bucket add extras
@@ -160,7 +165,7 @@ chezmoi init --apply breakersun
 
 # activate
 # https://github.com/TGSAN/CMWTAT_Digital_Edition
-$hotkeys_dir='.local\share\autohotkey_script'
+$hotkeys_dir='~\.local\share\autohotkey_script'
 git clone 'https://github.com/breakersun/autohotkey_script' $hotkeys_dir 
 $StartUp="$Env:USERPROFILE\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup"
 $Startup = $Startup -replace ' ', '` '
