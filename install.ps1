@@ -160,10 +160,11 @@ chezmoi init --apply breakersun
 
 # activate
 # https://github.com/TGSAN/CMWTAT_Digital_Edition
-$hotkeys_dir='$HOME\.local\share\autohotkey_script'
+$hotkeys_dir='.local\share\autohotkey_script'
 git clone 'https://github.com/breakersun/autohotkey_script' $hotkeys_dir 
 $StartUp="$Env:USERPROFILE\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup"
-New-Item -ItemType SymbolicLink -Path $StartUp -Name "autohot.lnk" -Value "$hotkeys_dir\startup.ahk"
+$Startup = $Startup -replace ' ', '` '
+gsudo New-Item -ItemType SymbolicLink -Path $StartUp -Name "autohot.lnk" -Value "$hotkeys_dir\startup.ahk"
 
 # setup flyPY Chinese IME
 $regFile = @"
