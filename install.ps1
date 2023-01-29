@@ -19,6 +19,10 @@ param (
     [System.IO.FileInfo]$ModuleFilePath = "$env:HOMEDRIVE\$env:HOMEPATH\.config",
 
     [String[]]$Apps = @(
+        'terminal-icons'
+        'psreadline'
+        'z'
+        'psfzf'
         'googlechrome'
         'gcc'
         'git'
@@ -139,15 +143,15 @@ foreach ($app in $Apps) {
 ################################################################################
 # Add commonly used modules (this must be done first)                          #
 ################################################################################
-Install-Module PSDepend -Scope CurrentUser
-Import-Module PSDepend
-
-Write-Host 'Downloading PowerShell module dependency list from GitHub...' -ForegroundColor Magenta
-New-Item -ItemType Directory $ModuleFilePath -ErrorAction SilentlyContinue
-Invoke-WebRequest -Uri $ModuleUri -UseBasicParsing -OutFile "$ModuleFilePath\requirements.psd1"
-
-Write-Host 'Installing PowerShell modules...' -ForegroundColor Magenta
-Invoke-PSDepend -Path "$ModuleFilePath\requirements.psd1" -Force
+# Install-Module PSDepend -Scope CurrentUser
+# Import-Module PSDepend
+#
+# Write-Host 'Downloading PowerShell module dependency list from GitHub...' -ForegroundColor Magenta
+# New-Item -ItemType Directory $ModuleFilePath -ErrorAction SilentlyContinue
+# Invoke-WebRequest -Uri $ModuleUri -UseBasicParsing -OutFile "$ModuleFilePath\requirements.psd1"
+#
+# Write-Host 'Installing PowerShell modules...' -ForegroundColor Magenta
+# Invoke-PSDepend -Path "$ModuleFilePath\requirements.psd1" -Force
 
 
 # Install Git[Git.Git] using winget; Now better install git with scoop

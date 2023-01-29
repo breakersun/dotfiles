@@ -29,17 +29,19 @@ function Relaunch-Admin { Start-Process -Verb RunAs (Get-Process -Id $PID).Path 
 # Set-PSReadLineOption -PredictionSource History
 Set-PSReadLineOption -PredictionSource HistoryAndPlugin
 
-# sunlong prediction with listview
+# # sunlong prediction with listview
 Set-PSReadLineOption -PredictionViewStyle ListView
 
-# sunlong for psfzf key-bindings
+# # sunlong for psfzf key-bindings
+# Set-PsFzfOption -PSReadlineChordProvider 'Ctrl+f' -PSReadlineChordReverseHistory 'Ctrl+r'
+# Set-PsFzfOption -EnableFd
+# $env:FZF_DEFAULT_COMMAND='fd -E *pycache*'
+Import-Module PSFzf
 Set-PsFzfOption -PSReadlineChordProvider 'Ctrl+f' -PSReadlineChordReverseHistory 'Ctrl+r'
-Set-PsFzfOption -EnableFd
-$env:FZF_DEFAULT_COMMAND='fd -E *pycache*'
 
 Import-Module -Name Terminal-Icons
 
-function preview { fzf --preview 'bat --color=always --style=numbers --line-range=:500 {}' }
+# function preview { fzf --preview 'bat --color=always --style=numbers --line-range=:500 {}' }
 
 # for thefuck project https://github.com/nvbn/thefuck
 # iex "$(thefuck --alias)"
