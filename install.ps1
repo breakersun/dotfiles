@@ -155,6 +155,7 @@ Invoke-PSDepend -Path "$ModuleFilePath\requirements.psd1" -Force
 # Install Tortoisegit (since it's not available under scoop)
 winget install Tortoisegit.Tortoisegit
 winget install Fndroid.ClashForWindows 
+winget install Snipaste
 
 # Initialize Chezmoi
 chezmoi init --apply breakersun
