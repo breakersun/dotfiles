@@ -14,7 +14,7 @@ function tcmd {
         $pane = 'L'
     }
 
-    & "D:\Program Files\TotalCMD64\TotalCMD64.exe" /O /T /$pane="$FolderPath"
+    & "TotalCMD64.exe" /O /T /$pane="$FolderPath"
 }
 
 # sunlong add for starship
