@@ -1,4 +1,5 @@
 {
+    "$help": "https://aka.ms/terminal-documentation",
     "$schema": "https://aka.ms/terminal-profiles-schema",
     "actions": 
     [
@@ -36,26 +37,18 @@
     {
         "defaults": 
         {
+            "colorScheme": "One Half Dark(Mod)",
             "font": 
             {
-                "face": "FuraCode Nerd Font Retina"
+                "face": "FiraCode NF"
             }
         },
         "list": 
         [
             {
-                "commandline": "cmd.exe",
                 "guid": "{0caa0dad-35be-5f56-a8ff-afceeeaa6101}",
                 "hidden": false,
                 "name": "Command Prompt",
-                "startingDirectory": "."
-            },
-            {
-                "colorScheme": "Campbell(Mod)",
-                "guid": "{07b52e3e-de2c-5db4-bd2d-ba144ed6c273}",
-                "hidden": false,
-                "name": "Ubuntu-20.04",
-                "source": "Windows.Terminal.Wsl",
                 "startingDirectory": "."
             },
             {
@@ -66,14 +59,6 @@
                 "startingDirectory": "."
             },
             {
-                "colorScheme": "Campbell(Mod)",
-                "guid": "{2ece5bfe-50ed-5f3a-ab87-5cd4baafed2b}",
-                "hidden": false,
-                "name": "Git Bash",
-                "source": "Git"
-            },
-            {
-                "acrylicOpacity": 0.82999999999999996,
                 "altGrAliasing": true,
                 "antialiasingMode": "grayscale",
                 "closeOnExit": "graceful",
@@ -88,11 +73,23 @@
                 "historySize": 9001,
                 "icon": "ms-appx:///ProfileIcons/{61c54bbd-c2c6-5271-96e7-009a87ff44bf}.png",
                 "name": "Windows PowerShell-7",
+                "opacity": 83,
                 "padding": "8, 8, 8, 8",
                 "snapOnInput": true,
                 "startingDirectory": ".",
                 "suppressApplicationTitle": true,
                 "useAcrylic": false
+            },
+            {
+                "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
+                "hidden": false,
+                "name": "Windows PowerShell"
+            },
+            {
+                "guid": "{574e775e-4f2a-5b96-ac1e-a2962a402336}",
+                "hidden": false,
+                "name": "PowerShell",
+                "source": "Windows.Terminal.PowershellCore"
             }
         ]
     },
