@@ -23,7 +23,6 @@ param (
         'psreadline'
         'z'
         'psfzf'
-        'googlechrome'
         'gcc'
         'git'
         'vcredist2019'
