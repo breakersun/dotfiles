@@ -57,6 +57,7 @@ param (
         'keepass-plugin-keeagent'
         'picgo'
         'global'
+        'bincalc'
     )
 )
 
@@ -127,11 +128,12 @@ if (-not (Get-Command -Name scoop -ErrorAction SilentlyContinue)) {
 }
 
 scoop bucket add extras
-# bucket for chezmoi
+# for chezmoi
 scoop bucket add twpayne https://github.com/twpayne/scoop-bucket
-# bucket for picgo
+# for picgo
 scoop bucket add helbing https://github.com/helbing/scoop-bucket
 scoop bucket add nerd-fonts
+scoop bucket add my-utils https://github.com/breakersun/utils-bucket.git
 
 foreach ($app in $Apps) {
     if (-not (Test-ScoopApp($app))) {
