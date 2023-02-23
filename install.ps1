@@ -58,6 +58,7 @@ param (
         'picgo'
         'global'
         'bincalc'
+        'glow'
     )
 )
 
