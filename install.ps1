@@ -59,6 +59,7 @@ param (
         'global'
         'bincalc'
         'glow'
+        'simplyserial'
     )
 )
 
