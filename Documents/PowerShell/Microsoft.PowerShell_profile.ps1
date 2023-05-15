@@ -32,13 +32,24 @@ Set-PSReadLineOption -PredictionSource HistoryAndPlugin
 # # sunlong prediction with listview
 Set-PSReadLineOption -PredictionViewStyle ListView
 
-# # sunlong for psfzf key-bindings
-# Set-PsFzfOption -PSReadlineChordProvider 'Ctrl+f' -PSReadlineChordReverseHistory 'Ctrl+r'
-# Set-PsFzfOption -EnableFd
-# $env:FZF_DEFAULT_COMMAND='fd -E *pycache*'
+# enable vim mode on pwsh
+Set-PsReadLineOption -EditMode Vi
+# sunlong for psfzf key-bindings
 Import-Module PSFzf
 Set-PsFzfOption -PSReadlineChordProvider 'Ctrl+f' -PSReadlineChordReverseHistory 'Ctrl+r'
 
 Import-Module -Name Terminal-Icons
 
+# enable Vim mode indicator
+$OnViModeChange = [scriptblock]{
+    if ($args[0] -eq 'Command') {
+        # Set the cursor to a blinking block.
+        Write-Host -NoNewLine "`e[2 q"
+    }
+    else {
+        # Set the cursor to a blinking line.
+        Write-Host -NoNewLine "`e[5 q"
+    }
+}
+Set-PSReadLineOption -ViModeIndicator Script -ViModeChangeHandler $OnViModeChange
 # function preview { fzf --preview 'bat --color=always --style=numbers --line-range=:500 {}' }
