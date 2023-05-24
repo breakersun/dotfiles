@@ -60,6 +60,7 @@ param (
         'bincalc'
         'glow'
         'simplyserial'
+        'tokei'
     )
 )
 
