@@ -15,6 +15,9 @@ display_switch.exe
   dot_config/profile.ps1
   dot_config/requirements.psd1
   .wslconfig
+  install.ps1
+  scoop
+  .ideavimrc
 {{ end }}
 
 {{ if eq .chezmoi.os "windows" }}
