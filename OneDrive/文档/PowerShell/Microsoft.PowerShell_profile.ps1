@@ -28,6 +28,7 @@ function Relaunch-Admin { Start-Process -Verb RunAs (Get-Process -Id $PID).Path 
 # sunlong for prediction with history
 # Set-PSReadLineOption -PredictionSource History
 Set-PSReadLineOption -PredictionSource HistoryAndPlugin
+Set-PSReadlineOption -HistoryNoDuplicates
 
 # # sunlong prediction with listview
 Set-PSReadLineOption -PredictionViewStyle ListView
