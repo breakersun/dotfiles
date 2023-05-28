@@ -1,5 +1,6 @@
 format="$all\u001b7${fill}$time($style)\u001b8"
-add_newline = true
+add_newline = false
+#right_format = """$time"""
 
 [character]
 success_symbol = "[❯](bold green)"
@@ -8,7 +9,6 @@ vicmd_symbol = "[❮](bold blue)"
 
 [time]
 time_format = "%T"
-# format = "🕙 $time($style) "
 style = "bold blue"
 disabled = false
 
