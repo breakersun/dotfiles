@@ -1,9 +1,7 @@
 add_newline = false
-
 {{ if eq .chezmoi.os "windows" }}
 format="$all\u001b7${fill}$time($style)\u001b8"
 {{ end }}
-
 {{ if eq .chezmoi.os "linux" }}
 right_format = """$time"""
 {{ end }}
