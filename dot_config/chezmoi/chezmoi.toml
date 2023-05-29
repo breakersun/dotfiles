@@ -1,6 +1,0 @@
-[cd]
-  command = "pwsh"
-  args = ["-NoLogo", "-NoExit", "-Command", "& {Set-Location $env:HOMEPATH/.local/share/chezmoi}"]
-
-[edit]
-	command = "nvim"
