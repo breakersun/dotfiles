@@ -96,6 +96,18 @@
                 "source": "Windows.Terminal.PowershellCore",
                 "startingDirectory": ".",
                 "useAcrylic": false
+            },
+            {
+                "bellStyle": "window",
+                "colorScheme": "Campbell(Mod)",
+                "commandline": "ssh sunlong@10.84.130.211",
+                "guid": "{bd7ec3fe-6f94-4d28-8764-008d7664d26c}",
+                "hidden": false,
+                "icon": "https://cdn-icons-png.flaticon.com/512/5969/5969282.png",
+                "name": "211-server",
+                "opacity": 83,
+                "startingDirectory": ".",
+                "useAcrylic": false
             }
         ]
     },
