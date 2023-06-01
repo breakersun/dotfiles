@@ -59,29 +59,6 @@
                 "startingDirectory": "."
             },
             {
-                "altGrAliasing": true,
-                "antialiasingMode": "grayscale",
-                "closeOnExit": "graceful",
-                "colorScheme": "Campbell(Mod)",
-                "commandline": "C:\\Program Files\\PowerShell\\7\\pwsh.exe",
-                "cursorShape": "bar",
-                "font": 
-                {
-                    "size": 12
-                },
-                "guid": "{2b36dffb-a76b-46a8-b1ba-2b91cfb590b6}",
-                "hidden": true,
-                "historySize": 9001,
-                "icon": "ms-appx:///ProfileIcons/{61c54bbd-c2c6-5271-96e7-009a87ff44bf}.png",
-                "name": "Windows PowerShell-7",
-                "opacity": 83,
-                "padding": "8, 8, 8, 8",
-                "snapOnInput": true,
-                "startingDirectory": ".",
-                "suppressApplicationTitle": true,
-                "useAcrylic": false
-            },
-            {
                 "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
                 "hidden": true,
                 "name": "Windows PowerShell"
