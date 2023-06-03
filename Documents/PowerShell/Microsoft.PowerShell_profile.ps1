@@ -28,6 +28,7 @@ function Relaunch-Admin { Start-Process -Verb RunAs (Get-Process -Id $PID).Path 
 # sunlong for prediction with history
 # Set-PSReadLineOption -PredictionSource History
 Set-PSReadLineOption -PredictionSource HistoryAndPlugin
+Set-PSReadlineOption -HistoryNoDuplicates
 
 # # sunlong prediction with listview
 Set-PSReadLineOption -PredictionViewStyle ListView
@@ -36,7 +37,7 @@ Set-PSReadLineOption -PredictionViewStyle ListView
 Set-PsReadLineOption -EditMode Vi
 # sunlong for psfzf key-bindings
 Import-Module PSFzf
-Set-PsFzfOption -PSReadlineChordProvider 'Ctrl+f' -PSReadlineChordReverseHistory 'Ctrl+r'
+Set-PsFzfOption -PSReadlineChordProvider 'Ctrl+t' -PSReadlineChordReverseHistory 'Ctrl+r'
 
 Import-Module -Name Terminal-Icons
 

@@ -37,7 +37,7 @@ Set-PSReadLineOption -PredictionViewStyle ListView
 Set-PsReadLineOption -EditMode Vi
 # sunlong for psfzf key-bindings
 Import-Module PSFzf
-Set-PsFzfOption -PSReadlineChordProvider 'Ctrl+f' -PSReadlineChordReverseHistory 'Ctrl+r'
+Set-PsFzfOption -PSReadlineChordProvider 'Ctrl+t' -PSReadlineChordReverseHistory 'Ctrl+r'
 
 Import-Module -Name Terminal-Icons
 
