@@ -164,6 +164,9 @@ foreach ($app in $Apps) {
 winget install Tortoisegit.Tortoisegit
 winget install Fndroid.ClashForWindows 
 winget install Snipaste
+# for sshfs : 'net use X: \\sshfs\sunlong@10.84.130.211; net use X: /delete'
+winget install WinFsp.WinFsp 
+winget install SSHFS-Win.SSHFS-Win
 
 # Initialize Chezmoi
 chezmoi init --apply breakersun
