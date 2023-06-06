@@ -24,4 +24,5 @@ display_switch.exe
 {{ if eq .chezmoi.os "windows" }}
   private_dot_ssh
   dot_tmux.conf
+  install.sh
 {{ end }}
