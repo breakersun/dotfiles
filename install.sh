@@ -5,10 +5,11 @@ set -e # Exit on Error
 cd "$HOME" || return
 echo -e "BEEP BOOP. Setting up..."
 set -x # Log Executions
+sudo apt-add-repository ppa:fish-shell/release-3
+sudo add-apt-repository ppa:neovim-ppa/unstable
 sudo apt update
-sudo apt install openssh-server fish vim curl git -y
+sudo apt install openssh-server fish neovim curl git ripgrep tmux -y
 sudo apt upgrade -y
-
 # ssh-keygen -t ed25519 -C "admin@tseknet.com"
 # eval `ssh-agent -s`
 # ssh-add
@@ -27,3 +28,5 @@ curl -sfL https://git.io/chezmoi | bash
 
 export PATH=$HOME/bin:$PATH
 chezmoi init --apply --verbose https://github.com/breakersun/dotfiles.git
+
+git clone https://github.com/breakersun/nvim ./.config/nvim
