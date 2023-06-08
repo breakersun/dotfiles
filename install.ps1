@@ -161,6 +161,7 @@ foreach ($app in $Apps) {
 # Install Git[Git.Git] using winget; Now better install git with scoop
 # winget install -e --id Git.Git
 # Install Tortoisegit (since it's not available under scoop)
+winget install "openssh beta"
 winget install Tortoisegit.Tortoisegit
 winget install Fndroid.ClashForWindows 
 winget install Snipaste
