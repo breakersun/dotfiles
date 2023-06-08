@@ -66,6 +66,10 @@
             {
                 "bellStyle": "window",
                 "colorScheme": "Campbell(Mod)",
+                "font": 
+                {
+                    "size": 12
+                },
                 "guid": "{574e775e-4f2a-5b96-ac1e-a2962a402336}",
                 "hidden": false,
                 "name": "PowerShell",
@@ -76,14 +80,20 @@
             },
             {
                 "bellStyle": "window",
+                "closeOnExit": "always",
                 "colorScheme": "Campbell(Mod)",
-                "commandline": "ssh sunlong@10.84.130.211",
+                "commandline": "ssh -o \"ServerAliveInterval 60\" sunlong@10.84.130.211",
+                "font": 
+                {
+                    "size": 12
+                },
                 "guid": "{bd7ec3fe-6f94-4d28-8764-008d7664d26c}",
                 "hidden": false,
                 "icon": "https://cdn-icons-png.flaticon.com/512/5969/5969282.png",
                 "name": "211-server",
                 "opacity": 83,
                 "startingDirectory": ".",
+                "suppressApplicationTitle": true,
                 "useAcrylic": false
             }
         ]

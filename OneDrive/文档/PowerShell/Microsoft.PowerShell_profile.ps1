@@ -34,7 +34,7 @@ Set-PSReadlineOption -HistoryNoDuplicates
 Set-PSReadLineOption -PredictionViewStyle ListView
 
 # enable vim mode on pwsh
-Set-PsReadLineOption -EditMode Vi
+# Set-PsReadLineOption -EditMode Vi
 # sunlong for psfzf key-bindings
 Import-Module PSFzf
 Set-PsFzfOption -PSReadlineChordProvider 'Ctrl+t' -PSReadlineChordReverseHistory 'Ctrl+r'
