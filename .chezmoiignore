@@ -19,6 +19,7 @@ display_switch.exe
   install.ps1
   scoop
   dot_ideavimrc
+  AppData/Roaming/Microsoft/InputMethod/Chs/ChsPinyinEUDPv1.lex
 {{ end }}
 
 {{ if eq .chezmoi.os "windows" }}
