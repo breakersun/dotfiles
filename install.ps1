@@ -61,6 +61,7 @@ param (
         'glow'
         'simplyserial'
         'tokei'
+        'diff-pdf'
     )
 )
 
