@@ -55,7 +55,7 @@ param (
         'keepass'
         'keepass-plugin-keeanywhere'
         'keepass-plugin-keeagent'
-        'picgo'
+        'nodejs'
         'global'
         'bincalc'
         'glow'
@@ -133,8 +133,6 @@ if (-not (Get-Command -Name scoop -ErrorAction SilentlyContinue)) {
 scoop bucket add extras
 # for chezmoi
 scoop bucket add twpayne https://github.com/twpayne/scoop-bucket
-# for picgo
-scoop bucket add helbing https://github.com/helbing/scoop-bucket
 scoop bucket add nerd-fonts
 scoop bucket add my-utils https://github.com/breakersun/utils-bucket.git
 
@@ -199,3 +197,9 @@ Invoke-Command -ScriptBlock {param($regFile) $regFile | out-file $env:temp\a.reg
 
 # pull neovim configs
 git -C $env:LOCALAPPDATA clone --branch lazy https://github.com/breakersun/nvim.git
+
+#install picgo command line tool
+npm install picgo -g
+Start-Process "https://www.notion.so/hitme/ba9d263f7f6b40f4a317eb9c6719e508"
+write-host 'Please prepare your Aliyun OSS Keys' -ForegroundColor Magenta
+picgo set uploader
