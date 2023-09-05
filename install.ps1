@@ -62,6 +62,7 @@ param (
         'simplyserial'
         'tokei'
         'diff-pdf'
+        'adb'
     )
 )
 
