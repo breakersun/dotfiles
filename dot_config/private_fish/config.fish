@@ -7,3 +7,7 @@ end
 starship init fish | source
 
 fzf_key_bindings
+
+fish_add_path -g ~/.local/bin
+
+zoxide init fish | source
