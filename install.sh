@@ -33,3 +33,5 @@ sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply breakersun
 
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
+curl -sSfL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | sh
