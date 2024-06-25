@@ -8,6 +8,6 @@ fi
 
 mesg n 2> /dev/null || true
 
-PATH=$PATH:~/.local/bin
+PATH=$PATH:~/.local/bin:~/bin/
 
 eval "$(zoxide init bash)"

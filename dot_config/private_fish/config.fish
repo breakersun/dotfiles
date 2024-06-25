@@ -6,7 +6,7 @@ end
 # sunlong add for spaceship.rs
 starship init fish | source
 
-fzf_key_bindings
+# fzf_key_bindings
 
 fish_add_path -g ~/.local/bin
 
