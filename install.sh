@@ -19,8 +19,9 @@ echo -e 'Copy to https://github.com/settings/ssh/new'
 echo -e "\033[32m" ;cat ~/.ssh/id_ed25519.pub; echo -e "\033[0m"
 read -p 'Press any key to continue...'
 
-if [ ! -d "~/.config/nvim" ]; then
-    git clone https://github.com/breakersun/nvim ~/.config/nvim
+if [ ! -d "${HOME}/.config/nvim" ]; then
+    git clone git@github.com:breakersun/nvim.git
+fi
 
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 ~/.fzf/install
