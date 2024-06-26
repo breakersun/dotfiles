@@ -14,6 +14,10 @@ Run the following command in PowerShell as administrator:
 iex ((New-Object Net.WebClient).DownloadString('https://git.io/JSSoD'))
 ```
 
+```bash
+bash <(curl -s https://raw.githubusercontent.com/breakersun/dotfiles/main/install.sh)
+```
+
 ## Usage
 
 ```bash
