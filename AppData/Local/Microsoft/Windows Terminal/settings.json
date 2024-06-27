@@ -76,6 +76,7 @@
                 "opacity": 83,
                 "source": "Windows.Terminal.PowershellCore",
                 "startingDirectory": ".",
+                "suppressApplicationTitle": true,
                 "useAcrylic": false
             },
             {
