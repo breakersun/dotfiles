@@ -1,0 +1,19 @@
+[user]
+	name = leosun
+	email = leosunsl@outlook.com
+[credential "helperselector"]
+	selected = manager
+[http]
+	sslVerify = false
+	proxy = http://127.0.0.1:7890
+[credential "https://10.84.130.212:8899"]
+	provider = gitlab
+[credential "http://10.84.4.81:11000"]
+	provider = gitlab
+[fetch]
+	prune = true
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
