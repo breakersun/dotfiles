@@ -8,7 +8,7 @@ set -x # Log Executions
 sudo apt-add-repository ppa:fish-shell/release-3 -y
 sudo add-apt-repository ppa:neovim-ppa/unstable -y
 sudo apt update
-sudo apt install openssh-server fish neovim curl git ripgrep tmux npm -y
+sudo apt install openssh-server fish neovim curl git ripgrep tmux npm xclip -y
 sudo apt upgrade -y
 ssh-keygen -t ed25519 -C "leosunsl@outlook.com"
 eval `ssh-agent -s`
