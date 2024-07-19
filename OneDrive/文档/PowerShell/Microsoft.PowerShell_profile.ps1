@@ -54,3 +54,9 @@ $OnViModeChange = [scriptblock]{
 }
 Set-PSReadLineOption -ViModeIndicator Script -ViModeChangeHandler $OnViModeChange
 # function preview { fzf --preview 'bat --color=always --style=numbers --line-range=:500 {}' }
+#
+# ~/.config/powershell/Microsoft.PowerShell_profile.ps1
+$env:CARAPACE_BRIDGES = 'zsh,fish,bash,inshellisense' # optional
+Set-PSReadLineOption -Colors @{ "Selection" = "`e[7m" }
+Set-PSReadlineKeyHandler -Key Tab -Function MenuComplete
+carapace _carapace | Out-String | Invoke-Expression

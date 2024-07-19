@@ -21,6 +21,7 @@ param (
     [String[]]$Apps = @(
         'terminal-icons'
         'psreadline'
+        'carapace-bin'
         'z'
         'psfzf'
         'gcc'
