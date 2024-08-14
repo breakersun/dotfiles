@@ -54,3 +54,5 @@ $OnViModeChange = [scriptblock]{
 }
 Set-PSReadLineOption -ViModeIndicator Script -ViModeChangeHandler $OnViModeChange
 # function preview { fzf --preview 'bat --color=always --style=numbers --line-range=:500 {}' }
+#
+Invoke-Expression (& { (zoxide init powershell --cmd cd | Out-String) })

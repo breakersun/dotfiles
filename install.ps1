@@ -22,7 +22,7 @@ param (
         'terminal-icons'
         'psreadline'
         'carapace-bin'
-        'z'
+        'zoxide'
         'psfzf'
         'gcc'
         'git'
