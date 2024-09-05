@@ -56,6 +56,7 @@ param (
         'keepass'
         'keepass-plugin-keeanywhere'
         'keepass-plugin-keeagent'
+        'keepass-plugin-keepasshttp' 
         'nodejs'
         'global'
         'bincalc'
