@@ -101,7 +101,6 @@ if (-not (Get-Command -Name scoop -ErrorAction SilentlyContinue)) {
 }
 
 scoop bucket add extras
-# for chezmoi
 scoop bucket add twpayne https://github.com/twpayne/scoop-bucket
 scoop bucket add nerd-fonts
 scoop bucket add my-utils https://github.com/breakersun/utils-bucket.git
@@ -127,8 +126,6 @@ chezmoi init --apply breakersun
 # redirect chrome locations:
 # junction64.exe ~\AppData\Local\Google\Chrome D:\Chrome
 
-# activate
-# https://github.com/TGSAN/CMWTAT_Digital_Edition
 $hotkeys_dir='~\.local\share\autohotkey_script'
 git clone 'https://github.com/breakersun/autohotkey_script' $hotkeys_dir 
 $StartUp="$Env:USERPROFILE\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup"
@@ -155,3 +152,6 @@ npm install picgo -g
 Start-Process "https://www.notion.so/hitme/ba9d263f7f6b40f4a317eb9c6719e508"
 write-host 'Please prepare your Aliyun OSS Keys' -ForegroundColor Magenta
 picgo set uploader
+
+# activate
+Start-Process "https://github.com/TGSAN/CMWTAT_Digital_Edition/releases"
