@@ -71,27 +71,6 @@ param (
 
 $ScoopCustomeInstalled = ''
 
-function Set-ScoopLocation {
-    <#
-    .LINK
-        https://scoop-docs.vercel.app/docs/getting-started/Quick-Start.html#installing-scoop
-    #>
-
-    $env:SCOOP='d:\scoop'
-    [Environment]::SetEnvironmentVariable('SCOOP', $env:SCOOP, 'User')
-    Write-Host "Scoop install location at $env:SCOOP"
-
-    $env:SCOOP_GLOBAL='d:\scoop_apps'
-    [Environment]::SetEnvironmentVariable('SCOOP_GLOBAL', $env:SCOOP_GLOBAL, 'Machine')
-    Write-Host "Scoop install location at $env:SCOOP_GLOBAL"
-
-    $env:Path+=';D:\scoop\apps\git\current\usr\bin'
-    [Environment]::SetEnvironmentVariable('Path', $env:Path, 'Machine')
-    Write-Host "Git-Bash at D:\scoop\apps\git\current\usr\bin"
-
-    $ScoopCustomeInstalled = 'd:\scoop'
-}
-
 function Test-ScoopApp {
     param (
         [Parameter(Mandatory)]
@@ -119,19 +98,14 @@ if ($PSVersionTable.PSVersion.Major -lt 7) {
 
 # Scoop setup
 write-host 'Configuring Scoop...' -ForegroundColor Magenta
-
 if (-not (Get-Command -Name scoop -ErrorAction SilentlyContinue)) {
     # allow to install by script
     Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Force -Verbose
-    if (Test-Path -Path "D:\") {
-        # if there is D:\, config scoop install location to D:\
-        Set-ScoopLocation
-    }
     # install scoop
     Invoke-WebRequest -useb get.scoop.sh | Invoke-Expression
-    # update environment
-    # this command is not working
-    # refreshenv
+    # Add the Scoop path to Windows Defender exclusions
+    $scoopPath = [System.IO.Path]::Combine($env:USERPROFILE, 'scoop')
+    Add-MpPreference -ExclusionPath $scoopPath
 }
 
 scoop bucket add extras
@@ -146,23 +120,6 @@ foreach ($app in $Apps) {
     }
 }
 
-################################################################################
-# Add commonly used modules (this must be done first)                          #
-################################################################################
-# Install-Module PSDepend -Scope CurrentUser
-# Import-Module PSDepend
-#
-# Write-Host 'Downloading PowerShell module dependency list from GitHub...' -ForegroundColor Magenta
-# New-Item -ItemType Directory $ModuleFilePath -ErrorAction SilentlyContinue
-# Invoke-WebRequest -Uri $ModuleUri -UseBasicParsing -OutFile "$ModuleFilePath\requirements.psd1"
-#
-# Write-Host 'Installing PowerShell modules...' -ForegroundColor Magenta
-# Invoke-PSDepend -Path "$ModuleFilePath\requirements.psd1" -Force
-
-
-# Install Git[Git.Git] using winget; Now better install git with scoop
-# winget install -e --id Git.Git
-# Install Tortoisegit (since it's not available under scoop)
 winget install "openssh beta"
 winget install Tortoisegit.Tortoisegit
 winget install Fndroid.ClashForWindows 
