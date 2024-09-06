@@ -155,7 +155,6 @@ Windows Registry Editor Version 5.00
 "@
 Invoke-Command -ScriptBlock {param($regFile) $regFile | out-file $env:temp\a.reg; reg.exe import $env:temp\a.reg } -ArgumentList $regFile
 
-
 # pull neovim configs
 git -C $env:LOCALAPPDATA clone --branch lazy https://github.com/breakersun/nvim.git
 
