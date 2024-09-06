@@ -68,21 +68,13 @@ param (
     )
 )
 
-
-$ScoopCustomeInstalled = ''
-
 function Test-ScoopApp {
     param (
         [Parameter(Mandatory)]
         [String]$App
     )
     Process {
-        if ($ScoopCustomeInstalled) {
-            $appInstalled = Test-Path -Path "$env:SCOOP\apps\$App"
-        } else {
-            $appInstalled = Test-Path -Path "~\scoop\apps"
-        }
-
+        $appInstalled = Test-Path -Path "~\scoop\apps"
         return $appInstalled
     }
 }
