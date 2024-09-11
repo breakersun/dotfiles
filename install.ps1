@@ -158,3 +158,6 @@ Start-Process "https://github.com/TGSAN/CMWTAT_Digital_Edition/releases"
 
 # Listray
 Start-Process "https://www.listary.com/download-completion?version=stable"
+
+# TotalCMD
+Start-Process "http://iyoung.ysepan.com/?xzpd=1"
