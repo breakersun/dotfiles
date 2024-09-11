@@ -155,3 +155,6 @@ picgo set uploader
 
 # activate
 Start-Process "https://github.com/TGSAN/CMWTAT_Digital_Edition/releases"
+
+# Listray
+Start-Process "https://www.listary.com/download-completion?version=stable"

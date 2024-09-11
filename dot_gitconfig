@@ -5,7 +5,6 @@
 	selected = manager
 [http]
 	sslVerify = false
-	proxy = http://127.0.0.1:7890
 [credential "https://10.84.130.212:8899"]
 	provider = gitlab
 [credential "http://10.84.4.81:11000"]
