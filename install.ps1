@@ -131,6 +131,8 @@ git clone 'https://github.com/breakersun/autohotkey_script' $hotkeys_dir
 $StartUp="$Env:USERPROFILE\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup"
 $Startup = $Startup -replace ' ', '` '
 gsudo New-Item -ItemType SymbolicLink -Path $StartUp -Name "autohot.lnk" -Value "$hotkeys_dir\startup.ahk"
+$viatc_dir='~\.local\share\viatc'
+git clone 'https://github.com/breakersun/ViATc-English.git' $viatc_dir --depth=1
 
 # setup flyPY Chinese IME
 $regFile = @"
