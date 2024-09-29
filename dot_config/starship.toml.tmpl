@@ -1,20 +1,12 @@
 add_newline = false
 {{ if eq .chezmoi.os "windows" }}
-format="$all\u001b7${fill}$time($style)\u001b8"
-{{ end }}
-{{ if eq .chezmoi.os "linux" }}
-right_format = """$time"""
+format="$all\u001b7${fill}\u001b8"
 {{ end }}
 
 [character]
 success_symbol = "[❯](bold green)"
 error_symbol = "[❌](bold red)"
 vicmd_symbol = "[❮](bold blue)"
-
-[time]
-time_format = "%T"
-style = "bold blue"
-disabled = false
 
 [fill]
 symbol = " "
