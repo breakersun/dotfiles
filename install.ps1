@@ -115,6 +115,7 @@ winget install "openssh beta"
 winget install Tortoisegit.Tortoisegit
 winget install Fndroid.ClashForWindows 
 winget install Snipaste
+winget install --exact --id MartiCliment.UniGetUI --source winget
 # for sshfs : 'net use X: \\sshfs\sunlong@10.84.130.211; net use X: /delete'
 winget install WinFsp.WinFsp 
 winget install SSHFS-Win.SSHFS-Win
