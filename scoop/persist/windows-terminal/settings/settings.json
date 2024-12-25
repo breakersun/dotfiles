@@ -92,9 +92,38 @@
                 },
                 "guid": "{75d2a6e3-71bd-42ae-aef5-5421c2e4c25a}",
                 "hidden": false,
-                "icon": "C:\\Users\\403283\\Code\\dashboard-icons\\png\\ubuntu.png",
+                "icon": "C:\\Users\\403283\\Code\\dashboard-icons\\png\\ubuntu-alt.png",
                 "name": "AliCloud",
-                "startingDirectory": null
+                "startingDirectory": null,
+                "tabTitle": "AliCloud"
+            },
+            {
+                "colorScheme": "Tango Dark",
+                "commandline": "ssh root@huawei.servers.888521.xyz -p 2222",
+                "font": 
+                {
+                    "face": "FiraCode Nerd Font"
+                },
+                "guid": "{54dbe263-ed85-4a4a-8896-34ad0bdb9457}",
+                "hidden": false,
+                "icon": "C:\\Users\\403283\\Code\\dashboard-icons\\png\\ubuntu-alt.png",
+                "name": "HuaweiCloud",
+                "startingDirectory": null,
+                "tabTitle": "HuaweiCloud"
+            },
+            {
+                "colorScheme": "Tango Dark",
+                "commandline": "ssh root@tianyi.888521.xyz -p 2222",
+                "font": 
+                {
+                    "face": "FiraCode Nerd Font"
+                },
+                "guid": "{053541c9-9e6f-4f16-ab2c-20d9418ed058}",
+                "hidden": false,
+                "icon": "C:\\Users\\403283\\Code\\dashboard-icons\\png\\ubuntu-alt.png",
+                "name": "TianyiCloud",
+                "startingDirectory": null,
+                "tabTitle": "TianyiCloud"
             }
         ]
     },
