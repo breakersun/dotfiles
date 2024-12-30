@@ -124,6 +124,34 @@
                 "name": "TianyiCloud",
                 "startingDirectory": null,
                 "tabTitle": "TianyiCloud"
+            },
+            {
+                "colorScheme": "Tango Dark",
+                "commandline": "ssh pi@tianyi.888521.xyz -p 36022",
+                "font": 
+                {
+                    "face": "FiraCode Nerd Font"
+                },
+                "guid": "{ec13b48b-7589-4df8-b874-b0f5cf87168f}",
+                "hidden": false,
+                "icon": "C:\\Users\\403283\\Code\\dashboard-icons\\png\\raspberrypi.png",
+                "name": "Home-Pi",
+                "startingDirectory": null,
+                "tabTitle": "Home-Pi"
+            },
+            {
+                "colorScheme": "Tango Dark",
+                "commandline": "ssh admin@home.888521.xyz -p 18022",
+                "font": 
+                {
+                    "face": "FiraCode Nerd Font"
+                },
+                "guid": "{a85fe8fa-56dc-45f6-8459-e96004a80ceb}",
+                "hidden": false,
+                "icon": "C:\\Users\\403283\\Code\\dashboard-icons\\png\\router.png",
+                "name": "Home-D2",
+                "startingDirectory": null,
+                "tabTitle": "Home-D2"
             }
         ]
     },
