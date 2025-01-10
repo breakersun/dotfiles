@@ -28,9 +28,12 @@ curl -sS https://starship.rs/install.sh | sh
 # Install chezmoi
 set -x
 cd ~
-sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply breakersun
+sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply git@github.com:$GITHUB_USERNAME/dotfiles.git
 
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 curl -sSfL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | sh
+
+curl -fsSL get.docker.com -o get-docker.sh && sh get-docker.sh --mirror Aliyun
+curl https://raw.githubusercontent.com/jesseduffield/lazydocker/master/scripts/install_update_linux.sh | bash
