@@ -25,7 +25,6 @@ param (
         'zoxide'
         'psfzf'
         'gcc'
-        'git'
         'vcredist2019'
         'bat'
         'chezmoi'
@@ -67,6 +66,16 @@ param (
         'adb'
     )
 )
+
+winget install --id=Git.Git  -e
+winget install "openssh beta"
+winget install Tortoisegit.Tortoisegit
+winget install Snipaste
+winget install --exact --id MartiCliment.UniGetUI --source winget
+winget install --id=Tencent.WeType  -e
+# for sshfs : 'net use X: \\sshfs\sunlong@10.84.130.211; net use X: /delete'
+winget install WinFsp.WinFsp 
+winget install SSHFS-Win.SSHFS-Win
 
 function Test-ScoopApp {
     param (
@@ -111,22 +120,8 @@ foreach ($app in $Apps) {
     }
 }
 
-winget install "openssh beta"
-winget install Tortoisegit.Tortoisegit
-winget install Fndroid.ClashForWindows 
-winget install Snipaste
-winget install --exact --id MartiCliment.UniGetUI --source winget
-winget install --id=Tencent.WeType  -e
-# for sshfs : 'net use X: \\sshfs\sunlong@10.84.130.211; net use X: /delete'
-winget install WinFsp.WinFsp 
-winget install SSHFS-Win.SSHFS-Win
-
 # Initialize Chezmoi
 chezmoi init --apply breakersun
-
-# https://docs.microsoft.com/en-us/sysinternals/downloads/junction
-# redirect chrome locations:
-# junction64.exe ~\AppData\Local\Google\Chrome D:\Chrome
 
 $hotkeys_dir='~\.local\share\autohotkey_script'
 git clone 'https://github.com/breakersun/autohotkey_script' $hotkeys_dir 
@@ -135,18 +130,6 @@ $Startup = $Startup -replace ' ', '` '
 gsudo New-Item -ItemType SymbolicLink -Path $StartUp -Name "autohot.lnk" -Value "$hotkeys_dir\startup.ahk"
 $viatc_dir='~\.local\share\viatc'
 git clone 'https://github.com/breakersun/ViATc-English.git' $viatc_dir --depth=1
-
-# setup flyPY Chinese IME
-$regFile = @"
-Windows Registry Editor Version 5.00
-
-[HKEY_CURRENT_USER\SOFTWARE\Microsoft\InputMethod\Settings\CHS]
-"EnableExtraDomainType"=dword:00000001
-"Enable Double Pinyin"=dword:00000001
-"DoublePinyinScheme"=dword:0000000a
-"UserDefinedDoublePinyinScheme0"="flyPY*2*^*iuvdjhcwfg^xmlnpbksqszxkrltvyovt"
-"@
-Invoke-Command -ScriptBlock {param($regFile) $regFile | out-file $env:temp\a.reg; reg.exe import $env:temp\a.reg } -ArgumentList $regFile
 
 # pull neovim configs
 git -C $env:LOCALAPPDATA clone --branch lazy https://github.com/breakersun/nvim.git
@@ -160,8 +143,6 @@ picgo set uploader
 # activate
 Start-Process "https://github.com/TGSAN/CMWTAT_Digital_Edition/releases"
 
-# Listray
 Start-Process "https://www.listary.com/download-completion?version=stable"
 
-# TotalCMD
 Start-Process "http://iyoung.ysepan.com/?xzpd=1"
