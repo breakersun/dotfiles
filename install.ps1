@@ -67,15 +67,6 @@ param (
     )
 )
 
-winget install --id=Git.Git  -e
-winget install "openssh beta"
-winget install Tortoisegit.Tortoisegit
-#winget install Snipaste
-winget install --exact --id MartiCliment.UniGetUI --source winget
-winget install --id=Tencent.WeType  -e
-# for sshfs : 'net use X: \\sshfs\sunlong@10.84.130.211; net use X: /delete'
-winget install WinFsp.WinFsp 
-winget install SSHFS-Win.SSHFS-Win
 
 function Test-ScoopApp {
     param (
@@ -118,6 +109,15 @@ foreach ($app in $Apps) {
     scoop install $app
 }
 
+winget install --id=Git.Git  -e
+winget install "openssh beta"
+winget install Tortoisegit.Tortoisegit
+#winget install Snipaste
+winget install --exact --id MartiCliment.UniGetUI --source winget
+winget install --id=Tencent.WeType  -e
+# for sshfs : 'net use X: \\sshfs\sunlong@10.84.130.211; net use X: /delete'
+winget install WinFsp.WinFsp 
+winget install SSHFS-Win.SSHFS-Win
 # Initialize Chezmoi
 chezmoi init --apply breakersun
 
