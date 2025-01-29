@@ -34,7 +34,7 @@ Set-PSReadlineOption -HistoryNoDuplicates
 Set-PSReadLineOption -PredictionViewStyle ListView
 
 # enable vim mode on pwsh
-# Set-PsReadLineOption -EditMode Vi
+# Set-PsReadLineOption -EditMode Emacs
 # sunlong for psfzf key-bindings
 Import-Module PSFzf
 Set-PsFzfOption -PSReadlineChordProvider 'Ctrl+t' -PSReadlineChordReverseHistory 'Ctrl+r'
@@ -56,3 +56,9 @@ Set-PSReadLineOption -ViModeIndicator Script -ViModeChangeHandler $OnViModeChang
 # function preview { fzf --preview 'bat --color=always --style=numbers --line-range=:500 {}' }
 #
 Invoke-Expression (& { (zoxide init powershell --cmd cd | Out-String) })
+
+#f45873b3-b655-43a6-b217-97c00aa0db58 PowerToys CommandNotFound module
+
+Import-Module -Name Microsoft.WinGet.CommandNotFound
+#f45873b3-b655-43a6-b217-97c00aa0db58
+Invoke-Expression (& { (zoxide init powershell | Out-String) })
