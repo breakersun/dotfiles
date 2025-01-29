@@ -79,7 +79,6 @@ function Test-ScoopApp {
     }
 }
 
-# check current powershell version
 if ($PSVersionTable.PSVersion.Major -lt 7) {
     Start-Process "https://github.com/PowerShell/powershell/releases"
     Start-Process "https://github.com/microsoft/winget-cli/releases"
@@ -88,7 +87,8 @@ if ($PSVersionTable.PSVersion.Major -lt 7) {
     break
 }
 
-# Scoop setup
+winget install --id=Git.Git  -e
+
 write-host 'Configuring Scoop...' -ForegroundColor Magenta
 if (-not (Get-Command -Name scoop -ErrorAction SilentlyContinue)) {
     # allow to install by script
@@ -109,7 +109,6 @@ foreach ($app in $Apps) {
     scoop install $app
 }
 
-winget install --id=Git.Git  -e
 winget install "openssh beta"
 winget install Tortoisegit.Tortoisegit
 #winget install Snipaste
@@ -140,7 +139,5 @@ picgo set uploader
 
 # activate
 Start-Process "https://github.com/TGSAN/CMWTAT_Digital_Edition/releases"
-
 Start-Process "https://www.listary.com/download-completion?version=stable"
-
 Start-Process "http://iyoung.ysepan.com/?xzpd=1"
