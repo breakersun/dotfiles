@@ -129,7 +129,7 @@ $viatc_dir='~\.local\share\viatc'
 git clone 'https://github.com/breakersun/ViATc-English.git' $viatc_dir --depth=1
 
 # pull neovim configs
-git -C $env:LOCALAPPDATA clone --branch lazy https://github.com/breakersun/nvim.git
+git -C $env:LOCALAPPDATA clone https://github.com/breakersun/nvim.git
 
 #install picgo command line tool
 npm install picgo -g
