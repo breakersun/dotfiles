@@ -115,9 +115,7 @@ scoop bucket add nerd-fonts
 scoop bucket add my-utils https://github.com/breakersun/utils-bucket.git
 
 foreach ($app in $Apps) {
-    if (-not (Test-ScoopApp($app))) {
-        scoop install $app
-    }
+    scoop install $app
 }
 
 # Initialize Chezmoi
