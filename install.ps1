@@ -90,7 +90,7 @@ winget install --id=Git.Git  -e
 write-host 'Configuring Scoop...' -ForegroundColor Magenta
 if (-not (Get-Command -Name scoop -ErrorAction SilentlyContinue)) {
     # allow to install by script
-    Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Force -Verbose
+    Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Force -Verbose  -Scope CurrentUser
     # install scoop
     Invoke-WebRequest -useb get.scoop.sh | Invoke-Expression
     # Add the Scoop path to Windows Defender exclusions
@@ -118,12 +118,12 @@ winget install SSHFS-Win.SSHFS-Win
 # Initialize Chezmoi
 chezmoi init --apply breakersun
 
-$hotkeys_dir=$HOME\.local\share\autohotkey_script 
+$hotkeys_dir="$HOME\.local\share\autohotkey_script"
 git clone 'https://github.com/breakersun/autohotkey_script' $hotkeys_dir
 $StartUp="$Env:USERPROFILE\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup"
 $Startup = $Startup -replace ' ', '` '
 gsudo New-Item -ItemType SymbolicLink -Path $StartUp -Name "autohot.lnk" -Value "$hotkeys_dir\startup.ahk"
-$viatc_dir=$HOME\.local\share\viatc
+$viatc_dir="$HOME\.local\share\viatc"
 git clone 'https://github.com/breakersun/ViATc-English.git' $viatc_dir --depth=1
 
 # pull neovim configs
