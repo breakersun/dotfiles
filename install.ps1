@@ -132,8 +132,8 @@ git -C $env:LOCALAPPDATA clone https://github.com/breakersun/nvim.git
 #install picgo command line tool
 npm install picgo -g
 Start-Process "https://www.notion.so/hitme/ba9d263f7f6b40f4a317eb9c6719e508"
-write-host 'Please prepare your Aliyun OSS Keys' -ForegroundColor Magenta
-picgo set uploader
+write-host 'Please replace $home\.picgo\config.json' -ForegroundColor Magenta
+ii -path $home\.picgo
 
 # activate
 Start-Process "https://github.com/TGSAN/CMWTAT_Digital_Edition/releases"
