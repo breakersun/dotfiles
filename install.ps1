@@ -25,7 +25,6 @@ param (
         'zoxide'
         'psfzf'
         'gcc'
-        'vcredist2019'
         'bat'
         'chezmoi'
         'fd'
@@ -66,7 +65,6 @@ param (
     )
 )
 
-
 function Test-ScoopApp {
     param (
         [Parameter(Mandatory)]
@@ -88,11 +86,8 @@ if ($PSVersionTable.PSVersion.Major -lt 7) {
 
 write-host 'Configuring Scoop...' -ForegroundColor Magenta
 if (-not (Get-Command -Name scoop -ErrorAction SilentlyContinue)) {
-    # allow to install by script
     Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Force -Verbose  -Scope CurrentUser
-    # install scoop
     Invoke-WebRequest -useb get.scoop.sh | Invoke-Expression
-    # Add the Scoop path to Windows Defender exclusions
     $scoopPath = [System.IO.Path]::Combine($env:USERPROFILE, 'scoop')
     Add-MpPreference -ExclusionPath $scoopPath
 }
