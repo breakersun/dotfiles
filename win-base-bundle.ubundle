@@ -35,10 +35,12 @@
         "RunAsAdministrator": false,
         "Architecture": "",
         "InstallationScope": "",
-        "CustomParameters": [],
+        "CustomParameters": [
+          ""
+        ],
         "PreRelease": false,
         "CustomInstallLocation": "",
-        "Version": ""
+        "Version": "1.1.37.02"
       },
       "Updates": {
         "UpdatesIgnored": true,
