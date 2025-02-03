@@ -115,6 +115,7 @@ git clone 'https://github.com/breakersun/ViATc-English.git' $viatc_dir --depth=1
 git -C $env:LOCALAPPDATA clone https://github.com/breakersun/nvim.git
 
 npm install picgo -g
+picgo --version
 Start-Process "https://www.notion.so/hitme/ba9d263f7f6b40f4a317eb9c6719e508"
 write-host 'Please replace $home\.picgo\config.json' -ForegroundColor Magenta
 ii -path $home\.picgo
