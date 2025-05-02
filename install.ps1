@@ -33,7 +33,6 @@ param (
         'neovide'
         'ripgrep'
         'starship'
-        'windows-terminal'
         'sumatrapdf'
         '7zip'
         'beyondcompare'
