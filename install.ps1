@@ -91,6 +91,7 @@ if (-not (Get-Command -Name scoop -ErrorAction SilentlyContinue)) {
     Add-MpPreference -ExclusionPath $scoopPath
 }
 
+winget install Git.Git
 scoop bucket add extras
 scoop bucket add twpayne https://github.com/twpayne/scoop-bucket
 scoop bucket add nerd-fonts
