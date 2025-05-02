@@ -86,7 +86,7 @@ if ($PSVersionTable.PSVersion.Major -lt 7) {
 write-host 'Configuring Scoop...' -ForegroundColor Magenta
 if (-not (Get-Command -Name scoop -ErrorAction SilentlyContinue)) {
     Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Force -Verbose  -Scope CurrentUser
-    Invoke-WebRequest -useb get.scoop.sh | Invoke-Expression
+    Invoke-RestMethod -Uri https://get.scoop.sh | Invoke-Expression
     $scoopPath = [System.IO.Path]::Combine($env:USERPROFILE, 'scoop')
     Add-MpPreference -ExclusionPath $scoopPath
 }
