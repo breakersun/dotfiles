@@ -16,3 +16,12 @@
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
+[safe]
+	directory = D:/Code/
+	directory = D:/Code/Victa
+	directory = D:/Code/accfw
+	directory = D:/Code/obsidian_playground
+	directory = D:/Code/Boracay
+[core]
+	autocrlf = false
+	sshCommand = C:/Windows/System32/OpenSSH/ssh.exe
