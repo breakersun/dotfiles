@@ -30,15 +30,12 @@ param (
         'fd'
         'fzf'
         'neovim'
-        'neovide'
         'ripgrep'
         'starship'
         'sumatrapdf'
         '7zip'
-        'beyondcompare'
         'listary'
         'obsidian'
-        'openvpn'
         'mobaxterm'
         'msys2'
         'notepadplusplus'
@@ -52,6 +49,7 @@ param (
         'keepass-plugin-keeanywhere'
         'keepass-plugin-keeagent'
         'keepass-plugin-keepasshttp' 
+        'keepassxc'
         'nodejs'
         'global'
         'bincalc'
@@ -60,7 +58,6 @@ param (
         'tokei'
         'diff-pdf'
         'adb'
-        'snipaste'
     )
 )
 

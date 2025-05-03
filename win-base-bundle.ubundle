@@ -1,5 +1,5 @@
 {
-  "export_version": 2,
+  "export_version": 2.1,
   "packages": [
     {
       "Id": "9P1WXPKB68KX",
@@ -16,7 +16,8 @@
         "CustomParameters": [],
         "PreRelease": false,
         "CustomInstallLocation": "",
-        "Version": ""
+        "Version": "",
+        "SkipMinorUpdates": false
       },
       "Updates": {
         "UpdatesIgnored": false,
@@ -40,7 +41,8 @@
         ],
         "PreRelease": false,
         "CustomInstallLocation": "",
-        "Version": "1.1.37.02"
+        "Version": "1.1.37.02",
+        "SkipMinorUpdates": false
       },
       "Updates": {
         "UpdatesIgnored": true,
@@ -62,7 +64,8 @@
         "CustomParameters": [],
         "PreRelease": false,
         "CustomInstallLocation": "",
-        "Version": ""
+        "Version": "",
+        "SkipMinorUpdates": false
       },
       "Updates": {
         "UpdatesIgnored": false,
@@ -84,7 +87,8 @@
         "CustomParameters": [],
         "PreRelease": false,
         "CustomInstallLocation": "",
-        "Version": ""
+        "Version": "",
+        "SkipMinorUpdates": false
       },
       "Updates": {
         "UpdatesIgnored": false,
@@ -106,7 +110,8 @@
         "CustomParameters": [],
         "PreRelease": false,
         "CustomInstallLocation": "",
-        "Version": ""
+        "Version": "",
+        "SkipMinorUpdates": false
       },
       "Updates": {
         "UpdatesIgnored": false,
@@ -128,7 +133,8 @@
         "CustomParameters": [],
         "PreRelease": false,
         "CustomInstallLocation": "",
-        "Version": ""
+        "Version": "",
+        "SkipMinorUpdates": false
       },
       "Updates": {
         "UpdatesIgnored": false,
@@ -150,7 +156,31 @@
         "CustomParameters": [],
         "PreRelease": false,
         "CustomInstallLocation": "",
-        "Version": ""
+        "Version": "",
+        "SkipMinorUpdates": false
+      },
+      "Updates": {
+        "UpdatesIgnored": false,
+        "IgnoredVersion": ""
+      }
+    },
+    {
+      "Id": "ScooterSoftware.BeyondCompare.5",
+      "Name": "Beyond Compare 5",
+      "Version": "5.0.7.30840",
+      "Source": "winget",
+      "ManagerName": "Winget",
+      "InstallationOptions": {
+        "SkipHashCheck": false,
+        "InteractiveInstallation": false,
+        "RunAsAdministrator": false,
+        "Architecture": "",
+        "InstallationScope": "",
+        "CustomParameters": [],
+        "PreRelease": false,
+        "CustomInstallLocation": "",
+        "Version": "",
+        "SkipMinorUpdates": false
       },
       "Updates": {
         "UpdatesIgnored": false,
@@ -172,7 +202,8 @@
         "CustomParameters": [],
         "PreRelease": false,
         "CustomInstallLocation": "",
-        "Version": ""
+        "Version": "",
+        "SkipMinorUpdates": false
       },
       "Updates": {
         "UpdatesIgnored": false,
@@ -194,7 +225,8 @@
         "CustomParameters": [],
         "PreRelease": false,
         "CustomInstallLocation": "",
-        "Version": ""
+        "Version": "",
+        "SkipMinorUpdates": false
       },
       "Updates": {
         "UpdatesIgnored": false,
@@ -216,7 +248,8 @@
         "CustomParameters": [],
         "PreRelease": false,
         "CustomInstallLocation": "",
-        "Version": ""
+        "Version": "",
+        "SkipMinorUpdates": false
       },
       "Updates": {
         "UpdatesIgnored": false,
@@ -238,7 +271,8 @@
         "CustomParameters": [],
         "PreRelease": false,
         "CustomInstallLocation": "",
-        "Version": ""
+        "Version": "",
+        "SkipMinorUpdates": false
       },
       "Updates": {
         "UpdatesIgnored": false,
@@ -260,7 +294,8 @@
         "CustomParameters": [],
         "PreRelease": false,
         "CustomInstallLocation": "",
-        "Version": ""
+        "Version": "",
+        "SkipMinorUpdates": false
       },
       "Updates": {
         "UpdatesIgnored": false,
