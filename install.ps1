@@ -31,6 +31,8 @@ param (
         'fzf'
         'neovim'
         'ripgrep'
+        'rclone'
+        'rclone-browser'
         'starship'
         'sumatrapdf'
         '7zip'
