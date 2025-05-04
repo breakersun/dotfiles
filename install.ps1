@@ -38,6 +38,7 @@ param (
         'obsidian'
         'mobaxterm'
         'msys2'
+        'make'
         'notepadplusplus'
         'gsudo'
         'lazygit'
