@@ -56,3 +56,11 @@ Set-PSReadLineOption -ViModeIndicator Script -ViModeChangeHandler $OnViModeChang
 # function preview { fzf --preview 'bat --color=always --style=numbers --line-range=:500 {}' }
 Invoke-Expression (& { (zoxide init powershell --cmd cd | Out-String) })
 Invoke-Expression (& { (zoxide init powershell | Out-String) })
+
+# Caraspace
+$env:CARAPACE_BRIDGES = 'zsh,fish,bash,inshellisense' # optional
+Set-PSReadLineOption -Colors @{ "Selection" = "`e[7m" }
+Set-PSReadlineKeyHandler -Key Tab -Function MenuComplete
+carapace _carapace | Out-String | Invoke-Expression
+
+$env:PYTHONIOENCODING = "UTF-8"
