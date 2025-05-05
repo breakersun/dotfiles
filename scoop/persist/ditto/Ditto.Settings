@@ -1,6 +1,6 @@
 [Ditto]
 DBPath3=Ditto.db
-MainhWnd=2033018
+MainhWnd=132590
 CheckForMaxEntries=1
 CheckForExpiredEntries=0
 MaxEntries=100
@@ -13,7 +13,7 @@ Theme2=
 SendPasteOnFirstTenHotKeys=1
 MoveClipsOnGlobal10=0
 UseUISelectedGroupForLastTenCopies=0
-DittoHotKey=1604
+DittoHotKey=2137
 DittoHotKey2=0
 DittoHotKey3=0
 Position1=0
@@ -39,14 +39,16 @@ TextOnlyPaste=0
 SaveClipboard=0
 CopyAndSaveClipboard=0
 TripDate=1738545891
-TripCopies=19
+TripCopies=258
 TotalDate=1738545891
-TotalCopies=19
+TotalCopies=258
 (1920x1080)_QuickPasteCX=300
 (1920x1080)_QuickPasteCY=300
-(1920x1080)_QuickPasteX=810
-(1920x1080)_QuickPasteY=365
+(1920x1080)_QuickPasteX=8
+(1920x1080)_QuickPasteY=21
 LinesPerRow=2
+TripPastes=5
+TotalPastes=5
 [DisplayFont6]
 Height=-13
 Width=0
