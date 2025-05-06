@@ -22,6 +22,12 @@
 	directory = D:/Code/accfw
 	directory = D:/Code/obsidian_playground
 	directory = D:/Code/Boracay
+	directory = D:/Code/accfw/contrib/vendor/st/STM32CubeWB
+	directory = D:/Code/accfw/.compiler
 [core]
 	autocrlf = false
 	sshCommand = C:/Windows/System32/OpenSSH/ssh.exe
+[diff]
+	tool = nvimdiff
+[difftool "nvimdiff"]
+	cmd = "nvim -d \"$LOCAL\" \"$REMOTE\""
