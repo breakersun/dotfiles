@@ -26,7 +26,9 @@
 	directory = D:/Code/accfw/.compiler
 [core]
 	autocrlf = false
+{{ if eq .chezmoi.os "windows" }}
 	sshCommand = C:/Windows/System32/OpenSSH/ssh.exe
+{{ end }}
 [diff]
 	tool = nvimdiff
 [difftool "nvimdiff"]
