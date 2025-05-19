@@ -61,6 +61,7 @@ param (
         'tokei'
         'diff-pdf'
         'adb'
+        'typora'
     )
 )
 
