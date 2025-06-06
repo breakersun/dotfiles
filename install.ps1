@@ -62,6 +62,7 @@ param (
         'diff-pdf'
         'adb'
         'typora'
+        'sfsu'
     )
 )
 

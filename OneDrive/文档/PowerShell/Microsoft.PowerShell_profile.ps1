@@ -64,3 +64,5 @@ Set-PSReadlineKeyHandler -Key Tab -Function MenuComplete
 carapace _carapace | Out-String | Invoke-Expression
 
 $env:PYTHONIOENCODING = "UTF-8"
+
+Invoke-Expression (&sfsu hook)
