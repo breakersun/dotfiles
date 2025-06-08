@@ -4,11 +4,7 @@ set colored-completion-prefix     on   # Color the typed completion prefix.
 $if clink
 set search-ignore-case          on   # Case insensitive history searches.
 set completion-auto-query-items on   # Prompt before showing completions if they'll exceed half the screen.
-set autosuggest.enable          true
-set zoxide.cmd                  z
-set fzf.default_bindings        true
-set matchicons.enable           True
-set clink.logo                  none
+set show-mode-in-prompt         off
 $endif
 
 # Add your keybindings here...

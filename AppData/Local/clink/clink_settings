@@ -1,0 +1,97 @@
+# name: Enable automatic suggestions
+# type: boolean
+autosuggest.enable = True
+
+# name: Show usage hint for automatic suggestions
+# type: boolean
+autosuggest.hint = True
+
+# name: Controls what startup logo to show
+# type: enum
+# options: none,full,short
+clink.logo = none
+
+# name: Argument color
+# type: color
+color.arg = bold
+
+# name: Argument info color
+# type: color
+color.arginfo = yellow
+
+# name: Color for home dir tilde
+# type: color
+color.autoexpandtilde = bright cyan
+
+# name: Shell command completions
+# type: color
+color.cmd = bold
+
+# name: Color for < and > redirection symbols
+# type: color
+color.cmdredir = bold
+
+# name: Color for & and | command separators
+# type: color
+color.cmdsep = bold
+
+# name: Color for comment row
+# type: color
+color.comment_row = bright white on cyan
+
+# name: Description completion color
+# type: color
+color.description = bright cyan
+
+# name: Color for command divider line
+# type: color
+color.divider_line = sgr 30;48;5;25
+
+# name: Color for command end divider line
+# type: color
+color.divider_line_end = sgr 38;5;25
+
+# name: Doskey completions
+# type: color
+color.doskey = bold cyan
+
+# name: Color for escape for plain tilde
+# type: color
+color.escapetilde = bright cyan on blue
+
+# name: Filtered completion color
+# type: color
+color.filtered = bold
+
+# name: Flag color
+# type: color
+color.flag = default
+
+# name: For user-interaction prompts
+# type: color
+color.interact = bold
+
+# name: Color for 'rem lua:' prefix
+# type: color
+color.luaprefix = bright cyan on blue
+
+# name: Message area color
+# type: color
+color.message = default
+
+# name: Unexpected argument color
+# type: color
+color.unexpected = default
+
+# name: Use default key bindings
+# type: boolean
+fzf.default_bindings = True
+
+# name: Enables icons in file completions
+# type: boolean
+matchicons.enable = True
+
+# name: Changes the prefix of the aliases
+# type: string
+zoxide.cmd = z
+
