@@ -63,6 +63,7 @@ param (
         'adb'
         'typora'
         'sfsu'
+        'clink'
     )
 )
 
