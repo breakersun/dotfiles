@@ -64,6 +64,7 @@ param (
         'typora'
         'sfsu'
         'clink'
+        'sshs'
     )
 )
 
