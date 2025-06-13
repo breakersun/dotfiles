@@ -4,8 +4,9 @@
     "actions": [],
     "copyFormatting": "none",
     "copyOnSelect": false,
-    "defaultProfile": "{2b36dffb-a76b-46a8-b1ba-2b91cfb590b6}",
+    "defaultProfile": "{0caa0dad-35be-5f56-a8ff-afceeeaa6101}",
     "disableAnimations": true,
+    "firstWindowPreference": "persistedWindowLayout",
     "keybindings": 
     [
         {
@@ -15,10 +16,6 @@
         {
             "id": "Terminal.DuplicatePaneAuto",
             "keys": "alt+shift+d"
-        },
-        {
-            "id": "Terminal.PasteFromClipboard",
-            "keys": "ctrl+v"
         },
         {
             "id": "Terminal.FindText",
@@ -50,7 +47,7 @@
                 "guid": "{0caa0dad-35be-5f56-a8ff-afceeeaa6101}",
                 "hidden": false,
                 "name": "Command Prompt",
-                "startingDirectory": "."
+                "startingDirectory": null
             },
             {
                 "guid": "{b453ae62-4e3d-5e58-b989-0a998ec441b8}",
@@ -84,7 +81,7 @@
                 "opacity": 83,
                 "padding": "8, 8, 8, 8",
                 "snapOnInput": true,
-                "startingDirectory": ".",
+                "startingDirectory": null,
                 "suppressApplicationTitle": true,
                 "useAcrylic": false
             }
@@ -139,5 +136,6 @@
             "yellow": "#E5C07B"
         }
     ],
-    "themes": []
+    "themes": [],
+    "windowingBehavior": "useAnyExisting"
 }
