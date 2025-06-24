@@ -1,0 +1,136 @@
+{
+  "AppConfigs": {
+    "TypeConfigs": {
+      "WindowsExplorer": {},
+      "FileDialog": {},
+      "FolderDialog": {},
+      "Desktop": {},
+      "TotalCommander": {},
+      "DirectoryOpus": {},
+      "FreeCommander": {},
+      "XYplorer": {},
+      "xplorer2": {},
+      "Bandizip": {},
+      "AutoCAD": {},
+      "Explzh": {},
+      "Files": {},
+      "OneCommander": {},
+      "WinRAR.ExtractDialog": {},
+      "WPS.FileDialog": {}
+    },
+    "PathConfigs": {}
+  },
+  "Menus": {
+    "Favorites": {
+      "Deletions": [],
+      "Moves": [],
+      "Insertions": [],
+      "Updates": []
+    }
+  },
+  "DiskSearch": {
+    "FolderPriority": {
+      "Deletions": [],
+      "Moves": [],
+      "Insertions": [],
+      "Updates": []
+    },
+    "FileNamePriority": {
+      "Deletions": [],
+      "Moves": [],
+      "Insertions": [],
+      "Updates": []
+    },
+    "SearchFilter": {
+      "Deletions": [],
+      "Moves": [],
+      "Insertions": [],
+      "Updates": []
+    }
+  },
+  "FileSearchWindow": {
+    "Columns": {
+      "Deletions": [],
+      "Moves": [],
+      "Insertions": [],
+      "Updates": [
+        {
+          "Id": "FileName",
+          "UpdatedProperties": {
+            "Width": 200
+          }
+        },
+        {
+          "Id": "Path",
+          "UpdatedProperties": {
+            "Width": 400
+          }
+        },
+        {
+          "Id": "DateModified",
+          "UpdatedProperties": {
+            "Width": 200
+          }
+        }
+      ]
+    },
+    "WindowWidth": 1000,
+    "WindowHeight": 720,
+    "PreviewWidth": 300,
+    "SideBarWidth": 225
+  },
+  "Commands": {
+    "Items": {
+      "Deletions": [],
+      "Moves": [],
+      "Insertions": [],
+      "Updates": []
+    }
+  },
+  "WebSearch": {
+    "Items": {
+      "Deletions": [],
+      "Moves": [],
+      "Insertions": [
+        {
+          "Index": -1,
+          "Info": null,
+          "Item": {
+            "Keyword": "magic",
+            "Url": "https://issues.labcollab.net/browse/MAGIC-{query}",
+            "Title": "Magic '{query}'"
+          }
+        }
+      ],
+      "Updates": []
+    }
+  },
+  "Actions": {
+    "Items": {
+      "Deletions": [],
+      "Moves": [],
+      "Insertions": [],
+      "Updates": []
+    }
+  },
+  "AutoUpdate": {
+    "EnableAutoUpdate": false
+  },
+  "Settings": {
+    "General.Language": "en",
+    "General.EnableAnalytics": false,
+    "OpenFolder.Path": "C:\\Users\\leosu\\AppData\\Local\\TotalCMD64\\TotalCMD64.exe",
+    "OpenFolder.Param": "/O /T \"%1\"",
+    "Tutorial.ShowMainV3": false,
+    "Appearance.Theme": 0,
+    "Listary5.SettingsImported": true,
+    "Listary5.ProLicense.Name": "leo",
+    "Listary5.ProLicense.Email": "leosunsl@outlook.com",
+    "Listary5.ProLicense.Key": "9ZVSTHMXZQXKVDDM3TQXAZ5CM2UX2GSAHH3NKEXHZEKH5B2SGRB6K4CBRJG6562RAERD3QXWLU9QKUFZK95N8DYXBNLCU7AEE6BT3RNYELXJVQG7ZW9E82KNW9AUHYY7FUG2TMCXDCJ538R8CTLH63ZFVDF2RKB5GQLXH7SCAB2UUVDBF2FZAKGBKYWZU3XB"
+  },
+  "Extensions": {
+    "Extensions": {
+      "1a63ea9d-bf25-431f-96e3-17b80027efab": {}
+    }
+  }
+}
