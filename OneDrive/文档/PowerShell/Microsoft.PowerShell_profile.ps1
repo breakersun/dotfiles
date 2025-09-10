@@ -1,4 +1,47 @@
-# function to call TotalCommander
+
+$env:PYTHONIOENCODING = "UTF-8"
+
+
+Import-Module PSFzf
+Import-Module -Name Terminal-Icons
+
+Set-PSReadLineOption -PredictionViewStyle ListView
+Set-PsFzfOption -PSReadlineChordProvider 'Ctrl+t' -PSReadlineChordReverseHistory 'Ctrl+r'
+
+Invoke-Expression (&starship init powershell)
+
+# Caraspace
+$env:CARAPACE_BRIDGES = 'zsh,fish,bash,inshellisense' # optional
+Set-PSReadLineOption -Colors @{ "Selection" = "`e[7m" }
+Set-PSReadlineKeyHandler -Key Tab -Function MenuComplete
+carapace _carapace | Out-String | Invoke-Expression
+
+Invoke-Expression (&sfsu hook)
+
+# enable vim mode on pwsh
+# Set-PsReadLineOption -EditMode Emacs
+# enable Vim mode indicator
+$OnViModeChange = [scriptblock]{
+    if ($args[0] -eq 'Command') {
+        # Set the cursor to a blinking block.
+        Write-Host -NoNewLine "`e[2 q"
+    }
+    else {
+        # Set the cursor to a blinking line.
+        Write-Host -NoNewLine "`e[5 q"
+    }
+}
+Set-PSReadLineOption -ViModeIndicator Script -ViModeChangeHandler $OnViModeChange
+
+Set-PSReadlineKeyHandler -Key Tab -Function MenuComplete
+
+Set-PSReadLineOption -PredictionSource HistoryAndPlugin
+Set-PSReadlineOption -HistoryNoDuplicates
+Set-PSReadLineOption -ShowToolTips
+
+Invoke-Expression (& { (zoxide init powershell --cmd cd | Out-String) })
+Invoke-Expression (& { (zoxide init powershell | Out-String) })
+
 function tcmd {
     param (
         [Parameter(Mandatory=$false, Position=0)]
@@ -14,55 +57,5 @@ function tcmd {
         $pane = 'L'
     }
 
-    & "TotalCMD64.exe" /O /T /$pane="$FolderPath"
+    & "$HOME\AppData\Local\TotalCMD64\TotalCMD64.exe" /O /T /$pane="$FolderPath"
 }
-
-# sunlong add for starship
-Invoke-Expression (&starship init powershell)
-# sunlong add for auto completion
-Set-PSReadlineKeyHandler -Key Tab -Function MenuComplete
-
-# sunlong Function to relaunch as Admin:
-function Relaunch-Admin { Start-Process -Verb RunAs (Get-Process -Id $PID).Path }
-
-# sunlong for prediction with history
-# Set-PSReadLineOption -PredictionSource History
-Set-PSReadLineOption -PredictionSource HistoryAndPlugin
-Set-PSReadlineOption -HistoryNoDuplicates
-
-# # sunlong prediction with listview
-Set-PSReadLineOption -PredictionViewStyle ListView
-
-# enable vim mode on pwsh
-# Set-PsReadLineOption -EditMode Emacs
-# sunlong for psfzf key-bindings
-Import-Module PSFzf
-Set-PsFzfOption -PSReadlineChordProvider 'Ctrl+t' -PSReadlineChordReverseHistory 'Ctrl+r'
-
-Import-Module -Name Terminal-Icons
-
-# enable Vim mode indicator
-$OnViModeChange = [scriptblock]{
-    if ($args[0] -eq 'Command') {
-        # Set the cursor to a blinking block.
-        Write-Host -NoNewLine "`e[2 q"
-    }
-    else {
-        # Set the cursor to a blinking line.
-        Write-Host -NoNewLine "`e[5 q"
-    }
-}
-Set-PSReadLineOption -ViModeIndicator Script -ViModeChangeHandler $OnViModeChange
-# function preview { fzf --preview 'bat --color=always --style=numbers --line-range=:500 {}' }
-Invoke-Expression (& { (zoxide init powershell --cmd cd | Out-String) })
-Invoke-Expression (& { (zoxide init powershell | Out-String) })
-
-# Caraspace
-$env:CARAPACE_BRIDGES = 'zsh,fish,bash,inshellisense' # optional
-Set-PSReadLineOption -Colors @{ "Selection" = "`e[7m" }
-Set-PSReadlineKeyHandler -Key Tab -Function MenuComplete
-carapace _carapace | Out-String | Invoke-Expression
-
-$env:PYTHONIOENCODING = "UTF-8"
-
-Invoke-Expression (&sfsu hook)
