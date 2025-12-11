@@ -1,14 +1,35 @@
-Host mc2.888521.xyz
+Host mc2
+
     HostName mc2.888521.xyz
+
     Port 2222
+
     User root
 
-Host home
+
+
+Host home-huizhou
+
     HostName home.888521.xyz
+
     Port 18022
+
     User admin
 
+
+
 Host Office-D2
+
     HostName 192.168.128.1
+
     Port 22
+
     User admin
+    IdentityFile ~/.ssh/sunlong
+
+Host oldhome-d1    #Added by lazyssh
+    HostName 192.168.123.1
+    User admin
+    Port 22
+    ProxyCommand "C:\Program Files\Git\mingw64\bin\connect.exe" -S 127.0.0.1:10808 %h %p
+    IdentityFile ~/.ssh/sunlong
