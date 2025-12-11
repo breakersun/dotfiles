@@ -132,11 +132,11 @@ Start-Process "http://iyoung.ysepan.com/?xzpd=1"
 
 # restore key files from keepassxc cli
 # keepassxc-cli attachment-export \
-#     "%USERPROFILE%\OneDrive\keepass_data\keepass-xc.kdbx" 
-#     android adbkey.pub 
+#     "%USERPROFILE%\OneDrive\keepass_data\keepass-xc.kdbx" \
+#     android adbkey.pub \
 #     "%USERPROFILE%\.android\adbkey.pub"
 #
 # keepassxc-cli attachment-export \
-#     "%USERPROFILE%\OneDrive\keepass_data\keepass-xc.kdbx" 
-#     android adbkey 
+#     "%USERPROFILE%\OneDrive\keepass_data\keepass-xc.kdbx" \
+#     android adbkey \
 #     "%USERPROFILE%\.android\adbkey"
