@@ -44,6 +44,7 @@ param (
         'notepadplusplus'
         'gsudo'
         'lazygit'
+        'lazyssh'
         'FiraCode-NF'
         'ditto'
         'vscode'
