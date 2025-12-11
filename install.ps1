@@ -129,3 +129,14 @@ ii -path $home\.picgo
 Start-Process "https://github.com/TGSAN/CMWTAT_Digital_Edition/releases"
 Start-Process "https://www.listary.com/download-completion?version=stable"
 Start-Process "http://iyoung.ysepan.com/?xzpd=1"
+
+# restore key files from keepassxc cli
+# keepassxc-cli attachment-export \
+#     "%USERPROFILE%\OneDrive\keepass_data\keepass-xc.kdbx" 
+#     android adbkey.pub 
+#     "%USERPROFILE%\.android\adbkey.pub"
+#
+# keepassxc-cli attachment-export \
+#     "%USERPROFILE%\OneDrive\keepass_data\keepass-xc.kdbx" 
+#     android adbkey 
+#     "%USERPROFILE%\.android\adbkey"
