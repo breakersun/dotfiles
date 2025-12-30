@@ -141,3 +141,5 @@ Start-Process "http://iyoung.ysepan.com/?xzpd=1"
 #     "%USERPROFILE%\OneDrive\keepass_data\keepass-xc.kdbx" \
 #     android adbkey \
 #     "%USERPROFILE%\.android\adbkey"
+#
+# $env:GH_TOKEN = keepassxc-cli show C:\Users\leosu\OneDrive\keepass_data\keepass-xc.kdbx "github" -a "GH_TOKEN"
