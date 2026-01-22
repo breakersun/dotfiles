@@ -4,6 +4,10 @@
     "actions": 
     [
         {
+            "command": "openWindowRenamer",
+            "id": "User.openWindowRenamer"
+        },
+        {
             "command": 
             {
                 "action": "sendInput",
@@ -20,28 +24,64 @@
     "keybindings": 
     [
         {
-            "id": null,
-            "keys": "ctrl+tab"
-        },
-        {
             "id": "Terminal.CopyToClipboard",
             "keys": "ctrl+c"
+        },
+        {
+            "id": null,
+            "keys": "ctrl+shift+k"
+        },
+        {
+            "id": null,
+            "keys": "ctrl+tab"
         },
         {
             "id": "Terminal.DuplicatePaneAuto",
             "keys": "alt+shift+d"
         },
         {
-            "id": "Terminal.NextTab",
-            "keys": "ctrl+comma"
-        },
-        {
             "id": "Terminal.FindText",
             "keys": "ctrl+shift+f"
         },
         {
+            "id": "Terminal.NextTab",
+            "keys": "ctrl+comma"
+        },
+        {
             "id": "User.sendInput.3B9D7849",
             "keys": "ctrl+period"
+        },
+        {
+            "id": null,
+            "keys": "alt+f4"
+        },
+        {
+            "id": null,
+            "keys": "ctrl+shift+w"
+        },
+        {
+            "id": null,
+            "keys": "ctrl+insert"
+        },
+        {
+            "id": null,
+            "keys": "enter"
+        },
+        {
+            "id": null,
+            "keys": "ctrl+alt+comma"
+        },
+        {
+            "id": null,
+            "keys": "ctrl+shift+comma"
+        },
+        {
+            "id": null,
+            "keys": "ctrl+shift+v"
+        },
+        {
+            "id": null,
+            "keys": "ctrl+shift+m"
         }
     ],
     "newTabMenu": 
