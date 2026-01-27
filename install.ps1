@@ -67,7 +67,6 @@ param (
         'clink'
         'sshs'
         'flclash'
-        'television'
     )
 )
 
