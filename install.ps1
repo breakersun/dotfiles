@@ -113,7 +113,7 @@ gsudo New-Item -ItemType SymbolicLink -Path $StartUp -Name "autohot.lnk" -Value 
 $viatc_dir="$HOME\.local\share\viatc"
 git clone 'https://github.com/breakersun/ViATc-English.git' $viatc_dir --depth=1
 
-git -C $env:LOCALAPPDATA clone https://github.com/breakersun/nvim.git
+git -C $env:LOCALAPPDATA clone git@github.com:breakersun/starter ./nvim
 
 npm install picgo -g
 picgo --version
