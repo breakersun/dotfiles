@@ -114,3 +114,7 @@ function proxy_off(){
 }
 
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv bash)"
+
+eval "$(starship init bash)"
+eval "$(fzf --bash)"
+eval "$(zoxide init bash)"

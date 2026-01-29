@@ -1,11 +1,2 @@
 set colored-stats                 on   # Turn on completion colors.
 set colored-completion-prefix     on   # Color the typed completion prefix.
-
-$if clink
-set search-ignore-case          on   # Case insensitive history searches.
-set completion-auto-query-items on   # Prompt before showing completions if they'll exceed half the screen.
-set show-mode-in-prompt         off
-$endif
-
-# Add your keybindings here...
-"\e[5;5~":    "luafunc:zoxide_dir_popup"    # Ctrl-PgUp
