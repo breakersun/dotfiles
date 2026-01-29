@@ -24,7 +24,7 @@ set +x
 echo -e 'Copy to https://github.com/settings/ssh/new'
 echo -e "\033[32m" ;cat ~/.ssh/id_ed25519.pub; echo -e "\033[0m"
 read -p 'Press any key to continue...'
-git clone git@github.com:breakersun/nvim.git ~/.config/nvim || echo "Encountered error during git pull. Skipping..."
+git clone git@github.com:breakersun/starter ~/.config/nvim || echo "Encountered error during git pull. Skipping..."
 
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 ~/.fzf/install
