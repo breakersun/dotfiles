@@ -10,6 +10,13 @@ sudo add-apt-repository ppa:neovim-ppa/unstable -y
 sudo apt update
 sudo apt install openssh-server fish neovim curl git ripgrep tmux npm xclip -y
 sudo apt upgrade -y
+
+#homebrew
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+echo >> /home/leo/.bashrc
+echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv bash)"' >> /home/leo/.bashrc
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv bash)"
+
 ssh-keygen -t ed25519 -C "leosunsl@outlook.com"
 eval `ssh-agent -s`
 ssh-add
