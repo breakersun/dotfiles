@@ -112,3 +112,5 @@ function proxy_off(){
     unset https_proxy
     echo -e "Proxy Disabled"
 }
+
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv bash)"
