@@ -4,16 +4,16 @@
     "actions": 
     [
         {
-            "command": "openWindowRenamer",
-            "id": "User.openWindowRenamer"
-        },
-        {
             "command": 
             {
                 "action": "sendInput",
                 "input": "\u001b[46;5u"
             },
             "id": "User.sendInput.3B9D7849"
+        },
+        {
+            "command": "openWindowRenamer",
+            "id": "User.openWindowRenamer"
         }
     ],
     "copyFormatting": "none",
@@ -24,16 +24,16 @@
     "keybindings": 
     [
         {
+            "id": null,
+            "keys": "ctrl+tab"
+        },
+        {
             "id": "Terminal.CopyToClipboard",
             "keys": "ctrl+c"
         },
         {
             "id": null,
             "keys": "ctrl+shift+k"
-        },
-        {
-            "id": null,
-            "keys": "ctrl+tab"
         },
         {
             "id": "Terminal.DuplicatePaneAuto",
@@ -48,12 +48,12 @@
             "keys": "ctrl+comma"
         },
         {
-            "id": "User.sendInput.3B9D7849",
-            "keys": "ctrl+period"
-        },
-        {
             "id": null,
             "keys": "alt+f4"
+        },
+        {
+            "id": "User.sendInput.3B9D7849",
+            "keys": "ctrl+period"
         },
         {
             "id": null,
@@ -82,6 +82,14 @@
         {
             "id": null,
             "keys": "ctrl+shift+m"
+        },
+        {
+            "id": "Terminal.QuakeMode",
+            "keys": "ctrl+\\"
+        },
+        {
+            "id": null,
+            "keys": "win+sc(41)"
         }
     ],
     "newTabMenu": 
@@ -140,7 +148,7 @@
                 "guid": "{2b36dffb-a76b-46a8-b1ba-2b91cfb590b6}",
                 "historySize": 9001,
                 "icon": "ms-appx:///ProfileIcons/{61c54bbd-c2c6-5271-96e7-009a87ff44bf}.png",
-                "name": "Windows PowerShell-7",
+                "name": "PowerShell-7",
                 "opacity": 83,
                 "padding": "8, 8, 8, 8",
                 "snapOnInput": true,
@@ -152,6 +160,12 @@
                 "guid": "{739e3e23-4997-5937-a161-23e3321505bd}",
                 "hidden": false,
                 "name": "NixOS",
+                "source": "Microsoft.WSL"
+            },
+            {
+                "guid": "{2fcc03a6-8bd8-5a83-8b5d-4c6f1d428ab5}",
+                "hidden": false,
+                "name": "Ubuntu",
                 "source": "Microsoft.WSL"
             }
         ]
