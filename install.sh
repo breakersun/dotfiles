@@ -12,9 +12,8 @@ echo 'eval "$(brew shellenv bash)"' >> "$HOME/.bashrc"
 eval "$(brew shellenv bash)"
 brew install neovim
 
-sudo apt-add-repository ppa:fish-shell/release-3 -y
 sudo apt update
-sudo apt install openssh-server fish \
+sudo apt install openssh-server \
                 curl git ripgrep \
                 tmux npm xclip \
                 unzip fd-find -y
