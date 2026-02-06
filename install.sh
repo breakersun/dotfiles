@@ -6,16 +6,36 @@ cd "$HOME" || exit
 echo -e "BEEP BOOP. Setting up..."
 set -x # Log Executions
 #homebrew
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-echo >> "$HOME/.bashrc"
-echo 'eval "$(brew shellenv bash)"' >> "$HOME/.bashrc"
-eval "$(brew shellenv bash)"
-brew install neovim
+if ! command -v brew >/dev/null 2>&1; then
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+fi
+
+BREW_BIN="$(command -v brew || true)"
+if [ -z "$BREW_BIN" ]; then
+    for candidate in /home/linuxbrew/.linuxbrew/bin/brew /opt/homebrew/bin/brew /usr/local/bin/brew; do
+        if [ -x "$candidate" ]; then
+            BREW_BIN="$candidate"
+            break
+        fi
+    done
+fi
+
+if [ -z "$BREW_BIN" ]; then
+    echo "Homebrew installation failed" >&2
+    exit 1
+fi
+
+eval "$($BREW_BIN shellenv)"
+if ! grep -Fq 'brew shellenv' "$HOME/.bashrc"; then
+    printf '\n%s\n' "eval \"\$($BREW_BIN shellenv)\"" >> "$HOME/.bashrc"
+fi
+
+"$BREW_BIN" install neovim
 
 sudo apt update
 sudo apt install openssh-server \
                 curl git ripgrep \
-                tmux npm xclip \
+                tmux npm xclip build-essential \
                 unzip fd-find -y
 sudo apt upgrade -y
 
