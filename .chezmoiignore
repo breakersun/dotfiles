@@ -21,6 +21,8 @@ display_switch.exe
   dot_ideavimrc
   AppData/Roaming/Microsoft/InputMethod/Chs/ChsPinyinEUDPv1.lex
   win-base-bundle.ubundle
+  dot_ideavimrc
+  dot_local/executable_beyondcompare.bat
 {{ end }}
 
 {{ if eq .chezmoi.os "windows" }}
