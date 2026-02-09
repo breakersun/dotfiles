@@ -137,6 +137,7 @@
             {
                 "altGrAliasing": true,
                 "antialiasingMode": "grayscale",
+                "bellStyle": "none",
                 "closeOnExit": "graceful",
                 "colorScheme": "Campbell(Mod)",
                 "commandline": "C:\\Program Files\\PowerShell\\7\\pwsh.exe",
@@ -163,6 +164,7 @@
                 "source": "Microsoft.WSL"
             },
             {
+                "bellStyle": "none",
                 "guid": "{2fcc03a6-8bd8-5a83-8b5d-4c6f1d428ab5}",
                 "hidden": false,
                 "name": "Ubuntu",
