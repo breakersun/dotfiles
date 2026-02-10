@@ -4,6 +4,10 @@
     "actions": 
     [
         {
+            "command": "openWindowRenamer",
+            "id": "User.openWindowRenamer"
+        },
+        {
             "command": 
             {
                 "action": "sendInput",
@@ -12,8 +16,12 @@
             "id": "User.sendInput.3B9D7849"
         },
         {
-            "command": "openWindowRenamer",
-            "id": "User.openWindowRenamer"
+            "command": 
+            {
+                "action": "sendInput",
+                "input": "\u001b[32;5u"
+            },
+            "id": "User.sendInput.E116B028"
         }
     ],
     "copyFormatting": "none",
@@ -24,8 +32,8 @@
     "keybindings": 
     [
         {
-            "id": null,
-            "keys": "ctrl+tab"
+            "id": "User.sendInput.E116B028",
+            "keys": "ctrl+space"
         },
         {
             "id": "Terminal.CopyToClipboard",
@@ -34,6 +42,10 @@
         {
             "id": null,
             "keys": "ctrl+shift+k"
+        },
+        {
+            "id": null,
+            "keys": "ctrl+tab"
         },
         {
             "id": "Terminal.DuplicatePaneAuto",
