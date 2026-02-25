@@ -62,7 +62,7 @@ param (
         'sfsu'
         'clink'
         'sshs'
-        'flclash'
+        'trzsz'
     )
 )
 

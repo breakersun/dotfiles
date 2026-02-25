@@ -52,6 +52,7 @@ git clone git@github.com:breakersun/starter ~/.config/nvim || echo "Encountered 
 brew install fzf
 brew install starship
 brew install zoxide
+brew install trzsz-go
 
 # Install chezmoi
 set -x
