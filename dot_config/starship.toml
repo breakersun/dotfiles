@@ -1,12 +1,14 @@
 add_newline = false
-{{ if eq .chezmoi.os "windows" }}
-format="$all\u001b7${fill}\u001b8"
-{{ end }}
+
+format="$os$username$all$linebreak$character"
+
+[os]
+disabled = false
 
 [character]
 success_symbol = "[❯](bold green)"
 error_symbol = "[❌](bold red)"
-vicmd_symbol = "[❮](bold blue)"
+vicmd_symbol = "[❯](bold blue)"
 
 [fill]
 symbol = " "
@@ -21,9 +23,9 @@ diverged   = "↑${ahead_count}↓${behind_count} "
 behind     = "↓${count} "
 stashed    = "[⚑$count](bold blue) "
 staged     = "[✚$count](green) "
-modified   = "📝×${count} "
+modified   = "📝${count} "
 renamed    = "[»$count](green) "
-deleted    = "🗑️×${count} "
+deleted    = "🗑️${count} "
 untracked  = "[?$count](cyan) "
 style      = "bright-white"
 
@@ -34,5 +36,9 @@ tag_symbol = "🔖 "
 
 [hostname]
 disabled = true
+
 [username]
-disabled = true
+show_always = true
+style_user = "bg:color_orange fg:color_fg0"
+style_root = "bg:color_orange fg:color_fg0"
+format = '[$user ]($style)'
