@@ -14,6 +14,7 @@ $git_metrics\
 [](fg:color_aqua bg:color_blue)\
 $c\
 $cpp\
+$cmake\
 $rust\
 $golang\
 $nodejs\
@@ -158,6 +159,10 @@ symbol = " "
 style = "bg:color_blue"
 format = '[[ $symbol ](fg:color_fg0 bg:color_blue)]($style)'
 
+[cmake]
+style = "bg:color_blue"
+format = '[[ $symbol ](fg:color_fg0 bg:color_blue)]($style)'
+
 [rust]
 symbol = ""
 style = "bg:color_blue"
@@ -171,7 +176,7 @@ format = '[[ $symbol ](fg:color_fg0 bg:color_blue)]($style)'
 [python]
 symbol = ""
 style = "bg:color_blue"
-format = '[[ $symbol ](fg:color_fg0 bg:color_blue)]($style)'
+format = '[[${symbol}${pyenv_prefix}(${version} )(\($virtualenv\) )](fg:color_fg0 bg:color_blue)]($style)'
 
 [package]
 disabled = false
@@ -200,8 +205,8 @@ disabled = false
 
 [character]
 disabled = false
-success_symbol = '[❯](bold fg:color_bright_green)'
-error_symbol = '[❯](bold fg:color_bright_red)'
+success_symbol = '[](bold fg:color_bright_green)'
+error_symbol = '[](bold fg:color_bright_red)'
 vimcmd_symbol = '[](bold fg:color_bright_green)'
 vimcmd_replace_one_symbol = '[](bold fg:color_purple)'
 vimcmd_replace_symbol = '[](bold fg:color_purple)'
