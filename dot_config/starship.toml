@@ -1,6 +1,6 @@
 add_newline = false
 
-format="$os$username$all$linebreak$character"
+format="$username@$os$all$linebreak$character"
 
 [os]
 disabled = false
@@ -41,4 +41,4 @@ disabled = true
 show_always = true
 style_user = "bg:color_orange fg:color_fg0"
 style_root = "bg:color_orange fg:color_fg0"
-format = '[$user ]($style)'
+format = '[$user]($style)'
