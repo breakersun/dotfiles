@@ -46,6 +46,7 @@ param (
         'lazygit'
         'lazyssh'
         'FiraCode-NF'
+        'Maple-Mono-NF-CN'
         'ditto'
         'vscode'
         'lsd'
