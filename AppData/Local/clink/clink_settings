@@ -6,6 +6,15 @@ autosuggest.enable = True
 # type: boolean
 autosuggest.hint = True
 
+# name: Controls how suggestions are chosen
+# type: string
+autosuggest.strategy = fuzzy_history match_prev_cmd history completion
+
+# name: Selects default key bindings
+# type: enum
+# options: bash,windows
+clink.default_bindings = bash
+
 # name: Controls what startup logo to show
 # type: enum
 # options: none,full,short
@@ -55,6 +64,10 @@ color.divider_line_end = sgr 38;5;25
 # type: color
 color.doskey = bold cyan
 
+# name: Color for environment variables
+# type: color
+color.envvars = default
+
 # name: Color for escape for plain tilde
 # type: color
 color.escapetilde = bright cyan on blue
@@ -79,9 +92,21 @@ color.luaprefix = bright cyan on blue
 # type: color
 color.message = default
 
+# name: Color for transient divider line
+# type: color
+color.transient_divider_line = sgr 38;5;240
+
+# name: Color for duration text in transient line
+# type: color
+color.transient_divider_text = sgr 38;5;214
+
 # name: Unexpected argument color
 # type: color
 color.unexpected = default
+
+# name: Auto-translate fish completion files
+# type: boolean
+fishcomplete.enable = True
 
 # name: Use default key bindings
 # type: boolean
@@ -90,6 +115,10 @@ fzf.default_bindings = True
 # name: Enables icons in file completions
 # type: boolean
 matchicons.enable = True
+
+# name: Start with the suggestion list enabled
+# type: boolean
+suggestionlist.default = True
 
 # name: Changes the prefix of the aliases
 # type: string
