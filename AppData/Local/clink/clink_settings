@@ -122,5 +122,5 @@ suggestionlist.default = True
 
 # name: Changes the prefix of the aliases
 # type: string
-zoxide.cmd = z
+zoxide.cmd = cd
 
