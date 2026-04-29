@@ -120,6 +120,10 @@ matchicons.enable = True
 # type: boolean
 suggestionlist.default = True
 
+# name: Show a tip when Clink starts
+# type: boolean
+tips.enable = False
+
 # name: Changes the prefix of the aliases
 # type: string
 zoxide.cmd = cd
