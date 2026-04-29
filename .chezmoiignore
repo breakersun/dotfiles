@@ -10,7 +10,7 @@ display_switch.exe
 
 {{ if eq .chezmoi.os "linux" }}
   Documents
-  AppData
+  AppData/
   OneDrive
   dot_config/icons
   dot_config/profile.ps1
