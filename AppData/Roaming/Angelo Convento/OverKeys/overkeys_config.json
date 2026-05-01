@@ -13,6 +13,6 @@
 			]
 		}
 	],
-	"defaultUserLayout": "insert",
-	"altLayout": "normal"
+	"defaultUserLayout": "qwerty",
+	"altLayout": "vim"
 }

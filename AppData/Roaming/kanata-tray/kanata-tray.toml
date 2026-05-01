@@ -15,8 +15,8 @@ autorestart_on_crash = false
 # Documentation: https://github.com/rszyma/kanata-tray/blob/main/doc/hooks.md
 
 [defaults.layer_icons]
-'insert' = 'keyboard.ico'
-'*' = 'vim.ico'
+'qwerty' = 'keyboard.ico'
+'vim' = 'vim.ico'
 
 
 [presets.'main']
