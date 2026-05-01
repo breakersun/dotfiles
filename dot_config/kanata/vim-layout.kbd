@@ -6,24 +6,27 @@
 ;; This defines the physical keys we intend to intercept.
 ;; --------------------------------------------------------------------------
 (defsrc
+  1 2 3 4 5 6 7 8 9 0
   caps  a    s    d    f    h    j    k    l    ;    
-  w    e    b    u    r    i    0    4    x    [    ]
+  w    e    b    u    r    i     x    o    [    ]
 )
 
 ;; --------------------------------------------------------------------------
 ;; qwerty MODE (Default Layer)
 ;; --------------------------------------------------------------------------
 (deflayer qwerty
+  1 2 3 4 5 6 7 8 9 0
   @cap_mod a    s    d    f    h    j    k    l    ;    
-  w    e    b    u    r    i    0    4    x    [    ]
+  w    e    b    u    r    i    x   o    [    ]
 )
 
 ;; --------------------------------------------------------------------------
 ;; vim MODE (Vim Navigation & Editing)
 ;; --------------------------------------------------------------------------
 (deflayer vim
+  f1 f2 f3 f4 f5 f6 f7 f8 f9 f10
   esc   _    _    @page_d _    left down up   right _    
-  @word_f _ @word_b @undo @redo @to_ins @home @end @del _ _
+  @word_f _ @word_b @home @redo @to_ins  @del @end _ _
 )
 
 ;; --------------------------------------------------------------------------
@@ -58,10 +61,10 @@
 ;;
 ;;  H J K L  => Arrows
 ;;  W / B    => Word Forward / Backward
-;;  U / R    => Undo / Redo
+;;  R        => Redo
+;;  U / O    => Home / End
 ;;  I        => Return to qwerty Mode
 ;;  D        => Page Down
 ;;  [ / ]    => Page Up / Page Down
-;;  0 / 4    => Home / End
 ;;  X        => Delete Forward
 ;; --------------------------------------------------------------------------
