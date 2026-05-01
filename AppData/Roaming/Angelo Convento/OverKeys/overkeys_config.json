@@ -1,0 +1,18 @@
+{
+	"kanataHost": "127.0.0.1",
+	"kanataPort": 4039,
+	"userLayouts": [
+		{
+			"name": "vim",
+			"keys": [
+				[ "`", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "-", "=", "BSPC" ],
+				[ "Q", "WF", "E", "REDO", "T", "Y", "UNDO", "@Ins", "O", "P", "[", "]" ],
+				[ "A", "S", "Pd", "F", "G", "←", "↓", "⤒", "→", ";", "'"],
+				[ "Z", "Del", "C", "V", "WB", "N", "M", "<", ">", "/"],
+				[ " "]
+			]
+		}
+	],
+	"defaultUserLayout": "insert",
+	"altLayout": "normal"
+}

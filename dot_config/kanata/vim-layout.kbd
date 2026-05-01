@@ -1,0 +1,67 @@
+
+;;kanata -c .\vim-layout.kbd -p 127.0.0.1:4039
+
+;; --------------------------------------------------------------------------
+;; PHYSICAL INPUT DEFINITION
+;; This defines the physical keys we intend to intercept.
+;; --------------------------------------------------------------------------
+(defsrc
+  caps  a    s    d    f    h    j    k    l    ;    
+  w    e    b    u    r    i    0    4    x    [    ]
+)
+
+;; --------------------------------------------------------------------------
+;; qwerty MODE (Default Layer)
+;; --------------------------------------------------------------------------
+(deflayer qwerty
+  @cap_mod a    s    d    f    h    j    k    l    ;    
+  w    e    b    u    r    i    0    4    x    [    ]
+)
+
+;; --------------------------------------------------------------------------
+;; vim MODE (Vim Navigation & Editing)
+;; --------------------------------------------------------------------------
+(deflayer vim
+  esc   _    _    @page_d _    left down up   right _    
+  @word_f _ @word_b @undo @redo @to_ins @home @end @del _ _
+)
+
+;; --------------------------------------------------------------------------
+;; ALIAS DEFINITIONS
+;; --------------------------------------------------------------------------
+(defalias
+  ;; --- Mode Logic ---
+  ;; Tap Caps for Esc + Switch to vim. Hold for temporary vim layer.
+  cap_mod (tap-hold 200 200 (layer-switch vim) (layer-toggle vim))
+  
+  ;; Press 'i' in vim mode to return to typing
+  to_ins (layer-switch qwerty)
+
+  ;; --- Movement (Vim-style) ---
+  word_f C-right   ;; 'w' -> Jump word forward
+  word_b C-left    ;; 'b' -> Jump word backward
+  home   home      ;; '0' -> Start of line
+  end    end       ;; '4' ($) -> End of line
+  
+  ;; --- Scrolling (C-u / C-d style) ---
+  page_u pgup      ;; 'u' -> Page Up
+  page_d pgdn      ;; 'd' -> Page Down
+
+  ;; --- Editing ---
+  redo   C-y       ;; 'r' -> Redo (Windows standard)
+  del    del       ;; 'x' -> Delete forward
+  undo   C-z       ;; (Map this to 'u' if you prefer, but 'u' is currently page_u)
+)
+
+;; --------------------------------------------------------------------------
+;; KEYBOARD SUMMARY (vim MODE):
+;;
+;;  H J K L  => Arrows
+;;  W / B    => Word Forward / Backward
+;;  U / R    => Undo / Redo
+;;  I        => Return to qwerty Mode
+;;  D        => Page Down
+;;  [ / ]    => Page Up / Page Down
+;;  0 / 4    => Home / End
+;;  X        => Delete Forward
+;; --------------------------------------------------------------------------

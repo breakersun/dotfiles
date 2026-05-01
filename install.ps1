@@ -64,6 +64,7 @@ param (
         'clink'
         'sshs'
         'trzsz'
+        'kanata'
     )
 )
 
