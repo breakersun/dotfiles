@@ -56,7 +56,7 @@
   undo   C-z       ;; (Map this to 'u' if you prefer, but 'u' is currently page_u)
 
   ;; home row
-  a-mod  lmet
+  a-mod (tap-hold 200 200 a lmet)
 )
 
 ;; --------------------------------------------------------------------------
