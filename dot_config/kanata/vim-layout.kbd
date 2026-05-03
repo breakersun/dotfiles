@@ -25,7 +25,7 @@
 ;; --------------------------------------------------------------------------
 (deflayer vim
   f1 f2 f3 f4 f5 f6 f7 f8 f9 f10
-  esc   @a-mod    _    @page_d _    left down up   right _    
+  esc   @a-mod    _    @page_d f6    left down up   right _    
   @word_f _ @word_b @home @redo @to_ins  @del @end _ _
 )
 
@@ -56,7 +56,7 @@
   undo   C-z       ;; (Map this to 'u' if you prefer, but 'u' is currently page_u)
 
   ;; home row
-  a-mod (tap-hold 200 200 a lmet)
+  a-mod lmet
 )
 
 ;; --------------------------------------------------------------------------
@@ -70,4 +70,5 @@
 ;;  D        => Page Down
 ;;  [ / ]    => Page Up / Page Down
 ;;  X        => Delete Forward
+;;  F        => F6 for focus, for browser
 ;; --------------------------------------------------------------------------
