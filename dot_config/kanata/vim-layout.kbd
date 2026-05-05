@@ -7,6 +7,7 @@
 ;; --------------------------------------------------------------------------
 (defsrc
   1 2 3 4 5 6 7 8 9 0
+  q
   caps  a    s    d    f    h    j    k    l    ;    
   w    e    b    u    r    i     x    o    [    ]
 )
@@ -16,6 +17,7 @@
 ;; --------------------------------------------------------------------------
 (deflayer qwerty
   1 2 3 4 5 6 7 8 9 0
+  q
   @cap_mod a    s    d    f    h    j    k    l    ;    
   w    e    b    u    r    i    x   o    [    ]
 )
@@ -25,6 +27,7 @@
 ;; --------------------------------------------------------------------------
 (deflayer vim
   f1 f2 f3 f4 f5 f6 f7 f8 f9 f10
+  @q-mod
   esc   @a-mod    _    @page_d f6    left down up   right _    
   @word_f _ @word_b @home @redo @to_ins  @del @end _ _
 )
@@ -56,7 +59,8 @@
   undo   C-z       ;; (Map this to 'u' if you prefer, but 'u' is currently page_u)
 
   ;; home row
-  a-mod lmet
+  a-mod f24
+  q-mod (multi f24 lshift)
 )
 
 ;; --------------------------------------------------------------------------
