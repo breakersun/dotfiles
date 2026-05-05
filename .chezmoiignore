@@ -24,6 +24,7 @@ display_switch.exe
   win-base-bundle.ubundle
   dot_ideavimrc
   dot_local/executable_beyondcompare.bat
+  dot_glzr/
 {{ end }}
 
 {{ if eq .chezmoi.os "windows" }}
