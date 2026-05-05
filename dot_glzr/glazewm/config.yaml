@@ -2,11 +2,11 @@ general:
   # Commands to run when the WM has started. This is useful for running a
   # script or launching another application.
   # Example: The below command launches Zebar.
-  startup_commands: ['shell-exec zebar']
+  # startup_commands: ['shell-exec zebar']
 
   # Commands to run just before the WM is shutdown.
   # Example: The below command kills Zebar.
-  shutdown_commands: ['shell-exec taskkill /IM zebar.exe /F']
+  # shutdown_commands: ['shell-exec taskkill /IM zebar.exe /F']
 
   # Commands to run after the WM config is reloaded.
   config_reload_commands: []
@@ -46,11 +46,12 @@ gaps:
 
   # Gap between adjacent windows.
   # inner_gap: '20px'
-  inner_gap: '3px'
+  inner_gap: '2px'
 
   # Gap between windows and the screen edge.
   outer_gap:
-    top: '23px'
+    # top: '26px'
+    top: '0px'
     right: '0px'
     bottom: '0px'
     left: '0px'
@@ -125,12 +126,6 @@ workspaces:
   - name: '1'
   - name: '2'
   - name: '3'
-  - name: '4'
-  - name: '5'
-  - name: '6'
-  - name: '7'
-  - name: '8'
-  - name: '9'
 
 window_rules:
   - commands: ['ignore']
