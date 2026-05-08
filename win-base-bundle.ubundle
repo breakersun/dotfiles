@@ -9,6 +9,13 @@
       "ManagerName": "Winget"
     },
     {
+      "Id": "AmN.yasb",
+      "Name": "yasb",
+      "Version": "2.0.0",
+      "Source": "winget",
+      "ManagerName": "Winget"
+    },
+    {
       "Id": "AngeloConvento.OverKeys",
       "Name": "OverKeys",
       "Version": "0.3.4",
@@ -90,6 +97,13 @@
       "Id": "WinFsp.WinFsp",
       "Name": "WinFsp 2023",
       "Version": "2.0.23075",
+      "Source": "winget",
+      "ManagerName": "Winget"
+    },
+    {
+      "Id": "glzr-io.glazewm",
+      "Name": "GlazeWM",
+      "Version": "3.10.1",
       "Source": "winget",
       "ManagerName": "Winget"
     }
