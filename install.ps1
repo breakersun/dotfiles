@@ -104,6 +104,10 @@ foreach ($app in $Apps) {
     scoop install $app
 }
 
+# install this for kanata-tray
+scoop bucket add gdm257_scoop-257 https://github.com/gdm257/scoop-257
+scoop install gdm257_scoop-257/kanata-tray
+
 # for sshfs : 'net use X: \\sshfs\sunlong@10.84.130.211; net use X: /delete'
 chezmoi init --apply breakersun
 
