@@ -92,20 +92,6 @@
       "Version": "2.0.23075",
       "Source": "winget",
       "ManagerName": "Winget"
-    },
-    {
-      "Id": "chen08209.FlClash",
-      "Name": "FlClash",
-      "Version": "0.8.72\u002B202501101",
-      "Source": "winget",
-      "ManagerName": "Winget"
-    },
-    {
-      "Id": "everauto.zTasker",
-      "Name": "zTasker",
-      "Version": "2.0.5",
-      "Source": "winget",
-      "ManagerName": "Winget"
     }
   ],
   "incompatible_packages_info": "Incompatible packages cannot be installed from UniGetUI, either because they came from a local source (for example Local PC) or because the package manager was unavailable. Nevertheless, they have been listed here for logging purposes.",
