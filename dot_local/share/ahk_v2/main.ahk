@@ -52,3 +52,21 @@ XButton1::Send "^{-}"
 XButton2::Send "^+{-}"
 ^LButton::Send "{F12}"
 #HotIf
+
+SetTimer(ForceEdgeContentFocus, 200)
+ForceEdgeContentFocus() {
+    ; 检查当前激活窗口是否为 Edge
+    if WinActive("ahk_exe msedge.exe") {
+        try {
+            ; 获取当前焦点的控件类名
+            currentFocus := ControlGetFocus("A")
+            
+            ; 如果焦点不在网页渲染区 (Chrome_RenderWidgetHostHWND1)
+            ; 且焦点目前在工具栏或地址栏上（通常类名为 ToolbarWindow32 或中间控件）
+            if (currentFocus != "Chrome_RenderWidgetHostHWND1") {
+                ; 强行将焦点设置到网页渲染区域
+                ControlFocus("Chrome_RenderWidgetHostHWND1", "A")
+            }
+        }
+    }
+}
