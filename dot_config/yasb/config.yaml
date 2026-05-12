@@ -42,7 +42,6 @@ bars:
       center:
       - active_window
       right:
-      - wifi
       - clock
       - notifications
       - power_menu
