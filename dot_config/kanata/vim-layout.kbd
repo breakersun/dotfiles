@@ -40,7 +40,7 @@
 (deflayer vim
   esc    f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12
   grv    f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12   @bspc
-  tab     q    w    e    r    t    y   @u_  @i_  @o_   p    [    ]    \
+  tab     q    w    e    r   @t_   y   @u_  @i_  @o_   p    [    ]    \
   esc     a    s    d    f    g   @h_  @j_  @k_  @l_   ;    '    ret
   lsft    z    x    c    v    b    n    m    ,    .    /    rsft
   lctl    lmet lalt           spc            ralt rctl
@@ -61,6 +61,7 @@
   j_   down
   k_   up
   l_   right
+  t_   (multi f24 ret)
 
 ;;     how row layout
   f    (t! dual-action f lsft)
