@@ -12,7 +12,7 @@ general:
   config_reload_commands: []
 
   # Whether to automatically focus windows underneath the cursor.
-  focus_follows_cursor: true
+  focus_follows_cursor: false
 
   # Whether to switch back and forth between the previously focused
   # workspace when focusing the current workspace.
@@ -67,7 +67,7 @@ window_effects:
     # Remove the title bar from the window's frame. Note that this can
     # cause rendering issues for some applications.
     hide_title_bar:
-      enabled: true
+      enabled: false
 
     # Change the corner style of the window's frame.
     # ** Exclusive to Windows 11 due to API limitations.
@@ -159,13 +159,12 @@ window_rules:
       - window_title: { equals: 'Run' }
       - window_title: { equals: 'Window Spy for AHKv2' }
       - window_process: { equals: 'FlClash'}
-      - window_process: { regex: 'OUTLOOK' }
   - commands: ['set-floating']
     match:
       - window_process: { equals: 'OverKeys' }
         window_class: { equals: 'OverKeys' }
       - window_process: { equals: 'neovide' }
-      - window_process: { regex: 'Taskmgr|IDMan|eudic' }
+      - window_process: { regex: 'OUTLOOK|Taskmgr|IDMan|eudic' }
 
 binding_modes:
   # When enabled, the focused window can be resized via arrow keys or HJKL.

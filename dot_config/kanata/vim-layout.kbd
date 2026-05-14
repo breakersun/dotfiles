@@ -72,4 +72,5 @@
   ,    (t! dual-action , rctl)
   .    (t! dual-action . ralt)
   /    (t! dual-action / rmet)
+  y    (t! dual-action y f16)
 )
