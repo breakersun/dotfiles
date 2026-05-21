@@ -1,37 +1,21 @@
-
 $env:PYTHONIOENCODING = "UTF-8"
 
-
 Import-Module PSFzf
+Import-Module posh-git
 Import-Module -Name Terminal-Icons
 
 Set-PSReadLineOption -PredictionViewStyle ListView
 Set-PsFzfOption -PSReadlineChordProvider 'Ctrl+t' -PSReadlineChordReverseHistory 'Ctrl+r'
+Set-PsFzfOption -EnableAliasFuzzyEdit -EnableAliasFuzzyKillProcess
+Set-PSReadLineOption -Colors @{ "Selection" = "`e[7m" }
 
 Invoke-Expression (&starship init powershell)
 
-# Caraspace
-$env:CARAPACE_BRIDGES = 'zsh,fish,bash,inshellisense' # optional
-Set-PSReadLineOption -Colors @{ "Selection" = "`e[7m" }
-Set-PSReadlineKeyHandler -Key Tab -Function MenuComplete
-carapace _carapace | Out-String | Invoke-Expression
+# Set-PSReadlineKeyHandler -Key Tab -Function MenuComplete
+Set-PSReadLineKeyHandler -Key Tab -ScriptBlock { Invoke-FzfTabCompletion }
+Set-PsFzfOption -TabExpansion
 
 Invoke-Expression (&sfsu hook)
-
-# enable vim mode on pwsh
-# Set-PsReadLineOption -EditMode Emacs
-# enable Vim mode indicator
-$OnViModeChange = [scriptblock]{
-    if ($args[0] -eq 'Command') {
-        # Set the cursor to a blinking block.
-        Write-Host -NoNewLine "`e[2 q"
-    }
-    else {
-        # Set the cursor to a blinking line.
-        Write-Host -NoNewLine "`e[5 q"
-    }
-}
-Set-PSReadLineOption -ViModeIndicator Script -ViModeChangeHandler $OnViModeChange
 
 Set-PSReadlineKeyHandler -Key Tab -Function MenuComplete
 
@@ -58,4 +42,14 @@ function tcmd {
     }
 
     & "$HOME\AppData\Local\TotalCMD64\TotalCMD64.exe" /O /T /$pane="$FolderPath"
+}
+
+function y {
+	$tmp = (New-TemporaryFile).FullName
+	yazi.exe @args --cwd-file="$tmp"
+	$cwd = Get-Content -Path $tmp -Encoding UTF8
+	if ($cwd -and $cwd -ne $PWD.Path -and (Test-Path -LiteralPath $cwd -PathType Container)) {
+		Set-Location -LiteralPath (Resolve-Path -LiteralPath $cwd).Path
+	}
+	Remove-Item -Path $tmp
 }
