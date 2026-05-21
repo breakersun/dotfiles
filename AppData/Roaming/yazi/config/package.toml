@@ -1,0 +1,7 @@
+[[plugin.deps]]
+use = "XYenon/clipboard"
+rev = "a125df0"
+hash = "691eaf677ba5eaecc978972ab8177157"
+
+[flavor]
+deps = []
