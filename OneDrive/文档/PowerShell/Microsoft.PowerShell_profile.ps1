@@ -53,3 +53,5 @@ function y {
 	}
 	Remove-Item -Path $tmp
 }
+
+function superclaude { claude --dangerously-skip-permissions @args }
