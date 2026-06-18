@@ -74,8 +74,7 @@ function Test-ScoopApp {
         [String]$App
     )
     Process {
-        $appInstalled = Test-Path -Path "~\scoop\apps"
-        return $appInstalled
+        return Test-Path -Path "~\scoop\apps\$App\current"
     }
 }
 
@@ -112,15 +111,26 @@ scoop install gdm257_scoop-257/kanata-tray
 chezmoi init --apply breakersun
 
 $hotkeys_dir="$HOME\.local\share\autohotkey_script"
-git clone 'https://github.com/breakersun/autohotkey_script' $hotkeys_dir
+if (-not (Test-Path $hotkeys_dir)) {
+    git clone 'https://github.com/breakersun/autohotkey_script' $hotkeys_dir
+}
 $StartUp="$Env:USERPROFILE\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup"
 $Startup = $Startup -replace ' ', '` '
-gsudo New-Item -ItemType SymbolicLink -Path $StartUp -Name "autohot.lnk" -Value "$hotkeys_dir\startup.ahk"
+$autohotLnk = Join-Path $StartUp "autohot.lnk"
+if (-not (Test-Path $autohotLnk)) {
+    gsudo New-Item -ItemType SymbolicLink -Path $StartUp -Name "autohot.lnk" -Value "$hotkeys_dir\startup.ahk"
+}
 $viatc_dir="$HOME\.local\share\viatc"
-git clone 'https://github.com/breakersun/ViATc-English.git' $viatc_dir --depth=1
+if (-not (Test-Path $viatc_dir)) {
+    git clone 'https://github.com/breakersun/ViATc-English.git' $viatc_dir --depth=1
+}
 
-git -C $env:LOCALAPPDATA clone git@github.com:breakersun/starter ./nvim
+$nvimDir = Join-Path $env:LOCALAPPDATA "nvim"
+if (-not (Test-Path $nvimDir)) {
+    git -C $env:LOCALAPPDATA clone git@github.com:breakersun/starter ./nvim
+}
 
+$env:Path = [System.Environment]::GetEnvironmentVariable("Path","User") + ";" + [System.Environment]::GetEnvironmentVariable("Path","Machine")
 npm install picgo -g
 picgo --version
 Start-Process "https://www.notion.so/hitme/ba9d263f7f6b40f4a317eb9c6719e508"

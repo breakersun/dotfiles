@@ -37,17 +37,19 @@ sudo apt install openssh-server \
                 curl git ripgrep \
                 tmux npm xclip build-essential \
                 unzip fd-find -y
-sudo apt upgrade -y
+# sudo apt upgrade -y  # skipped: full system upgrade not appropriate for install script
 
-ssh-keygen -t ed25519 -C "leosunsl@outlook.com"
-eval "$(ssh-agent -s)"
-ssh-add
-chmod 0700 ~/.ssh # Ensure correct permissions
-set +x
-echo -e 'Copy to https://github.com/settings/ssh/new'
-echo -e "\033[32m" ;cat ~/.ssh/id_ed25519.pub; echo -e "\033[0m"
-read -p 'Press any key to continue...'
-git clone git@github.com:breakersun/starter ~/.config/nvim || echo "Encountered error during git pull. Skipping..."
+if [ ! -f "$HOME/.ssh/id_ed25519" ]; then
+    ssh-keygen -t ed25519 -C "leosunsl@outlook.com"
+    eval "$(ssh-agent -s)"
+    ssh-add
+    chmod 0700 ~/.ssh
+    set +x
+    echo -e 'Copy to https://github.com/settings/ssh/new'
+    echo -e "\033[32m"; cat ~/.ssh/id_ed25519.pub; echo -e "\033[0m"
+    read -p 'Press any key to continue...'
+fi
+[ -d "$HOME/.config/nvim" ] || git clone git@github.com:breakersun/starter ~/.config/nvim
 
 brew install fzf
 brew install starship
