@@ -18,12 +18,23 @@
         {
             "command": 
             {
+                "action": "globalSummon",
+                "desktop": "any",
+                "monitor": "any",
+                "toggleVisibility": true
+            },
+            "id": "User.globalSummon.CBCE525E"
+        },
+        {
+            "command": 
+            {
                 "action": "sendInput",
                 "input": "\u001b[32;5u"
             },
             "id": "User.sendInput.E116B028"
         }
     ],
+    "alwaysShowNotificationIcon": true,
     "copyFormatting": "none",
     "copyOnSelect": false,
     "defaultProfile": "{0caa0dad-35be-5f56-a8ff-afceeeaa6101}",
@@ -32,32 +43,36 @@
     "keybindings": 
     [
         {
+            "id": "User.globalSummon.CBCE525E",
+            "keys": "alt+\\"
+        },
+        {
             "id": "User.sendInput.E116B028",
             "keys": "ctrl+space"
-        },
-        {
-            "id": "Terminal.CopyToClipboard",
-            "keys": "ctrl+c"
-        },
-        {
-            "id": null,
-            "keys": "ctrl+shift+k"
         },
         {
             "id": null,
             "keys": "ctrl+tab"
         },
         {
+            "id": null,
+            "keys": "ctrl+shift+k"
+        },
+        {
+            "id": "Terminal.CopyToClipboard",
+            "keys": "ctrl+c"
+        },
+        {
             "id": "Terminal.DuplicatePaneAuto",
             "keys": "alt+shift+d"
         },
         {
-            "id": "Terminal.FindText",
-            "keys": "ctrl+shift+f"
-        },
-        {
             "id": "Terminal.NextTab",
             "keys": "ctrl+comma"
+        },
+        {
+            "id": "Terminal.FindText",
+            "keys": "ctrl+shift+f"
         },
         {
             "id": null,
@@ -104,6 +119,7 @@
             "keys": "win+sc(41)"
         }
     ],
+    "minimizeToNotificationArea": true,
     "newTabMenu": 
     [
         {
@@ -149,7 +165,7 @@
             {
                 "altGrAliasing": true,
                 "antialiasingMode": "grayscale",
-                "bellStyle": "none",
+                "bellStyle": "audible",
                 "closeOnExit": "graceful",
                 "colorScheme": "Campbell(Mod)",
                 "commandline": "C:\\Program Files\\PowerShell\\7\\pwsh.exe",
@@ -182,6 +198,18 @@
                 "hidden": false,
                 "name": "Ubuntu",
                 "source": "Microsoft.WSL"
+            },
+            {
+                "guid": "{041895be-95e1-5112-be33-0667e58be9bd}",
+                "hidden": false,
+                "name": "Developer Command Prompt for VS 2022",
+                "source": "Windows.Terminal.VisualStudio"
+            },
+            {
+                "guid": "{e469deff-900c-5b35-be8e-20b9174915ec}",
+                "hidden": false,
+                "name": "Developer PowerShell for VS 2022",
+                "source": "Windows.Terminal.VisualStudio"
             }
         ]
     },

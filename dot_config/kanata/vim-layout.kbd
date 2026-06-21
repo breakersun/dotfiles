@@ -9,7 +9,7 @@
   streak-count 3
   streak-time  325
   tap-time     200
-  hold-time    200
+  hold-time    300
   chord-time   60
 )
 
@@ -32,7 +32,7 @@
   esc    f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12
   grv     1    2    3    4    5    6    7    8    9    0    -    =    bspc
   tab     q    w    e    r    t    y    u    i    o    p    [    ]    \
-  @caps  @a   @s   @d   @f    g    h    j    k    l    ;    '    ret
+  @caps   a   @s   @d   @f    g    h    j    k    l    ;    '    ret
   lsft    z    x    c    v    b    n   @m   @,   @.   @/    rsft
   lctl   lmet lalt           spc            ralt rctl
 )
@@ -47,7 +47,7 @@
 )
 
 (deftemplate dual-action (tap-action hold-action)
-  (tap-hold $tap-time $hold-time $tap-action $hold-action)
+  (tap-hold-release $tap-time $hold-time $tap-action $hold-action)
 )
 
 (defalias
@@ -62,6 +62,7 @@
   k_   up
   l_   right
   t_   (multi f24 ret)
+  tab  tab
 
 ;;     how row layout
   f    (t! dual-action f lsft)
@@ -73,4 +74,5 @@
   .    (t! dual-action . ralt)
   /    (t! dual-action / rmet)
   y    (t! dual-action y f16)
+  q    (t! dual-action q tab)
 )
