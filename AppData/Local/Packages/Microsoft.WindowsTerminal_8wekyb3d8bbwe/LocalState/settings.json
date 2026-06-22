@@ -137,6 +137,7 @@
                 "face": "FiraCode Nerd Font"
             },
             "opacity": 91,
+            "padding": "8,8,8,30",
             "useAcrylic": false
         },
         "list": 
