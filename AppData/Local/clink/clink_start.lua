@@ -43,6 +43,7 @@ local function apply_profile(name)
         return
     end
     os.setenv("ANTHROPIC_BASE_URL", prof.url)
+    os.setenv("ANTHROPIC_TARGET_API_URL", prof.url)
     os.setenv("ANTHROPIC_AUTH_TOKEN", prof.key)
     os.setenv("ANTHROPIC_DEFAULT_SONNET_MODEL", prof.sonnet)
     os.setenv("ANTHROPIC_DEFAULT_HAIKU_MODEL", prof.haiku)
@@ -69,15 +70,33 @@ Active Claude Code Environment:
     ))
 end
 
+local function start_headroom()
+    local backend_url = os.getenv("ANTHROPIC_TARGET_API_URL")
+    print("[+] backend: " .. backend_url)
+    os.execute('headroom proxy --port 8787' .. ' --backend anthropic --anthropic-api-url "' .. backend_url .. '"')
+end
+
+local function use_headroom()
+    os.setenv("ANTHROPIC_BASE_URL", "http://localhost:8787")
+    print("[+] ANTHROPIC_BASE_URL set to http://localhost:8787")
+    print("[!] Ensure headroom is running: start-headroom")
+end
+
 local set_parser = clink.arg.new_parser():set_arguments({ "anthropic", "openrouter", "deepseek" })
 clink.arg.register_parser("set-claude-env", set_parser)
 clink.arg.register_parser("show-claude-env", clink.arg.new_parser())
+clink.arg.register_parser("start-headroom", clink.arg.new_parser())
+clink.arg.register_parser("use-headroom", clink.arg.new_parser())
 
 clink.onendedit(function(line)
     local set_cmd, profile = line:match("^%s*(set%-claude%-env)%s+(%S+)")
     if set_cmd then apply_profile(profile) return end
 
     if line:match("^%s*show%-claude%-env%s*$") then show_current_profile() return end
+
+    if line:match("^%s*start%-headroom%s*$") then start_headroom() return end
+
+    if line:match("^%s*use%-headroom%s*$") then use_headroom() return end
 
     local superclaude_args = line:match("^%s*superclaude%s*(.*)$")
     if superclaude_args then
