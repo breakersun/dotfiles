@@ -6,28 +6,28 @@
       "Name": "Snipaste",
       "Version": "2.10.400.0",
       "Source": "msstore",
-      "ManagerName": "Winget"
+      "ManagerName": "winget"
     },
     {
       "Id": "AmN.yasb",
       "Name": "yasb",
       "Version": "2.0.0",
       "Source": "winget",
-      "ManagerName": "Winget"
+      "ManagerName": "winget"
     },
     {
       "Id": "AngeloConvento.OverKeys",
       "Name": "OverKeys",
       "Version": "0.3.4",
       "Source": "winget",
-      "ManagerName": "Winget"
+      "ManagerName": "winget"
     },
     {
       "Id": "AutoHotkey.AutoHotkey",
       "Name": "AutoHotkey",
       "Version": "1.1.36.02",
       "Source": "winget",
-      "ManagerName": "Winget",
+      "ManagerName": "winget",
       "InstallationOptions": {
         "OverridesNextLevelOpts": true,
         "Version": "1.1.37.02"
@@ -42,70 +42,77 @@
       "Name": "Listary",
       "Version": "6.3",
       "Source": "winget",
-      "ManagerName": "Winget"
+      "ManagerName": "winget"
     },
     {
       "Id": "Git.Git",
       "Name": "Git",
       "Version": "2.47.0.2",
       "Source": "winget",
-      "ManagerName": "Winget"
+      "ManagerName": "winget"
     },
     {
       "Id": "Microsoft.OpenSSH.Beta",
       "Name": "OpenSSH Beta",
       "Version": "9.2.2.0",
       "Source": "winget",
-      "ManagerName": "Winget"
+      "ManagerName": "winget"
     },
     {
       "Id": "Microsoft.PowerShell",
       "Name": "PowerShell",
       "Version": "7.4.6.0",
       "Source": "winget",
-      "ManagerName": "Winget"
+      "ManagerName": "winget"
     },
     {
       "Id": "SSHFS-Win.SSHFS-Win",
       "Name": "SSHFS-Win",
       "Version": "3.5.20357",
       "Source": "winget",
-      "ManagerName": "Winget"
+      "ManagerName": "winget"
     },
     {
       "Id": "ScooterSoftware.BeyondCompare.5",
       "Name": "Beyond Compare 5",
       "Version": "5.0.7.30840",
       "Source": "winget",
-      "ManagerName": "Winget"
+      "ManagerName": "winget"
     },
     {
       "Id": "Tencent.WeType",
       "Name": "\u5FAE\u4FE1\u8F93\u5165\u6CD5",
       "Version": "1.2.7.42",
       "Source": "winget",
-      "ManagerName": "Winget"
+      "ManagerName": "winget"
     },
     {
       "Id": "TortoiseGit.TortoiseGit",
       "Name": "TortoiseGit",
       "Version": "2.17.0.2",
       "Source": "winget",
-      "ManagerName": "Winget"
+      "ManagerName": "winget"
     },
     {
       "Id": "WinFsp.WinFsp",
       "Name": "WinFsp 2023",
       "Version": "2.0.23075",
       "Source": "winget",
-      "ManagerName": "Winget"
+      "ManagerName": "winget"
     },
     {
       "Id": "glzr-io.glazewm",
       "Name": "GlazeWM",
       "Version": "3.10.1",
       "Source": "winget",
-      "ManagerName": "Winget"
+      "ManagerName": "winget"
+    },
+    {
+      "Id": "sxyazi.yazi",
+      "Name": "Yazi",
+      "Version": "26.5.6",
+      "Source": "winget",
+      "ManagerName": "winget"
     }
   ],
   "incompatible_packages_info": "Incompatible packages cannot be installed from UniGetUI, either because they came from a local source (for example Local PC) or because the package manager was unavailable. Nevertheless, they have been listed here for logging purposes.",
