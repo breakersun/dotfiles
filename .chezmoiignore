@@ -1,4 +1,5 @@
-﻿// Do not apply these files (https://www.chezmoi.io/docs/how-to/)
+// Do not apply these files (https://www.chezmoi.io/docs/how-to/)
+// NOTE: patterns must be TARGET paths (e.g. `.glzr/`, not source name `dot_glzr/`)
 
 README.md
 LICENSE
@@ -12,35 +13,35 @@ display_switch.exe
   Documents
   AppData/
   OneDrive
-  dot_config/icons
-  dot_config/profile.ps1
-  dot_config/requirements.psd1
-  dot_wslconfig
-  install.ps1
+  .config/icons
+  .config/profile.ps1
+  .config/requirements.psd1
+  .wslconfig
   scoop
-  dot_ideavimrc
+  .ideavimrc
   AppData/Roaming/Microsoft/InputMethod/Chs/ChsPinyinEUDPv1.lex
   AppData/Local/clink/clink_settings
   win-base-bundle.ubundle
-  dot_ideavimrc
-  dot_local/executable_beyondcompare.bat
-  dot_glzr/
+  .local/beyondcompare.bat
+  .glzr/
   // pi agent: only settings are managed; runtime state / cc-switch-owned / reproducible paths excluded
   .pi/agent/auth.json
   .pi/agent/models.json
   .pi/agent/models-store.json
   .pi/agent/mcp-cache.json
+  .pi/agent/mcp-npx-cache.json
   .pi/agent/npm/
   .pi/agent/git/
   .pi/agent/sessions/
   .pi/agent/skills/
   .pi/agent/cache/
+  .pi/agent/web-search-cache/
+  .pi/agent/extensions/
   .pi/agent/trust.json
   .pi/agent/pi-debug.log
 {{ end }}
 
 {{ if eq .chezmoi.os "windows" }}
-  private_dot_ssh
-  dot_tmux.conf
-  install.sh
+  .ssh
+  .tmux.conf
 {{ end }}
