@@ -140,3 +140,6 @@ if [ -n "${BASH_VERSION:-}" ]; then
 fi
 # <<< intelligent-terminal shell-integration <<<
 [ -f "$HOME/.secrets.env" ] && source "$HOME/.secrets.env"
+
+# deepseek-vl-support: make node fetch honor https_proxy (opencode-zen needs local proxy)
+export NODE_USE_ENV_PROXY=1

@@ -11,3 +11,7 @@ starship init fish | source
 fish_add_path -g ~/.local/bin
 
 zoxide init fish | source
+
+
+# Added by Antigravity CLI installer
+set -gx PATH "/home/leo/.local/bin" $PATH

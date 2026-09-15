@@ -32,11 +32,20 @@ fi
 
 "$BREW_BIN" install neovim
 
+APT_PKGS=(openssh-server curl git ripgrep \
+              tmux npm xclip build-essential \
+              unzip fd-find)
+
+# wl-clipboard: only needed under WSL — WSLg bridges the Windows clipboard via
+# Wayland (wl-paste), which pi uses as its primary clipboard read path.
+# Skip on native Linux: X11 desktops and headless boxes are covered by xclip;
+# native Wayland desktops can add it manually if desired.
+if grep -qi microsoft /proc/version 2>/dev/null || [ -n "${WSL_DISTRO_NAME:-}" ] || [ -n "${WSL_INTEROP:-}" ]; then
+    APT_PKGS+=(wl-clipboard)
+fi
+
 sudo apt update
-sudo apt install openssh-server \
-                curl git ripgrep \
-                tmux npm xclip build-essential \
-                unzip fd-find -y
+sudo apt install "${APT_PKGS[@]}" -y
 # sudo apt upgrade -y  # skipped: full system upgrade not appropriate for install script
 
 if [ ! -f "$HOME/.ssh/id_ed25519" ]; then
