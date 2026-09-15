@@ -61,6 +61,11 @@ set -x
 cd ~
 sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply git@github.com:breakersun/dotfiles.git
 
+# pi coding agent (config managed by chezmoi; providers/skills via cc-switch; npm packages auto-install on first pi launch)
+if ! command -v pi >/dev/null 2>&1; then
+    npm install -g @earendil-works/pi-coding-agent
+fi
+
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 

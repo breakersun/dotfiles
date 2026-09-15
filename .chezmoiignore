@@ -25,6 +25,17 @@ display_switch.exe
   dot_ideavimrc
   dot_local/executable_beyondcompare.bat
   dot_glzr/
+  // pi agent: only settings are managed; runtime state / cc-switch-owned / reproducible paths excluded
+  .pi/agent/auth.json
+  .pi/agent/models.json
+  .pi/agent/models-store.json
+  .pi/agent/npm/
+  .pi/agent/git/
+  .pi/agent/sessions/
+  .pi/agent/skills/
+  .pi/agent/cache/
+  .pi/agent/trust.json
+  .pi/agent/pi-debug.log
 {{ end }}
 
 {{ if eq .chezmoi.os "windows" }}
