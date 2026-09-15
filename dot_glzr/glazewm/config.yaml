@@ -123,13 +123,13 @@ window_behavior:
 
 workspaces:
   - name: '1'
-    bind_to_monitor: 1
+    bind_to_monitor: 2
   - name: '2'
-    bind_to_monitor: 2
-  - name: '3'
     bind_to_monitor: 1
-  - name: '4'
+  - name: '3'
     bind_to_monitor: 2
+  - name: '4'
+    bind_to_monitor: 1
 
 window_rules:
   - commands: ['ignore']
@@ -159,12 +159,12 @@ window_rules:
       - window_title: { equals: 'Run' }
       - window_title: { equals: 'Window Spy for AHKv2' }
       - window_process: { equals: 'FlClash'}
+      - window_process: { regex: 'OUTLOOK|Taskmgr|IDMan|eudic' }
   - commands: ['set-floating']
     match:
       - window_process: { equals: 'OverKeys' }
         window_class: { equals: 'OverKeys' }
       - window_process: { equals: 'neovide' }
-      - window_process: { regex: 'OUTLOOK|Taskmgr|IDMan|eudic' }
 
 binding_modes:
   # When enabled, the focused window can be resized via arrow keys or HJKL.
@@ -268,7 +268,7 @@ keybindings:
   # Launch CMD terminal. Alternatively, use `shell-exec wt` or
   # `shell-exec %ProgramFiles%/Git/git-bash.exe` to start Windows
   # Terminal and Git Bash respectively.
-  - commands: ['shell-exec cmd']
+  - commands: ['shell-exec wt']
     bindings: ['f24+enter']
 
   # Focus the next/previous active workspace defined in `workspaces` config.

@@ -1,6 +1,7 @@
 #Requires AutoHotkey v2.0
 #SingleInstance Force
 #Warn All, Off  ; Disables the warnings if you find them too intrusive
+; #Include "spacefn.ahk"
 
 ; --- Auto-Elevate to Admin ---
 ; Required for the script to interact with elevated windows like Keil or SES

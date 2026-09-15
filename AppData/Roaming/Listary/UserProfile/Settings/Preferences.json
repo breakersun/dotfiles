@@ -1,12 +1,12 @@
 {
   "AppConfigs": {
     "TypeConfigs": {
+      "DirectoryOpus": {},
       "WindowsExplorer": {},
       "FileDialog": {},
       "FolderDialog": {},
       "Desktop": {},
       "TotalCommander": {},
-      "DirectoryOpus": {},
       "FreeCommander": {},
       "XYplorer": {},
       "xplorer2": {},
@@ -74,8 +74,8 @@
         }
       ]
     },
-    "WindowWidth": 1000,
-    "WindowHeight": 720,
+    "WindowWidth": 780,
+    "WindowHeight": 836,
     "PreviewWidth": 300,
     "SideBarWidth": 225
   },
@@ -114,15 +114,21 @@
     }
   },
   "AutoUpdate": {
-    "EnableAutoUpdate": false
+    "BetaUpdates": true
   },
   "Settings": {
-    "General.Language": "en",
+    "General.Language": "zh-Hans",
     "General.EnableAnalytics": false,
+    "General.LauncherPositionX": 2582,
+    "General.LauncherPositionY": 177,
+    "Hotkey.DisableDoubleCtrlForFullScreenApps": false,
+    "Hotkey.NextItem": 0,
+    "Hotkey.PreviousItem": 0,
+    "Hotkey.OpenPreview": 0,
     "OpenFolder.Path": "C:\\Users\\leosu\\AppData\\Local\\TotalCMD64\\TotalCMD64.exe",
     "OpenFolder.Param": "/O /T \"%1\"",
     "Tutorial.ShowMainV3": false,
-    "Appearance.Theme": 0,
+    "Appearance.Theme": 2,
     "Listary5.SettingsImported": true,
     "Listary5.ProLicense.Name": "leo",
     "Listary5.ProLicense.Email": "leosunsl@outlook.com",

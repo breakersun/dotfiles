@@ -1,3 +1,4 @@
+onboarding = false
 # herdr configuration
 # Place this file at ~/.config/herdr/config.toml
 
@@ -200,6 +201,7 @@ default_shell = "cmd"
 # accent = "cyan"
 
 # Background notification popup delivery
+agent_panel_sort = "priority"
 [ui.toast]
 # off = disable pop-up notifications
 # herdr = show in-app toasts

@@ -1,8 +1,16 @@
 # Settings apply across all Linux distros running on WSL 2
 [wsl2]
+networkingMode=mirrored
+dnsTunneling=true
+firewall=false
+autoProxy=true
 
 # Limits VM memory to use no more than 4 GB, this can be set as whole numbers using GB or MB
-memory=1GB 
+memory=8GB 
 
 # Sets the VM to use two virtual processors
-processors=2
+processors=4
+
+[experimental]
+autoMemoryReclaim=gradual  # gradual  | dropcache | disabled
+bestEffortDnsParsing=true

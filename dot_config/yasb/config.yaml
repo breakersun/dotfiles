@@ -173,12 +173,18 @@ widgets:
     type: "yasb.active_window.ActiveWindowWidget"
     options:
       label: "{win[title]}"
+
       rewrite:
+        # Strip trailing “.exe” (case-insensitive) and lowercase:
         - pattern: "^(.+?)\\.exe$"
           replacement: "\\1"
           case: lower
+
+        # Uppercase the literal word “Studio” anywhere in the title:
         - pattern: "\\bStudio\\b"
           replacement: "STUDIO"
+
+        # Replace any title like “…YASB Reborn - Foo” with “🌎 Foo”
         - pattern: "(.*)YASB Reborn -(.*)$"
           replacement: "🌎 \\2"
 

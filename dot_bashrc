@@ -115,7 +115,7 @@ function proxy_off(){
     echo -e "Proxy Disabled"
 }
 
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv bash)"
+[ -x /home/linuxbrew/.linuxbrew/bin/brew ] && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv bash)"
 
 eval "$(starship init bash)"
 eval "$(fzf --bash)"

@@ -3,5 +3,10 @@ use = "XYenon/clipboard"
 rev = "a125df0"
 hash = "691eaf677ba5eaecc978972ab8177157"
 
+[[plugin.deps]]
+use = "Tyarel8/goto-drives"
+rev = "ea8de5c"
+hash = "f93be81ad9bb148fe2911ffbd4b120e7"
+
 [flavor]
 deps = []

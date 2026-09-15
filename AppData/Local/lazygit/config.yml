@@ -1,6 +1,8 @@
 git:
-  paging:
-    colorArg: always
-    pager: delta --dark --paging=never
-    externalDiffCommand: difft --color=always
+  pagers:
+    - colorArg: always
+      pager: delta --dark --paging=never
+      externalDiffCommand: difft --color=always
   overrideGpg: true
+os:
+  editPreset: "nvim"

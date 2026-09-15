@@ -24,12 +24,42 @@
 	directory = D:/Code/Boracay
 	directory = D:/Code/accfw/contrib/vendor/st/STM32CubeWB
 	directory = D:/Code/accfw/.compiler
+	directory = D:/Code/utils-bucket
 [core]
 	autocrlf = false
 {{ if eq .chezmoi.os "windows" }}
 	sshCommand = C:/Windows/System32/OpenSSH/ssh.exe
 {{ end }}
+	symlinks = true
+	pager = delta
 [diff]
+	external = difft
 	tool = nvimdiff
 [difftool "nvimdiff"]
 	cmd = "nvim -d \"$LOCAL\" \"$REMOTE\""
+[rebase]
+	updateRefs = true
+[push]
+	autoSetupRemote = true
+[maintenance]
+	auto = true
+	strategy = incremental
+[branch]
+	sort = -committerdate
+[column]
+	ui = auto
+[tag]
+	sort = -version:refname
+[interactive]
+	diffFilter = delta --color-only
+[delta]
+	navigate = true
+	side-by-side = true
+[credential "http://10.84.4.91:8000"]
+	provider = generic
+[credential "https://github.com"]
+	helper =
+	helper = !'C:\\Program Files\\GitHub CLI\\gh.exe' auth git-credential
+[credential "https://gist.github.com"]
+	helper =
+	helper = !'C:\\Program Files\\GitHub CLI\\gh.exe' auth git-credential

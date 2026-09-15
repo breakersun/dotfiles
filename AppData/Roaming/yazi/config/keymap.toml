@@ -4,7 +4,7 @@ on  = "y"
 run = [ "yank", 'plugin clipboard -- --action=copy' ]
 desc = "Yank selected files (copy)"
 
-# Keep behaviour consistent with cut
+# Cut selected files to the system clipboard
 [[mgr.prepend_keymap]]
 on  = "x"
 run = [ "yank --cut", 'plugin clipboard -- --action=copy' ]
@@ -14,4 +14,16 @@ desc = "Yank selected files (cut)"
 [[mgr.prepend_keymap]]
 on  = "<C-p>"
 run = [ 'plugin clipboard -- --action=paste' ]
-desc = "Paste yanked system clipboard files"
+
+# Edit current file with neovim
+[[mgr.prepend_keymap]]
+on   = "e"
+run  = "shell --block nvim %h"
+desc = "Edit with neovim"
+
+# Go to Windows drives using fzf
+[[mgr.prepend_keymap]]
+on   = [ "g", ":" ]
+run  = "plugin goto-drives"
+desc = "Go to drives"
+
