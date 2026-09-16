@@ -4,6 +4,8 @@
   "packages": [
     "npm:pi-web-access",
     "npm:pi-mcp-adapter",
-    "https://github.com/cathrynlavery/diagram-design"
-  ]
+    "https://github.com/cathrynlavery/diagram-design",
+    "npm:pi-subagents"
+  ],
+  "hideThinkingBlock": true
 }

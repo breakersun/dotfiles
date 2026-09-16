@@ -46,3 +46,4 @@ display_switch.exe
   .ssh
   .tmux.conf
 {{ end }}
+.pi/agent/missions/
