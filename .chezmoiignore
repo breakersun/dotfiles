@@ -16,6 +16,8 @@ display_switch.exe
   .config/icons
   .config/profile.ps1
   .config/requirements.psd1
+  .config/kanata/
+  .config/yasb/
   .wslconfig
   scoop
   .ideavimrc
@@ -23,6 +25,7 @@ display_switch.exe
   AppData/Local/clink/clink_settings
   win-base-bundle.ubundle
   .local/beyondcompare.bat
+  .local/share/ahk_v2/
   .glzr/
   // pi agent: only settings are managed; runtime state / cc-switch-owned / reproducible paths excluded
   .pi/agent/auth.json
