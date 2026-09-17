@@ -32,6 +32,7 @@ display_switch.exe
   .pi/agent/mcp-npx-cache.json
   .pi/agent/npm/
   .pi/agent/git/
+  .pi/agent/pi-rtk-optimizer/
   .pi/agent/sessions/
   .pi/agent/skills/
   .pi/agent/cache/

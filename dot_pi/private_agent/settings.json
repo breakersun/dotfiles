@@ -5,7 +5,9 @@
     "npm:pi-web-access",
     "npm:pi-mcp-adapter",
     "https://github.com/cathrynlavery/diagram-design",
-    "npm:pi-subagents"
+    "npm:pi-subagents",
+    "npm:pi-observational-memory",
+    "git:github.com/MasuRii/pi-rtk-optimizer"
   ],
   "hideThinkingBlock": true
 }
