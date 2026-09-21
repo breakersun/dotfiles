@@ -34,7 +34,7 @@ fi
 
 APT_PKGS=(openssh-server curl git ripgrep \
               tmux npm xclip build-essential \
-              unzip fd-find)
+              unzip fd-find keepassxc)
 
 # wl-clipboard: only needed under WSL — WSLg bridges the Windows clipboard via
 # Wayland (wl-paste), which pi uses as its primary clipboard read path.
@@ -91,6 +91,16 @@ else
     fi
     unset WEBDAV_PASS
     set -x
+fi
+
+# SSH keys: export from vault to ~/.ssh
+# keepassxc-cli attachment-export <database> <entry> <attachment_name> <export_file>
+if [ -f "$KDBX" ]; then
+    keepassxc-cli attachment-export "$KDBX" "github:leosunsl@outlook.com" leosunsl.pub "$HOME/.ssh/leosunsl.pub"
+    keepassxc-cli attachment-export "$KDBX" "github:leosunsl@outlook.com" leosunsl "$HOME/.ssh/leosunsl"
+    keepassxc-cli attachment-export "$KDBX" "github:sunlong@tcl.com" sunlong.pub "$HOME/.ssh/sunlong.pub"
+    keepassxc-cli attachment-export "$KDBX" "github:sunlong@tcl.com" sunlong "$HOME/.ssh/sunlong"
+    chmod 600 "$HOME/.ssh/leosunsl" "$HOME/.ssh/sunlong"
 fi
 
 # pi coding agent (config managed by chezmoi; providers/skills via cc-switch; npm packages auto-install on first pi launch)
