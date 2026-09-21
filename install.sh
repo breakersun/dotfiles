@@ -70,6 +70,29 @@ set -x
 cd ~
 sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply git@github.com:breakersun/dotfiles.git
 
+# KeePassXC vault: one-time pull from WebDAV.
+# Password is entered manually each bootstrap — never stored, never logged.
+KDBX="$HOME/.config/keepassxc/keepass-xc.kdbx"
+if [ -f "$KDBX" ]; then
+    echo "vault already present — skipping WebDAV download"
+else
+    mkdir -p "$(dirname "$KDBX")"
+    set +x  # secrets zone: xtrace would echo $WEBDAV_PASS expanded
+    read -rsp "WebDAV password for leo@webdav.888521.top: " WEBDAV_PASS; echo
+    # creds go via stdin config (-K -), not -u: argv is world-readable in ps
+    if printf 'user = "leo:%s"\n' "$WEBDAV_PASS" | \
+        curl -fsSL -K - -o "$KDBX" https://webdav.888521.top/keepass-xc/keepass-xc.kdbx \
+        && [ "$(head -c4 "$KDBX" | od -An -tx1 | tr -d ' \n')" = "03d9a29a" ]; then
+        chmod 600 "$KDBX"
+        echo "vault downloaded OK"
+    else
+        rm -f "$KDBX"   # no partial/garbage file left behind
+        echo "WARN: vault download failed (bad password? offline?) — skipping, rerun install.sh to retry" >&2
+    fi
+    unset WEBDAV_PASS
+    set -x
+fi
+
 # pi coding agent (config managed by chezmoi; providers/skills via cc-switch; npm packages auto-install on first pi launch)
 if ! command -v pi >/dev/null 2>&1; then
     npm install -g @earendil-works/pi-coding-agent
