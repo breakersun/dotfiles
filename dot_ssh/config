@@ -1,30 +1,66 @@
+Host *
+    AddKeysToAgent yes
+
 Host mc2
     HostName mc2.888521.xyz
     Port 2222
     User root
+
 Host home-huizhou
     HostName home.888521.xyz
     Port 18022
     User admin
+
 Host Office-D2
     HostName 192.168.128.1
     Port 22
     User admin
     IdentityFile ~/.ssh/sunlong
+
+# Windows-era proxy command (connect.exe) — dead on Linux, kept for reference
 Host oldhome-d1    #Added by lazyssh
     HostName 192.168.123.1
     User admin
     Port 22
     ProxyCommand "C:\Program Files\Git\mingw64\bin\connect.exe" -S 127.0.0.1:10808 %h %p
     IdentityFile ~/.ssh/sunlong
+
+Host github.com
+    HostName ssh.github.com
+    Port 443
+    User git
+    IdentityFile ~/.ssh/id_ed25519
+    IdentitiesOnly yes
+    ProxyCommand nc -X connect -x 127.0.0.1:7890 %h %p
+
+Host github.work
+    HostName github.com
+    User git
+    IdentityFile ~/.ssh/sunlong-work
+    IdentitiesOnly yes
+
+Host workhorse    #Added by lazyssh (ported from Windows 2026-10-06)
+    HostName 10.84.4.80
+    User omni
+    Port 3021
+    IdentityFile ~/.ssh/sunlong
+
+Host symphony
+    HostName 10.84.4.80
+    User omni
+    Port 3023
+    IdentityFile ~/.ssh/sunlong
+
 Host vm    #Added by lazyssh
     HostName 192.168.142.129
     User leo
     Port 22
+
 Host RackNerd    #Added by lazyssh
     HostName 172.245.226.101
     User leo
     Port 22
+
 Host office-redmi-router    #Added by lazyssh
     HostName 192.168.1.1
     User root
@@ -41,20 +77,18 @@ Host 10.84.4.80
     User "403283/10.84.4.80/ubuntu"
     Port 22
     IdentityFile ~/.ssh/id_rsa_qizhi
+
 Host lab-ubuntu    #Added by lazyssh
     HostName 192.168.31.93
     User ad01
     Port 22
     IdentityFile ~/.ssh/id_rsa_qizhi
-Host workhorse    #Added by lazyssh
-    HostName 10.84.4.80
-    User omni
-    Port 3021
-    IdentityFile ~/.ssh/sunlong
+
 Host tianyi    #Added by lazyssh
     HostName frp.888521.xyz
     Port 2222
     User root
+
 Host tencent-gmail    #Added by lazyssh
     HostName 124.222.162.148
     User ubuntu

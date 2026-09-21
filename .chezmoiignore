@@ -49,5 +49,6 @@ display_switch.exe
 {{ if eq .chezmoi.os "windows" }}
   .ssh
   .tmux.conf
+  .config/systemd/
 {{ end }}
 .pi/agent/missions/

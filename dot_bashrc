@@ -121,6 +121,9 @@ eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv bash)"
 export HOMEBREW_BUNDLE_DUMP_NO_WINGET=1
 export HOMEBREW_BUNDLE_CLEANUP_NO_WINGET=1
 
+# ssh-agent via systemd user service (fixed socket)
+export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
+
 eval "$(starship init bash)"
 eval "$(fzf --bash)"
 eval "$(zoxide init bash)"
