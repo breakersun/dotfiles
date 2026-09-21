@@ -117,6 +117,10 @@ function proxy_off(){
 
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv bash)"
 
+# Keep brew bundle inside WSL: never inventory (dump) or touch (cleanup) Windows apps via winget
+export HOMEBREW_BUNDLE_DUMP_NO_WINGET=1
+export HOMEBREW_BUNDLE_CLEANUP_NO_WINGET=1
+
 eval "$(starship init bash)"
 eval "$(fzf --bash)"
 eval "$(zoxide init bash)"
