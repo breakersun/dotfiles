@@ -1,5 +1,5 @@
 {
-  "lastChangelogVersion": "0.85.1",
+  "lastChangelogVersion": "0.86.1",
   "theme": "dark",
   "packages": [
     "npm:pi-web-access",
@@ -7,7 +7,9 @@
     "https://github.com/cathrynlavery/diagram-design",
     "npm:pi-subagents",
     "npm:pi-observational-memory",
-    "git:github.com/MasuRii/pi-rtk-optimizer"
+    "git:github.com/MasuRii/pi-rtk-optimizer",
+    "npm:@agnishc/edb-context-viewer",
+    "npm:@juicesharp/rpiv-ask-user-question"
   ],
   "hideThinkingBlock": true
 }
