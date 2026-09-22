@@ -115,7 +115,7 @@ function proxy_off(){
     echo -e "Proxy Disabled"
 }
 
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv bash)"
+[ -x /home/linuxbrew/.linuxbrew/bin/brew ] && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv bash)"
 
 # Keep brew bundle inside WSL: never inventory (dump) or touch (cleanup) Windows apps via winget
 export HOMEBREW_BUNDLE_DUMP_NO_WINGET=1
