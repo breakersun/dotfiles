@@ -1,3 +1,6 @@
+# machine-local overrides (proxy etc.); file may not exist on fresh machines — git ignores missing includes
+[include]
+	path = ~/.gitconfig.local
 [user]
 	name = leosun
 	email = leosunsl@outlook.com
@@ -5,9 +8,6 @@
 	selected = manager
 [http]
 	sslVerify = false
-{{ if ne .chezmoi.os "windows" }}
-	proxy = http://127.0.0.1:7890
-{{ end }}
 [credential "https://10.84.130.212:8899"]
 	provider = gitlab
 [credential "http://10.84.4.81:11000"]
