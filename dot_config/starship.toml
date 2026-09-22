@@ -112,7 +112,7 @@ style = "fg:color_fg0 bg:color_yellow"
 format = "[ $path ]($style)"
 truncation_length = 3
 truncation_symbol = " "
-truncate_to_repo = false
+truncate_to_repo = true
 read_only = " "
 read_only_style = "fg:color_fg0 bg:color_yellow"
 
@@ -121,6 +121,8 @@ read_only_style = "fg:color_fg0 bg:color_yellow"
 "Downloads" = " "
 "Music" = "󰝚 "
 "Pictures" = " "
+"Developer" = "󰲋 "
+"Code" = "󰲋 "
 
 [git_branch]
 symbol = ""

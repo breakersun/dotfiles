@@ -11,3 +11,7 @@ mesg n 2> /dev/null || true
 PATH=$PATH:~/.local/bin:~/bin/
 
 eval "$(zoxide init bash)"
+
+
+# Added by Antigravity CLI installer
+export PATH="/home/leo/.local/bin:$PATH"
