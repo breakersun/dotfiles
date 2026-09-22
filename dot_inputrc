@@ -5,9 +5,9 @@ $if clink
 set search-ignore-case          on   # Case insensitive history searches.
 set completion-auto-query-items on   # Prompt before showing completions if they'll exceed half the screen.
 set show-mode-in-prompt         off
+"\e[5;5~":    "luafunc:zoxide_dir_popup"    # Ctrl-PgUp
 $endif
 
 # Add your keybindings here...
-"\e[5;5~":    "luafunc:zoxide_dir_popup"    # Ctrl-PgUp
 
 # DOSKEY tcmd=totalCMD64 /O /T /R="%CD%"
