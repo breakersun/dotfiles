@@ -5,6 +5,9 @@
 	selected = manager
 [http]
 	sslVerify = false
+{{ if ne .chezmoi.os "windows" }}
+	proxy = http://127.0.0.1:7890
+{{ end }}
 [credential "https://10.84.130.212:8899"]
 	provider = gitlab
 [credential "http://10.84.4.81:11000"]
@@ -59,7 +62,7 @@
 	provider = generic
 [credential "https://github.com"]
 	helper =
-	helper = !'C:\\Program Files\\GitHub CLI\\gh.exe' auth git-credential
+	helper = !gh auth git-credential
 [credential "https://gist.github.com"]
 	helper =
-	helper = !'C:\\Program Files\\GitHub CLI\\gh.exe' auth git-credential
+	helper = !gh auth git-credential
