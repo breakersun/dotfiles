@@ -11,5 +11,14 @@
     "npm:@agnishc/edb-context-viewer",
     "npm:@juicesharp/rpiv-ask-user-question"
   ],
-  "hideThinkingBlock": true
+  "hideThinkingBlock": true,
+  "observational-memory": {
+    "model": {
+      "provider": "zai-coding-cn",
+      "id": "glm-5.3-flash",
+      "thinking": "low"
+    },
+    "compactAfterTokensMode": "ratio",
+    "compactAfterTokensRatio": 0.25
+  }
 }
