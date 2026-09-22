@@ -52,3 +52,4 @@ display_switch.exe
   .config/systemd/
 {{ end }}
 .pi/agent/missions/
+.secrets.env

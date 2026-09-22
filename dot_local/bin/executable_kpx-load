@@ -1,0 +1,93 @@
+#!/usr/bin/env bash
+# kpx-load — pull attributes from a KeePassXC entry into ~/.secrets.env (merge/update)
+#
+# Usage: kpx-load [-d db.kdbx] [-f envfile] entry VAR[:ATTR] [VAR[:ATTR] ...]
+#   VAR:ATTR   environment variable VAR <- attribute ATTR of the entry
+#   VAR        attribute with the same name
+#   entry      entry title or group path, e.g. "Work/Sub/aws-token"
+#
+# Defaults: db = ~/.config/keepassxc/keepass-xc.kdbx, envfile = ~/.secrets.env (kept at mode 600)
+# One password prompt per run (single unlock). Existing lines for the same
+# VAR are replaced; unrelated lines are preserved. Values containing newlines
+# are rejected (they cannot round-trip through a line-based env file).
+
+set -euo pipefail
+
+DB="$HOME/.config/keepassxc/keepass-xc.kdbx"
+ENVF="$HOME/.secrets.env"
+
+usage() {
+  cat <<'USAGE'
+usage: kpx-load [-d db.kdbx] [-f envfile] entry VAR[:ATTR] [VAR[:ATTR] ...]
+  VAR:ATTR  map attribute ATTR to environment variable VAR
+  VAR       use the attribute of the same name
+  defaults: db ~/.config/keepassxc/keepass-xc.kdbx, envfile ~/.secrets.env
+USAGE
+  exit "${1:-0}"
+}
+
+while getopts ":d:f:h" opt; do
+  case "$opt" in
+    d) DB=$OPTARG ;;
+    f) ENVF=$OPTARG ;;
+    h) usage 0 ;;
+    *) usage 1 ;;
+  esac
+done
+shift $((OPTIND - 1))
+
+(($# >= 2)) || { echo "kpx-load: need entry and at least one VAR[:ATTR]" >&2; usage 1; }
+entry=$1; shift
+
+names=() attrs=()
+for spec in "$@"; do
+  if [[ $spec == *:* ]]; then
+    names+=("${spec%%:*}"); attrs+=("${spec##*:}")
+  else
+    names+=("$spec"); attrs+=("$spec")
+  fi
+done
+
+for n in "${names[@]}"; do
+  [[ $n =~ ^[A-Za-z_][A-Za-z0-9_]*$ ]] || { echo "kpx-load: invalid variable name: '$n'" >&2; exit 1; }
+done
+if (($(printf '%s\n' "${names[@]}" | sort -u | wc -l) != ${#names[@]})); then
+  echo "kpx-load: duplicate variable name in arguments" >&2; exit 1
+fi
+[[ -f $DB ]] || { echo "kpx-load: database not found: $DB (override with -d)" >&2; exit 1; }
+
+qargs=()
+for a in "${attrs[@]}"; do qargs+=(-a "$a"); done
+
+out=$(mktemp)
+newf=$(mktemp "$(dirname -- "$ENVF")/.kpxload.XXXXXX")
+trap 'rm -f "$out" "$newf"' EXIT
+chmod 600 "$out" "$newf"
+
+if ! keepassxc-cli show -s "${qargs[@]}" "$DB" "$entry" >"$out"; then
+  echo "kpx-load: extraction failed (wrong password, bad entry or bad attribute)" >&2
+  exit 1
+fi
+
+readarray -t vals <"$out"
+if (( ${#vals[@]} != ${#names[@]} )); then
+  echo "kpx-load: got ${#vals[@]} lines for ${#names[@]} attributes;" \
+       "a value probably contains a newline — aborting, env file untouched" >&2
+  exit 1
+fi
+
+alt=""
+for n in "${names[@]}"; do alt+="$n|"; done
+alt=${alt%|}
+
+touch "$ENVF"; chmod 600 "$ENVF"
+{
+  grep -vE "^[[:space:]]*(export[[:space:]]+)?(${alt})=" "$ENVF" || true
+  for i in "${!names[@]}"; do
+    printf 'export %s=%q\n' "${names[i]}" "${vals[i]}"
+  done
+} >"$newf"
+mv "$newf" "$ENVF"
+
+printf 'kpx-load: %s -> %s\n' "${names[*]}" "$ENVF"
+echo "kpx-load: run 'source $ENVF' (or open a new shell) to apply"
