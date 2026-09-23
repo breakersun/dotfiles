@@ -108,6 +108,13 @@
       "ManagerName": "winget"
     },
     {
+      "Id": "gna1280072.LeePanel",
+      "Name": "LeePanel",
+      "Version": "1.0.23",
+      "Source": "winget",
+      "ManagerName": "winget"
+    },
+    {
       "Id": "sxyazi.yazi",
       "Name": "Yazi",
       "Version": "26.5.6",
