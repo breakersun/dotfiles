@@ -42,6 +42,7 @@ display_switch.exe
   .pi/agent/web-search-cache/
   .pi/agent/extensions/*
   !.pi/agent/extensions/brain.js
+  !.pi/agent/extensions/pi-tool-display/
   .pi/agent/trust.json
   .pi/agent/pi-debug.log
 {{ end }}
