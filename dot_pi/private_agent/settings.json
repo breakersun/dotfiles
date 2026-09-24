@@ -1,5 +1,5 @@
 {
-  "lastChangelogVersion": "0.86.1",
+  "lastChangelogVersion": "0.87.1",
   "theme": "dark",
   "packages": [
     "npm:pi-web-access",
@@ -9,7 +9,8 @@
     "npm:pi-observational-memory",
     "git:github.com/MasuRii/pi-rtk-optimizer",
     "npm:@agnishc/edb-context-viewer",
-    "npm:@juicesharp/rpiv-ask-user-question"
+    "npm:@juicesharp/rpiv-ask-user-question",
+    "npm:pi-tool-display"
   ],
   "hideThinkingBlock": true,
   "observational-memory": {
@@ -20,5 +21,7 @@
     },
     "compactAfterTokensMode": "ratio",
     "compactAfterTokensRatio": 0.25
-  }
+  },
+  "defaultProvider": "zai-coding-cn",
+  "defaultModel": "glm-5.3-flash"
 }
