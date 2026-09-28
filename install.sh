@@ -120,6 +120,19 @@ fi
 eval "$(ssh-agent -s)"
 ssh-add "$HOME/.ssh/leosunsl" || echo "WARN: ssh-add failed — git will prompt for the key on use" >&2
 
+# Minimal github ssh config so the clones below use the vault key even before
+# chezmoi apply lands the full config (they run first by design). Guarded:
+# chezmoi apply overwrites this with the managed version on first apply.
+if [ ! -f "$HOME/.ssh/config" ]; then
+    cat > "$HOME/.ssh/config" <<'EOF'
+Host github.com
+    User git
+    IdentityFile ~/.ssh/leosunsl
+    IdentitiesOnly yes
+EOF
+    chmod 600 "$HOME/.ssh/config"
+fi
+
 [ -d "$HOME/.config/nvim" ] || git clone git@github.com:breakersun/starter ~/.config/nvim
 
 brew install fzf
