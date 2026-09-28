@@ -127,7 +127,23 @@ if [ ! -f "$HOME/.ssh/leosunsl" ] || [ ! -f "$HOME/.ssh/sunlong" ]; then
     chmod 600 "$HOME/.ssh/leosunsl" "$HOME/.ssh/sunlong"
 fi
 eval "$(ssh-agent -s)"
-ssh-add "$HOME/.ssh/leosunsl" || echo "WARN: ssh-add failed — git will prompt for the key on use" >&2
+# Hard gate 1: a mistyped passphrase must abort HERE, not surface steps later
+# as a confusing clone/chezmoi failure. (ssh-add re-prompts 3x on bad passphrase,
+# then exits 1 with a clear error.)
+if ! ssh-add "$HOME/.ssh/leosunsl"; then
+    echo "FATAL: ssh-add failed (passphrase mistyped 3x? corrupt key?) — aborting before any github step" >&2
+    exit 1
+fi
+# Hard gate 2: prove github accepts the vault key before cloning anything.
+# (github returns exit 1 even on success, so judge by the greeting message;
+# accept-new also seeds known_hosts, so later clones never prompt for it)
+GITHUB_HELLO=$(ssh -o BatchMode=yes -o StrictHostKeyChecking=accept-new -o ConnectTimeout=15 -T git@github.com 2>&1 || true)
+if ! printf '%s' "$GITHUB_HELLO" | grep -q "successfully authenticated"; then
+    echo "FATAL: github rejected the vault key — not proceeding to clones:" >&2
+    printf '%s\n' "$GITHUB_HELLO" >&2
+    exit 1
+fi
+echo "github identity verified: $(printf '%s' "$GITHUB_HELLO" | head -1)"
 
 [ -d "$HOME/.config/nvim" ] || git clone git@github.com:breakersun/starter ~/.config/nvim
 
@@ -144,7 +160,7 @@ cd ~
 # (the ssh-agent loaded above makes this interactive for passphrase-protected keys).
 if [ -d "$HOME/.local/share/chezmoi/.git" ]; then
     git -C "$HOME/.local/share/chezmoi" pull --ff-only \
-        || echo "WARN: dotfiles pull failed — applying possibly stale dotfiles" >&2
+        || { echo "FATAL: dotfiles pull failed — refusing to apply stale dotfiles" >&2; exit 1; }
 fi
 sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply git@github.com:breakersun/dotfiles.git
 
