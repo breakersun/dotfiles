@@ -131,6 +131,12 @@ brew install difftastic # provides `difft` for .gitconfig diff.external (not in 
 # Install chezmoi
 set -x
 cd ~
+# Re-runs: chezmoi init does NOT fetch on an existing source dir — pull explicitly
+# (the ssh-agent loaded above makes this interactive for passphrase-protected keys).
+if [ -d "$HOME/.local/share/chezmoi/.git" ]; then
+    git -C "$HOME/.local/share/chezmoi" pull --ff-only \
+        || echo "WARN: dotfiles pull failed — applying possibly stale dotfiles" >&2
+fi
 sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply git@github.com:breakersun/dotfiles.git
 
 # pi coding agent (config managed by chezmoi; providers/skills via cc-switch; npm packages auto-install on first pi launch)
