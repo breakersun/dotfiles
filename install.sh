@@ -32,8 +32,10 @@ fi
 
 "$BREW_BIN" install neovim
 
+# npm deliberately NOT in APT_PKGS: distro npm drags node 18.x (pi needs >=22.19).
+# node comes from NodeSource below; its deb Conflicts/Provides distro npm.
 APT_PKGS=(openssh-server curl git ripgrep \
-              tmux npm xclip build-essential \
+              tmux xclip build-essential \
               unzip fd-find keepassxc)
 
 # wl-clipboard: only needed under WSL — WSLg bridges the Windows clipboard via
@@ -47,6 +49,21 @@ fi
 sudo apt update
 sudo apt install "${APT_PKGS[@]}" -y
 # sudo apt upgrade -y  # skipped: full system upgrade not appropriate for install script
+
+# node 24 LTS via NodeSource apt repo (pi requires >=22.19; distro node is 18.x on 24.04).
+# Auditable apt-source setup, not curl|bash. Re-run safe: NodeSource's nodejs deb
+# declares Conflicts/Provides on distro npm, so apt auto-removes any leftover
+# npm from older runs of this script without manual cleanup.
+if ! command -v node >/dev/null 2>&1 || \
+   [ "$(node -p 'process.versions.node.split(".")[0]' 2>/dev/null)" -lt 24 ]; then
+    sudo install -dm 755 /etc/apt/keyrings
+    curl -fsSL https://deb.nodesource.com/gpgkey/nodesource-repo.gpg.key \
+        | sudo gpg --dearmor --yes -o /etc/apt/keyrings/nodesource.gpg
+    echo "deb [signed-by=/etc/apt/keyrings/nodesource.gpg] https://deb.nodesource.com/node_24.x nodistro main" \
+        | sudo tee /etc/apt/sources.list.d/nodesource.list >/dev/null
+    sudo apt update
+fi
+sudo apt install -y nodejs
 
 if [ ! -f "$HOME/.ssh/id_ed25519" ]; then
     ssh-keygen -t ed25519 -C "leosunsl@outlook.com"
@@ -104,8 +121,9 @@ if [ -f "$KDBX" ]; then
 fi
 
 # pi coding agent (config managed by chezmoi; providers/skills via cc-switch; npm packages auto-install on first pi launch)
+# system node from NodeSource lives in /usr -> global installs need sudo (same as workstation)
 if ! command -v pi >/dev/null 2>&1; then
-    npm install -g @earendil-works/pi-coding-agent
+    sudo npm install -g @earendil-works/pi-coding-agent
 fi
 
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
