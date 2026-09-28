@@ -81,6 +81,15 @@ if ! command -v node >/dev/null 2>&1 || \
 fi
 sudo apt install -y nodejs
 
+# Tencent images seed ~/.npmrc with the internal-only mirrors.tencentyun.com
+# registry — NXDOMAIN under transparent-proxy DNS hijack (same failure class as
+# the apt mirror above; sudo npm reads the same file). Point user + root at the
+# public npmmirror registry when the internal one is configured.
+if npm config get registry 2>/dev/null | grep -q tencentyun; then
+    npm config set registry https://registry.npmmirror.com
+    sudo npm config set registry https://registry.npmmirror.com
+fi
+
 # ── Vault-first: github identity comes from the KeePassXC vault ──
 # The vault's leosunsl key IS breakersun's github key (fingerprint-verified).
 # Everything below that touches git@github.com depends on it, so vault setup
