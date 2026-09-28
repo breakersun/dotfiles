@@ -53,6 +53,15 @@ elif [ -n "${DISPLAY:-}" ]; then
     APT_PKGS+=(xclip)
 fi
 
+# Tencent Cloud images point apt at mirrors.tencentyun.com — an internal-only
+# name that returns NXDOMAIN when transparent-proxy DNS hijack is active
+# (queries leave the internal resolver). Fall back to the public mirror.
+if grep -rq "mirrors.tencentyun.com" /etc/apt/sources.list /etc/apt/sources.list.d/ 2>/dev/null \
+   && ! getent hosts mirrors.tencentyun.com >/dev/null 2>&1; then
+    echo "mirrors.tencentyun.com unreachable — switching apt to mirrors.cloud.tencent.com"
+    sudo sed -i.bak "s|mirrors.tencentyun.com|mirrors.cloud.tencent.com|g" \
+        /etc/apt/sources.list /etc/apt/sources.list.d/*.list /etc/apt/sources.list.d/*.sources 2>/dev/null
+fi
 sudo apt update
 sudo apt install "${APT_PKGS[@]}" -y
 # sudo apt upgrade -y  # skipped: full system upgrade not appropriate for install script
