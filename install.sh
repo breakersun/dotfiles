@@ -1,6 +1,7 @@
 #!/bin/bash
 
 set -e # Exit on Error
+set -o pipefail # curl|bash-style pipes must not fail silently
 
 cd "$HOME" || exit
 echo -e "BEEP BOOP. Setting up..."
@@ -34,16 +35,22 @@ fi
 
 # npm deliberately NOT in APT_PKGS: distro npm drags node 18.x (pi needs >=22.19).
 # node comes from NodeSource below; its deb Conflicts/Provides distro npm.
+# keepassxc: headless boxes only need keepassxc-cli (vault export); Ubuntu ships
+# no cli-only package, the GUI libs ride along unused. (operator decision 2026-09-28)
+# git-delta/gh/git-lfs: referenced by the applied .gitconfig — absent = git log/diff break.
 APT_PKGS=(openssh-server curl git ripgrep \
-              tmux xclip build-essential \
-              unzip fd-find keepassxc)
+              tmux build-essential \
+              unzip fd-find keepassxc git-delta gh git-lfs)
 
-# wl-clipboard: only needed under WSL — WSLg bridges the Windows clipboard via
-# Wayland (wl-paste), which pi uses as its primary clipboard read path.
-# Skip on native Linux: X11 desktops and headless boxes are covered by xclip;
-# native Wayland desktops can add it manually if desired.
+# Clipboard tooling is environment-specific:
+# - WSL: wl-clipboard only (WSLg bridges the Windows clipboard via Wayland;
+#   pi uses wl-paste as its primary read path)
+# - desktop Linux (DISPLAY present): xclip
+# - headless servers: neither — nothing to clip into
 if grep -qi microsoft /proc/version 2>/dev/null || [ -n "${WSL_DISTRO_NAME:-}" ] || [ -n "${WSL_INTEROP:-}" ]; then
     APT_PKGS+=(wl-clipboard)
+elif [ -n "${DISPLAY:-}" ]; then
+    APT_PKGS+=(xclip)
 fi
 
 sudo apt update
@@ -110,6 +117,7 @@ brew install fzf
 brew install starship
 brew install zoxide
 brew install trzsz-go
+brew install difftastic # provides `difft` for .gitconfig diff.external (not in Ubuntu apt)
 
 # Install chezmoi
 set -x
@@ -125,5 +133,10 @@ fi
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
-curl -fsSL https://get.docker.com -o get-docker.sh && sh get-docker.sh --mirror Aliyun
+# docker: skip where already present (e.g. servers provisioned out-of-band);
+# the convenience script would still swap apt sources (--mirror Aliyun).
+if ! command -v docker >/dev/null 2>&1; then
+    curl -fsSL https://get.docker.com -o get-docker.sh && sh get-docker.sh --mirror Aliyun
+    rm -f get-docker.sh
+fi
 curl https://raw.githubusercontent.com/jesseduffield/lazydocker/master/scripts/install_update_linux.sh | bash
