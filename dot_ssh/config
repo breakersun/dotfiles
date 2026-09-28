@@ -31,7 +31,8 @@ Host oldhome-d1    #Added by lazyssh
 
 Host github.com
     User git
-    IdentityFile ~/.ssh/id_ed25519
+    # vault key (github:leosunsl@outlook.com entry) = breakersun account key
+    IdentityFile ~/.ssh/leosunsl
     IdentitiesOnly yes
 
 Host github.work

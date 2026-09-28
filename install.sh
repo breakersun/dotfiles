@@ -65,34 +65,12 @@ if ! command -v node >/dev/null 2>&1 || \
 fi
 sudo apt install -y nodejs
 
-if [ ! -f "$HOME/.ssh/id_ed25519" ]; then
-    ssh-keygen -t ed25519 -C "leosunsl@outlook.com"
-    eval "$(ssh-agent -s)"
-    ssh-add
-    chmod 0700 ~/.ssh
-    set +x
-    echo -e 'Copy to https://github.com/settings/ssh/new'
-    echo -e "\033[32m"; cat ~/.ssh/id_ed25519.pub; echo -e "\033[0m"
-    read -p 'Press any key to continue...'
-fi
-[ -d "$HOME/.config/nvim" ] || git clone git@github.com:breakersun/starter ~/.config/nvim
-
-brew install fzf
-brew install starship
-brew install zoxide
-brew install trzsz-go
-
-# Install chezmoi
-set -x
-cd ~
-sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply git@github.com:breakersun/dotfiles.git
-
-# KeePassXC vault: one-time pull from WebDAV.
-# Password is entered manually each bootstrap — never stored, never logged.
+# ── Vault-first: github identity comes from the KeePassXC vault ──
+# The vault's leosunsl key IS breakersun's github key (fingerprint-verified).
+# Everything below that touches git@github.com depends on it, so vault setup
+# must succeed before any clone. No throwaway id_ed25519, no manual pubkey paste.
 KDBX="$HOME/.config/keepassxc/keepass-xc.kdbx"
-if [ -f "$KDBX" ]; then
-    echo "vault already present — skipping WebDAV download"
-else
+if [ ! -f "$KDBX" ]; then
     mkdir -p "$(dirname "$KDBX")"
     set +x  # secrets zone: xtrace would echo $WEBDAV_PASS expanded
     read -rsp "WebDAV password for leo@webdav.888521.top: " WEBDAV_PASS; echo
@@ -104,21 +82,39 @@ else
         echo "vault downloaded OK"
     else
         rm -f "$KDBX"   # no partial/garbage file left behind
-        echo "WARN: vault download failed (bad password? offline?) — skipping, rerun install.sh to retry" >&2
+        unset WEBDAV_PASS
+        set -x
+        echo "FATAL: vault download failed (bad password? offline?) — github steps cannot proceed" >&2
+        exit 1
     fi
     unset WEBDAV_PASS
     set -x
 fi
 
-# SSH keys: export from vault to ~/.ssh
+# SSH keys: export from vault to ~/.ssh, then load the github key into the agent.
 # keepassxc-cli attachment-export <database> <entry> <attachment_name> <export_file>
-if [ -f "$KDBX" ]; then
+if [ ! -f "$HOME/.ssh/leosunsl" ] || [ ! -f "$HOME/.ssh/sunlong" ]; then
+    mkdir -p "$HOME/.ssh" && chmod 700 "$HOME/.ssh"
     keepassxc-cli attachment-export "$KDBX" "github:leosunsl@outlook.com" leosunsl.pub "$HOME/.ssh/leosunsl.pub"
     keepassxc-cli attachment-export "$KDBX" "github:leosunsl@outlook.com" leosunsl "$HOME/.ssh/leosunsl"
     keepassxc-cli attachment-export "$KDBX" "github:sunlong@tcl.com" sunlong.pub "$HOME/.ssh/sunlong.pub"
     keepassxc-cli attachment-export "$KDBX" "github:sunlong@tcl.com" sunlong "$HOME/.ssh/sunlong"
     chmod 600 "$HOME/.ssh/leosunsl" "$HOME/.ssh/sunlong"
 fi
+eval "$(ssh-agent -s)"
+ssh-add "$HOME/.ssh/leosunsl" || echo "WARN: ssh-add failed — git will prompt for the key on use" >&2
+
+[ -d "$HOME/.config/nvim" ] || git clone git@github.com:breakersun/starter ~/.config/nvim
+
+brew install fzf
+brew install starship
+brew install zoxide
+brew install trzsz-go
+
+# Install chezmoi
+set -x
+cd ~
+sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply git@github.com:breakersun/dotfiles.git
 
 # pi coding agent (config managed by chezmoi; providers/skills via cc-switch; npm packages auto-install on first pi launch)
 # system node from NodeSource lives in /usr -> global installs need sudo (same as workstation)
