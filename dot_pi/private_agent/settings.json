@@ -23,5 +23,8 @@
     "compactAfterTokensRatio": 0.25
   },
   "defaultProvider": "zai-coding-cn",
-  "defaultModel": "glm-5.3-flash"
+  "defaultModel": "glm-5.3-flash",
+  "extensions": [
+    "/home/leo/.hindsight/coding-agents/dist/pi.js"
+  ]
 }
