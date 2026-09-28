@@ -5,6 +5,10 @@ Host mc2
     HostName mc2.888521.xyz
     Port 2222
     User root
+    IdentityFile ~/.ssh/sunlong
+    IdentitiesOnly yes
+    # Clash TUN RSTs the sntrup761 KEX reply (same as workhorse, 2026-10-06) — drop PQ KEX until Clash DIRECT rule lands
+    KexAlgorithms -sntrup761x25519-sha512@openssh.com
 
 Host home-huizhou
     HostName home.888521.xyz
@@ -26,12 +30,9 @@ Host oldhome-d1    #Added by lazyssh
     IdentityFile ~/.ssh/sunlong
 
 Host github.com
-    HostName ssh.github.com
-    Port 443
     User git
     IdentityFile ~/.ssh/id_ed25519
     IdentitiesOnly yes
-    ProxyCommand nc -X connect -x 127.0.0.1:7890 %h %p
 
 Host github.work
     HostName github.com
@@ -93,7 +94,11 @@ Host tianyi    #Added by lazyssh
     Port 2222
     User root
 
-Host tencent-gmail    #Added by lazyssh
+Host tencent-gmail omnigent    # omnigent public VPS (omni.888521.xyz)
     HostName 124.222.162.148
     User ubuntu
     Port 2222
+    IdentityFile ~/.ssh/sunlong
+    IdentitiesOnly yes
+    # Clash TUN RSTs the sntrup761 KEX reply (same as workhorse/mc2) — drop PQ KEX until Clash DIRECT rule covers this IP
+    KexAlgorithms -sntrup761x25519-sha512@openssh.com
