@@ -1,15 +1,15 @@
 {
-  "lastChangelogVersion": "0.86.1",
+  "lastChangelogVersion": "1.0.0",
   "theme": "dark",
   "packages": [
     "npm:pi-web-access",
-    "npm:pi-mcp-adapter",
     "https://github.com/cathrynlavery/diagram-design",
     "npm:pi-subagents",
     "npm:pi-observational-memory",
     "git:github.com/MasuRii/pi-rtk-optimizer",
     "npm:@agnishc/edb-context-viewer",
-    "npm:@juicesharp/rpiv-ask-user-question"
+    "npm:@juicesharp/rpiv-ask-user-question",
+    "npm:pi-tool-display"
   ],
   "hideThinkingBlock": true,
   "observational-memory": {
@@ -20,5 +20,10 @@
     },
     "compactAfterTokensMode": "ratio",
     "compactAfterTokensRatio": 0.25
-  }
+  },
+  "defaultProvider": "zai-coding-cn",
+  "defaultModel": "glm-5.3-flash",
+  "extensions": [
+    "/home/leo/.hindsight/coding-agents/dist/pi.js"
+  ]
 }

@@ -2,7 +2,11 @@
   "mcpServers": {
     "brain": {
       "url": "https://brain.888521.top/mcp",
-      "directTools": true
+      "headers": {
+        "Authorization": "Bearer ${SECOND_BRAIN_TOKEN}"
+      },
+      "exposure": "direct",
+      "description": "Second-brain memory store: save, search, link, and recall durable notes"
     },
     "zai-mcp-server": {
       "command": "npx",
@@ -15,25 +19,32 @@
         "Z_AI_MODE": "ZHIPU",
         "NODE_USE_ENV_PROXY": "1"
       },
-      "directTools": true
+      "exposure": "deferred",
+      "description": "Vision tools: screenshot OCR, UI-to-code, error diagnosis, diagram and chart analysis, video analysis"
     },
     "web-search-prime": {
       "url": "https://open.bigmodel.cn/api/mcp/web_search_prime/mcp",
-      "auth": "bearer",
-      "bearerToken": "!python3 -c 'import json,os;print(json.load(open(os.path.expanduser(\"~/.pi/agent/auth.json\")))[\"zai-coding-cn\"][\"key\"])'",
-      "directTools": true
+      "headers": {
+        "Authorization": "!python3 -c 'import json,os;print(\"Bearer \"+json.load(open(os.path.expanduser(\"~/.pi/agent/auth.json\")))[\"zai-coding-cn\"][\"key\"])'"
+      },
+      "exposure": "direct",
+      "description": "Web search returning titles, URLs, and page summaries"
     },
     "web-reader": {
       "url": "https://open.bigmodel.cn/api/mcp/web_reader/mcp",
-      "auth": "bearer",
-      "bearerToken": "!python3 -c 'import json,os;print(json.load(open(os.path.expanduser(\"~/.pi/agent/auth.json\")))[\"zai-coding-cn\"][\"key\"])'",
-      "directTools": true
+      "headers": {
+        "Authorization": "!python3 -c 'import json,os;print(\"Bearer \"+json.load(open(os.path.expanduser(\"~/.pi/agent/auth.json\")))[\"zai-coding-cn\"][\"key\"])'"
+      },
+      "exposure": "direct",
+      "description": "Fetch a URL and convert page content to markdown"
     },
     "zread": {
       "url": "https://open.bigmodel.cn/api/mcp/zread/mcp",
-      "auth": "bearer",
-      "bearerToken": "!python3 -c 'import json,os;print(json.load(open(os.path.expanduser(\"~/.pi/agent/auth.json\")))[\"zai-coding-cn\"][\"key\"])'",
-      "directTools": true
+      "headers": {
+        "Authorization": "!python3 -c 'import json,os;print(\"Bearer \"+json.load(open(os.path.expanduser(\"~/.pi/agent/auth.json\")))[\"zai-coding-cn\"][\"key\"])'"
+      },
+      "exposure": "direct",
+      "description": "Search GitHub repo docs/issues/commits, read files, list directory structure"
     }
   }
 }

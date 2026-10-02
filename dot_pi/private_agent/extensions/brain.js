@@ -159,14 +159,17 @@ async function refreshTokens(auth, timeoutMs) {
 
 // ── brain client ────────────────────────────────────────────────────────────
 function resolveBrainServer() {
-  try {
-    const cfg = JSON.parse(readFileSync(join(homedir(), ".pi", "agent", "mcp.json"), "utf8"));
-    const entry = cfg?.mcpServers?.brain;
-    if (!entry?.url) return null;
-    return { url: entry.url.replace(/\/$/, "") };
-  } catch {
-    return null;
+  // brain is wired via pi-mcp-adapter on this machine, so mcp-adapter.json is the
+  // primary source; mcp.json kept first for setups that define it natively
+  for (const file of ["mcp.json", "mcp-adapter.json"]) {
+    try {
+      const cfg = JSON.parse(readFileSync(join(homedir(), ".pi", "agent", file), "utf8"));
+      const entry = cfg?.mcpServers?.brain;
+      if (!entry?.url) continue;
+      return { url: entry.url.replace(/\/$/, ""), bearerTokenEnv: entry.bearerTokenEnv ?? null };
+    } catch { /* try next */ }
   }
+  return null;
 }
 
 export function createBrainClient() {
@@ -181,7 +184,16 @@ export function createBrainClient() {
   let initPromise = null;
   let auth = null;
 
+  // static bearer from the env (mirrors the adapter's bearerTokenEnv); wins over
+  // the keyring OAuth grant, which may be stale after a switch to token auth
+  function envBearer() {
+    const name = server.bearerTokenEnv;
+    return (name && process.env[name]) || null;
+  }
+
   async function token() {
+    const staticTok = envBearer();
+    if (staticTok) return staticTok;
     if (auth?.tokens?.expiresAt && auth.tokens.expiresAt < Date.now() / 1000 + 30) {
       try { auth = await refreshTokens(auth, CALL_TIMEOUT_MS); } catch { /* stale token: try anyway */ }
     }
@@ -214,14 +226,18 @@ export function createBrainClient() {
     available: true,
     async call(tool, args = {}) {
       auth ??= readBrainAuth();
-      if (!auth) throw new Error("no brain credentials in keyring (run /mcp-auth brain once)");
+      if (!auth && !envBearer()) {
+        throw new Error(`no brain credentials: keyring empty and $${server.bearerTokenEnv ?? "<bearer env>"} unset (source ~/.secrets.env before starting pi, or run /mcp-auth brain)`);
+      }
       await ensureSession();
-      const attempt = () => mcpPost(server.url, auth.tokens.accessToken, sessionId, {
+      const bearer = () => envBearer() ?? auth.tokens.accessToken;
+      const attempt = () => mcpPost(server.url, bearer(), sessionId, {
         jsonrpc: "2.0", id: 2, method: "tools/call",
         params: { name: tool, arguments: args },
       }, CALL_TIMEOUT_MS);
       let { status, payload } = await attempt();
       if (status === 401) {
+        if (envBearer()) throw new Error(`unauthorized (401) — $${server.bearerTokenEnv} rejected by brain server`);
         // the adapter may have refreshed meanwhile — re-read before our own refresh
         const fresh = readBrainAuth();
         if (fresh?.tokens?.accessToken && fresh.tokens.accessToken !== auth.tokens.accessToken) auth = fresh;
@@ -261,7 +277,7 @@ export default function brainExtension(pi) {
   pi.on("session_start", async (event, ctx) => {
     if (!["startup", "resume", "fork"].includes(event.reason)) return;
     if (!brain.available) {
-      ctx.ui.notify("🧠 brain: mcp.json 中无 brain 服务器配置，记忆功能未启用", "warning");
+      ctx.ui.notify("🧠 brain: mcp.json / mcp-adapter.json 均无 brain 服务器配置，记忆功能未启用", "warning");
       return;
     }
     try {
