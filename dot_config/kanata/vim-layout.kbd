@@ -46,7 +46,7 @@
 )
 
 (defalias
-  caps  (t! dual-action (layer-switch vim) (layer-toggle vim))
+  caps  (tap-hold-press $tap-time $hold-time (layer-switch vim) (layer-toggle vim))
   caps_ (layer-switch main)
 
   bspc del
