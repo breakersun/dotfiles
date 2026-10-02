@@ -1,9 +1,8 @@
 {
-  "lastChangelogVersion": "0.87.1",
+  "lastChangelogVersion": "1.0.0",
   "theme": "dark",
   "packages": [
     "npm:pi-web-access",
-    "npm:pi-mcp-adapter",
     "https://github.com/cathrynlavery/diagram-design",
     "npm:pi-subagents",
     "npm:pi-observational-memory",
