@@ -1,0 +1,4 @@
+{
+  "forceTopLevelAsync": true,
+  "maxActiveAsyncRunsPerSession": 4
+}
