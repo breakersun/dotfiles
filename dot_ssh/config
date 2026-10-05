@@ -90,8 +90,8 @@ Host lab-ubuntu    #Added by lazyssh
     Port 22
     IdentityFile ~/.ssh/id_rsa_qizhi
 
-Host tianyi    #Added by lazyssh
-    HostName frp.888521.xyz
+Host tianyi    #Added by lazyssh; 2026-10-05 域名 frp.888521.xyz 已 flip 到腾讯云，改回直连天翼云 IP
+    HostName 125.94.215.224
     Port 2222
     User root
 
