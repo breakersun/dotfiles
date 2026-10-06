@@ -1,5 +1,5 @@
 {
-  "lastChangelogVersion": "1.0.0",
+  "lastChangelogVersion": "1.0.4",
   "theme": "dark",
   "packages": [
     "npm:pi-web-access",
@@ -9,7 +9,8 @@
     "git:github.com/MasuRii/pi-rtk-optimizer",
     "npm:@agnishc/edb-context-viewer",
     "npm:@juicesharp/rpiv-ask-user-question",
-    "npm:pi-tool-display"
+    "npm:pi-tool-display",
+    "npm:pi-zvec-grep"
   ],
   "hideThinkingBlock": true,
   "observational-memory": {
