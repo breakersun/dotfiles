@@ -46,6 +46,13 @@
       },
       "exposure": "direct",
       "description": "Search GitHub repo docs/issues/commits, read files, list directory structure"
+    },
+    "mysetup": {
+      "url": "https://mysetup.ai/mcp",
+      "description": "mysetup.ai: browse community AI setups, compare with yours, prepare drafts (read-only scope)",
+      "oauth": {
+        "scope": "setup:read"
+      }
     }
   }
 }
