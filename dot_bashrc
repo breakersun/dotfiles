@@ -150,3 +150,6 @@ fi
 
 # deepseek-vl-support: make node fetch honor https_proxy (opencode-zen needs local proxy)
 export NODE_USE_ENV_PROXY=1
+
+# clanking (agent soundscape): use PulseAudio pacat — WSLg has no PipeWire
+export CLANKING_PLAYER=pacat
