@@ -52,6 +52,7 @@ param (
         'lsd'
         'keepassxc'
         'nodejs'
+        'bun'
         'global'
         'bincalc'
         'glow'
@@ -134,8 +135,13 @@ if (-not (Test-Path $nvimDir)) {
 }
 
 $env:Path = [System.Environment]::GetEnvironmentVariable("Path","User") + ";" + [System.Environment]::GetEnvironmentVariable("Path","Machine")
-npm install picgo -g
+npm install picgo hunkdiff -g
 picgo --version
+
+# Claude Code statusLine + hooks run via bunx (see ~/.claude/settings.json).
+# bunx would auto-fetch on first use, but pre-install so first paint works
+# even offline and without the cold-start lag. Config: ~/.config/ccstatusline/
+bun install -g ccstatusline
 Start-Process "https://www.notion.so/hitme/ba9d263f7f6b40f4a317eb9c6719e508"
 write-host 'Please replace $home\.picgo\config.json' -ForegroundColor Magenta
 ii -path $home\.picgo

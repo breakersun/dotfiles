@@ -170,6 +170,15 @@ if ! command -v pi >/dev/null 2>&1; then
     sudo npm install -g @earendil-works/pi-coding-agent
 fi
 
+# bun + ccstatusline: Claude Code statusLine runs via `bunx ccstatusline` (see
+# ~/.claude/settings.json). bunx auto-fetches on first use, but pre-install so
+# first paint works offline and without cold-start lag. Config file is managed
+# by chezmoi at ~/.config/ccstatusline/settings.json (OS-neutral).
+if ! command -v bun >/dev/null 2>&1; then
+    brew install oven-sh/bun/bun
+fi
+bun install -g ccstatusline
+
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
