@@ -8,10 +8,6 @@
         "color": "cyan"
       },
       {
-        "id": "2",
-        "type": "separator"
-      },
-      {
         "id": "3",
         "type": "context-bar",
         "color": "brightBlack"
@@ -21,11 +17,11 @@
         "type": "separator"
       },
       {
-        "id": "55b11a19-8e04-46f8-989b-218946700445",
-        "type": "skills"
+        "id": "f09750a6-bd62-4825-ac59-0d899df523c9",
+        "type": "current-working-dir"
       },
       {
-        "id": "6",
+        "id": "2dd08401-4732-4d91-a43d-01fa5d44b0f8",
         "type": "separator"
       },
       {
@@ -41,14 +37,6 @@
         "id": "7",
         "type": "git-changes",
         "color": "yellow"
-      },
-      {
-        "id": "2dd08401-4732-4d91-a43d-01fa5d44b0f8",
-        "type": "separator"
-      },
-      {
-        "id": "f09750a6-bd62-4825-ac59-0d899df523c9",
-        "type": "current-working-dir"
       }
     ],
     [],
