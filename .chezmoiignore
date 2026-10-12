@@ -61,7 +61,9 @@ display_switch.exe
 {{ end }}
 
 {{ if eq .chezmoi.os "windows" }}
-  .ssh
+  # .ssh: manage config only; keys / known_hosts stay unmanaged
+  .ssh/*
+  !.ssh/config
   .tmux.conf
   .config/systemd/
 {{ end }}
