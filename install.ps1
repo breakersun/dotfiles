@@ -44,7 +44,6 @@ param (
         'notepadplusplus'
         'gsudo'
         'lazygit'
-        'lazyssh'
         'FiraCode-NF'
         'Maple-Mono-NF-CN'
         'ditto'
@@ -107,6 +106,10 @@ foreach ($app in $Apps) {
 # install this for kanata-tray
 scoop bucket add gdm257_scoop-257 https://github.com/gdm257/scoop-257
 scoop install gdm257_scoop-257/kanata-tray
+
+# ctty (lazyssh replacement; not in main/extras buckets)
+scoop bucket add kkzzhizhou_scoop-apps https://github.com/kkzzhizhou/scoop-apps
+scoop install kkzzhizhou_scoop-apps/ctty
 
 # yazi plugins (reads ~/.config/yazi/package.toml managed by chezmoi)
 ya pkg install
