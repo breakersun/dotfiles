@@ -126,7 +126,6 @@ export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 
 eval "$(starship init bash)"
 eval "$(fzf --bash)"
-eval "$(zoxide init bash)"
 
 
 # Added by Antigravity CLI installer
@@ -153,3 +152,6 @@ export NODE_USE_ENV_PROXY=1
 
 # clanking (agent soundscape): use PulseAudio pacat — WSLg has no PipeWire
 export CLANKING_PLAYER=pacat
+
+# zoxide — must stay LAST: hook appends to final PROMPT_COMMAND
+eval "$(zoxide init bash)"
