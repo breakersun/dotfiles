@@ -1,0 +1,28 @@
+{
+  "$schema": "https://www.schemastore.org/claude-code-keybindings.json",
+  "$docs": "https://code.claude.com/docs/en/keybindings",
+  "bindings": [
+    {
+      "context": "Chat",
+      "bindings": {
+        "ctrl+x n": "command:prompt-rail-next",
+        "ctrl+x p": "command:prompt-rail-prev",
+        "ctrl+x h": "command:prompt-rail-toggle"
+      }
+    },
+    {
+      "context": "Transcript",
+      "bindings": {
+        "ctrl+x j": "scroll:halfPageDown",
+        "ctrl+x k": "scroll:halfPageUp"
+      }
+    },
+    {
+      "context": "Scroll",
+      "bindings": {
+        "ctrl+x j": "scroll:halfPageDown",
+        "ctrl+x k": "scroll:halfPageUp"
+      }
+    }
+  ]
+}
