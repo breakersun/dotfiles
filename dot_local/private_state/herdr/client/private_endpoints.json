@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "ssh": [
+    {
+      "id": "29dd132fd0e421d76fa15495daa3df7e",
+      "label": "server-67",
+      "target": "10.84.4.67",
+      "session": "default",
+      "enabled": true
+    }
+  ]
+}

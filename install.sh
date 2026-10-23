@@ -152,6 +152,7 @@ brew install starship
 brew install zoxide
 brew install trzsz-go
 brew install difftastic # provides `difft` for .gitconfig diff.external (not in Ubuntu apt)
+brew install zsuroy/ctty/ctty # ssh session manager (replaces retired lazyssh)
 
 # Install chezmoi
 set -x

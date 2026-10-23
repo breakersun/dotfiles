@@ -1,5 +1,6 @@
 Host *
     AddKeysToAgent yes
+    KexAlgorithms -sntrup761x25519-sha512@openssh.com
 
 Host mc2
     HostName mc2.888521.xyz

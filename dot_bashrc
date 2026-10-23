@@ -126,7 +126,6 @@ export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 
 eval "$(starship init bash)"
 eval "$(fzf --bash)"
-eval "$(zoxide init bash)"
 
 
 # Added by Antigravity CLI installer
@@ -153,3 +152,27 @@ export NODE_USE_ENV_PROXY=1
 
 # clanking (agent soundscape): use PulseAudio pacat — WSLg has no PipeWire
 export CLANKING_PLAYER=pacat
+
+spf() {
+    os=$(uname -s)
+
+    # Linux
+    if [[ "$os" == "Linux" ]]; then
+        export SPF_LAST_DIR="${XDG_STATE_HOME:-$HOME/.local/state}/superfile/lastdir"
+    fi
+
+    # macOS
+    if [[ "$os" == "Darwin" ]]; then
+        export SPF_LAST_DIR="$HOME/Library/Application Support/superfile/lastdir"
+    fi
+
+    command spf "$@"
+
+    [ ! -f "$SPF_LAST_DIR" ] || {
+        . "$SPF_LAST_DIR"
+        rm -f -- "$SPF_LAST_DIR" > /dev/null
+    }
+}
+
+# zoxide — must stay LAST: hook appends to final PROMPT_COMMAND
+eval "$(zoxide init bash)"
