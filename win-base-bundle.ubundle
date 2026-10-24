@@ -9,13 +9,6 @@
       "ManagerName": "winget"
     },
     {
-      "Id": "AmN.yasb",
-      "Name": "yasb",
-      "Version": "2.0.0",
-      "Source": "winget",
-      "ManagerName": "winget"
-    },
-    {
       "Id": "AngeloConvento.OverKeys",
       "Name": "OverKeys",
       "Version": "0.3.4",
