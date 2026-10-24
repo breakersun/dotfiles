@@ -3,25 +3,11 @@
   "lines": [
     [
       {
-        "id": "1",
-        "type": "model",
-        "color": "cyan"
-      },
-      {
-        "id": "26178b57-7d1e-42c6-b6de-173eaf8911df",
-        "type": "separator"
-      },
-      {
-        "id": "4e9e6c91-2136-472c-bbb6-e785b793ca05",
-        "type": "thinking-effort"
-      },
-      {
-        "id": "ae1175c9-3391-447d-b89b-b4b295e4090b",
-        "type": "separator"
-      },
-      {
-        "id": "53689bcc-28a2-42d9-ab5e-859c975cbc3c",
-        "type": "context-percentage-usable"
+        "id": "3676d723-2864-41ab-9ca2-e2a467a94a11",
+        "type": "context-bar",
+        "metadata": {
+          "label": ""
+        }
       },
       {
         "id": "4",
@@ -29,7 +15,10 @@
       },
       {
         "id": "f09750a6-bd62-4825-ac59-0d899df523c9",
-        "type": "current-working-dir"
+        "type": "current-working-dir",
+        "metadata": {
+          "label": "cwd:"
+        }
       },
       {
         "id": "2dd08401-4732-4d91-a43d-01fa5d44b0f8",
