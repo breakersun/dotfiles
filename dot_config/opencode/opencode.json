@@ -1,0 +1,10 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "mcp": {
+    "2nd-brain": {
+      "type": "remote",
+      "url": "https://brain.888521.top/mcp",
+      "enabled": true
+    }
+  }
+}

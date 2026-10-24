@@ -1,6 +1,8 @@
 Host *
     AddKeysToAgent yes
     KexAlgorithms -sntrup761x25519-sha512@openssh.com
+    ServerAliveInterval 15
+    ServerAliveCountMax 4
 
 Host mc2
     HostName mc2.888521.xyz
@@ -34,12 +36,14 @@ Host github.com
     # vault key (github:leosunsl@outlook.com entry) = breakersun account key
     IdentityFile ~/.ssh/leosunsl
     IdentitiesOnly yes
+    ProxyCommand nc -X 5 -x 127.0.0.1:7890 %h %p
 
 Host github.work
     HostName github.com
     User git
     IdentityFile ~/.ssh/sunlong-work
     IdentitiesOnly yes
+    ProxyCommand nc -X 5 -x 127.0.0.1:7890 %h %p
 
 Host workhorse
     HostName 10.84.4.80
