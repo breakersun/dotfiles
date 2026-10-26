@@ -22,6 +22,7 @@
   caps    a    s    d    f    g    h    j    k    l    ;    '    ret
   lsft    z    x    c    v    b    n    m    ,    .    /    rsft
   lctl    lmet lalt           spc            ralt rctl
+  left    down up   right
 )
 
 (deflayer main
@@ -30,7 +31,8 @@
   tab     q    w    e    r    t    y    u    i    o    p    [    ]    \
   @caps   a   @s   @d   @f    g    h    j    k    l    ;    '    ret
   lsft    z    x    c    v    b    n   @m   @,   @.   @/    rsft
-  lctl   lmet lalt           spc            ralt rctl
+  lctl   lmet @lalt           spc            ralt rctl
+  left    down up   right
 )
 
 (deflayer vim
@@ -39,7 +41,33 @@
   tab     q    w    e    r   @t_   y   @u_   i   @o_   p    [    ]    \
   @caps_  a    s    d    f    g   @h_  @j_  @k_  @l_   ;    '    ret
   lsft    z    x    c    v    b    n    m   @,_  @._   /    rsft
-  lctl    lmet lalt           spc            ralt rctl
+  lctl    lmet @lalt           spc            ralt rctl
+  left    down up   right
+)
+
+;; komorebic layer, active while lalt is held. Non-komorebic keys emit
+;; alt+<key> so OS-level alt combos (alt+tab, alt+f4, menu keys) survive.
+;; Shift pressed AFTER alt stacks the kshift layer on top.
+(deflayer komo
+  A-esc  A-f1 A-f2 A-f3 A-f4 A-f5 A-f6 A-f7 A-f8 A-f9 A-f10 A-f11 A-f12
+  A-grv  @kws1 @kws2 @kws3 @kws4 @kws5 @kws6 @kws7 @kws8  A-9  A-0 @krshd @krshi A-bspc
+  A-tab  @kclose A-w  A-e  A-r  @kmt @kflip_v A-u @kshortcuts A-o @kpause @kcys_p @kcys_n A-\
+  A-caps A-a  A-s  A-d  A-f  A-g  @kfoc_l @kfoc_d @kfoc_u @kfoc_r @kunstack A-' A-ret
+  (layer-while-held kshift)  A-z @kflip_h A-c A-v A-b A-n @kmin A-, A-. A-/ (layer-while-held kshift)
+  lctl    lmet _               A-spc          ralt rctl
+  @kstk_l @kstk_d @kstk_u @kstk_r
+)
+
+;; shift half of komorebic layer; stacked on komo while shift is held
+;; after alt. Unmapped keys are transparent to komo.
+(deflayer kshift
+  _      _    _    _    _    _    _    _    _    _    _    _    _
+  _      @kmws1 @kmws2 @kmws3 @kmws4 @kmws5 @kmws6 @kmws7 @kmws8 _ _ @krsvd @krsvi _
+  _      _    _    _    @kretile _    _    _    _    @kreload _ @kcyf_p @kcyf_n _
+  _      _    _    _    @kmonocle _ @kmov_l @kmov_d @kmov_u @kmov_r _ @kpromote _
+  _      _    _    _    _    _    _    _    _    _    _    _
+  _      _    _                _                _    _
+  _      _    _    _
 )
 
 (deftemplate dual-action (tap-action hold-action)
@@ -69,4 +97,55 @@
   ,    (t! dual-action , rctl)
   .    (t! dual-action . ralt)
   /    (t! dual-action / rmet)
+
+  lalt (tap-hold-press $tap-time $hold-time lalt (layer-while-held komo))
+  kmt  (cmd komorebic toggle-float)
+
+  kclose     (cmd komorebic close)
+  kmin       (cmd komorebic minimize)
+  kfoc_l     (cmd komorebic focus left)
+  kfoc_d     (cmd komorebic focus down)
+  kfoc_u     (cmd komorebic focus up)
+  kfoc_r     (cmd komorebic focus right)
+  kcyf_p     (cmd komorebic cycle-focus previous)
+  kcyf_n     (cmd komorebic cycle-focus next)
+  kmov_l     (cmd komorebic move left)
+  kmov_d     (cmd komorebic move down)
+  kmov_u     (cmd komorebic move up)
+  kmov_r     (cmd komorebic move right)
+  kpromote   (cmd komorebic promote)
+  kstk_l     (cmd komorebic stack left)
+  kstk_d     (cmd komorebic stack down)
+  kstk_u     (cmd komorebic stack up)
+  kstk_r     (cmd komorebic stack right)
+  kunstack   (cmd komorebic unstack)
+  kcys_p     (cmd komorebic cycle-stack previous)
+  kcys_n     (cmd komorebic cycle-stack next)
+  krshi      (cmd komorebic resize-axis horizontal increase)
+  krshd      (cmd komorebic resize-axis horizontal decrease)
+  krsvi      (cmd komorebic resize-axis vertical increase)
+  krsvd      (cmd komorebic resize-axis vertical decrease)
+  kmonocle   (cmd komorebic toggle-monocle)
+  kretile    (cmd komorebic retile)
+  kpause     (cmd komorebic toggle-pause)
+  kflip_h    (cmd komorebic flip-layout horizontal)
+  kflip_v    (cmd komorebic flip-layout vertical)
+  kreload    (cmd komorebic reload-configuration)
+  kshortcuts (cmd komorebic toggle-shortcuts)
+  kws1       (cmd komorebic focus-workspace 0)
+  kws2       (cmd komorebic focus-workspace 1)
+  kws3       (cmd komorebic focus-workspace 2)
+  kws4       (cmd komorebic focus-workspace 3)
+  kws5       (cmd komorebic focus-workspace 4)
+  kws6       (cmd komorebic focus-workspace 5)
+  kws7       (cmd komorebic focus-workspace 6)
+  kws8       (cmd komorebic focus-workspace 7)
+  kmws1      (cmd komorebic move-to-workspace 0)
+  kmws2      (cmd komorebic move-to-workspace 1)
+  kmws3      (cmd komorebic move-to-workspace 2)
+  kmws4      (cmd komorebic move-to-workspace 3)
+  kmws5      (cmd komorebic move-to-workspace 4)
+  kmws6      (cmd komorebic move-to-workspace 5)
+  kmws7      (cmd komorebic move-to-workspace 6)
+  kmws8      (cmd komorebic move-to-workspace 7)
 )
