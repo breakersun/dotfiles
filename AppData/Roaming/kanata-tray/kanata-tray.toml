@@ -21,5 +21,6 @@ autorestart_on_crash = false
 
 [presets.'main']
 kanata_config = '~/.config/kanata/vim-layout.kbd'
+kanata_executable = 'C:\Users\leosu\scoop\shims\kanata-cmd.exe'
 autorun = true
 tcp_port = 4039

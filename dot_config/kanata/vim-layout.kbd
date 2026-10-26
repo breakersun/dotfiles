@@ -49,10 +49,10 @@
 ;; alt+<key> so OS-level alt combos (alt+tab, alt+f4, menu keys) survive.
 ;; Shift pressed AFTER alt stacks the kshift layer on top.
 (deflayer komo
-  A-esc  A-f1 A-f2 A-f3 A-f4 A-f5 A-f6 A-f7 A-f8 A-f9 A-f10 A-f11 A-f12
-  A-grv  @kws1 @kws2 @kws3 @kws4 @kws5 @kws6 @kws7 @kws8  A-9  A-0 @krshd @krshi A-bspc
+  A-esc   A-f1  A-f2  A-f3  A-f4  A-f5  A-f6  A-f7  A-f8  A-f9 A-f10 A-f11  A-f12
+  A-grv  @kws1 @kws2  A-3  A-4  A-5  A-6  A-7  A-8  A-9  A-0  @krshd @krshi A-bspc
   A-tab  @kclose A-w  A-e  A-r  @kmt @kflip_v A-u @kshortcuts A-o @kpause @kcys_p @kcys_n A-\
-  A-caps A-a  A-s  A-d  A-f  A-g  @kfoc_l @kfoc_d @kfoc_u @kfoc_r @kunstack A-' A-ret
+  A-caps A-a  A-s  A-d  @kmonocle A-g  @kfoc_l @kfoc_d @kfoc_u @kfoc_r @kunstack A-' A-ret
   (layer-while-held kshift)  A-z @kflip_h A-c A-v A-b A-n @kmin A-, A-. A-/ (layer-while-held kshift)
   lctl    lmet _               A-spc          ralt rctl
   @kstk_l @kstk_d @kstk_u @kstk_r
@@ -62,9 +62,9 @@
 ;; after alt. Unmapped keys are transparent to komo.
 (deflayer kshift
   _      _    _    _    _    _    _    _    _    _    _    _    _
-  _      @kmws1 @kmws2 @kmws3 @kmws4 @kmws5 @kmws6 @kmws7 @kmws8 _ _ @krsvd @krsvi _
+  _      @kmws1 @kmws2 _ _ _ _ _ _ _ _ @krsvd @krsvi _
   _      _    _    _    @kretile _    _    _    _    @kreload _ @kcyf_p @kcyf_n _
-  _      _    _    _    @kmonocle _ @kmov_l @kmov_d @kmov_u @kmov_r _ @kpromote _
+  _      _    _    _    @kmaximize _ @kmov_l @kmov_d @kmov_u @kmov_r _ @kpromote _
   _      _    _    _    _    _    _    _    _    _    _    _
   _      _    _                _                _    _
   _      _    _    _
@@ -101,7 +101,9 @@
   lalt (tap-hold-press $tap-time $hold-time lalt (layer-while-held komo))
   kmt  (cmd komorebic toggle-float)
 
-  kclose     (cmd komorebic close)
+  kclose     (switch
+               ((input real lctl) (input real rctl)) A-q break
+               () (cmd komorebic close) break)
   kmin       (cmd komorebic minimize)
   kfoc_l     (cmd komorebic focus left)
   kfoc_d     (cmd komorebic focus down)
@@ -126,6 +128,8 @@
   krsvi      (cmd komorebic resize-axis vertical increase)
   krsvd      (cmd komorebic resize-axis vertical decrease)
   kmonocle   (cmd komorebic toggle-monocle)
+  ;; trial binding: kshift f slot was A-f (File menu) before; revert that slot if rolling back
+  kmaximize  (cmd komorebic toggle-maximize)
   kretile    (cmd komorebic retile)
   kpause     (cmd komorebic toggle-pause)
   kflip_h    (cmd komorebic flip-layout horizontal)
@@ -134,18 +138,18 @@
   kshortcuts (cmd komorebic toggle-shortcuts)
   kws1       (cmd komorebic focus-workspace 0)
   kws2       (cmd komorebic focus-workspace 1)
-  kws3       (cmd komorebic focus-workspace 2)
-  kws4       (cmd komorebic focus-workspace 3)
-  kws5       (cmd komorebic focus-workspace 4)
-  kws6       (cmd komorebic focus-workspace 5)
-  kws7       (cmd komorebic focus-workspace 6)
-  kws8       (cmd komorebic focus-workspace 7)
+;;  kws3       (cmd komorebic focus-workspace 2)  ; disabled: only 2 workspaces used
+;;  kws4       (cmd komorebic focus-workspace 3)
+;;  kws5       (cmd komorebic focus-workspace 4)
+;;  kws6       (cmd komorebic focus-workspace 5)
+;;  kws7       (cmd komorebic focus-workspace 6)
+;;  kws8       (cmd komorebic focus-workspace 7)
   kmws1      (cmd komorebic move-to-workspace 0)
   kmws2      (cmd komorebic move-to-workspace 1)
-  kmws3      (cmd komorebic move-to-workspace 2)
-  kmws4      (cmd komorebic move-to-workspace 3)
-  kmws5      (cmd komorebic move-to-workspace 4)
-  kmws6      (cmd komorebic move-to-workspace 5)
-  kmws7      (cmd komorebic move-to-workspace 6)
-  kmws8      (cmd komorebic move-to-workspace 7)
+;;  kmws3      (cmd komorebic move-to-workspace 2)  ; disabled: only 2 workspaces used
+;;  kmws4      (cmd komorebic move-to-workspace 3)
+;;  kmws5      (cmd komorebic move-to-workspace 4)
+;;  kmws6      (cmd komorebic move-to-workspace 5)
+;;  kmws7      (cmd komorebic move-to-workspace 6)
+;;  kmws8      (cmd komorebic move-to-workspace 7)
 )

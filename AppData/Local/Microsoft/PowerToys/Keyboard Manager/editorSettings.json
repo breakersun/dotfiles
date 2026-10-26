@@ -1,0 +1,30 @@
+{
+  "ShortcutSettingsDictionary": {
+    "74244013-f134-4deb-9c23-55ead12cd3fb": {
+      "Id": "74244013-f134-4deb-9c23-55ead12cd3fb",
+      "Shortcut": {
+        "OriginalKeys": "8",
+        "TargetKeys": "9",
+        "TargetApp": "",
+        "OperationType": 0,
+        "TargetText": "",
+        "ProgramPath": "",
+        "ProgramArgs": "",
+        "StartInDirectory": "",
+        "Elevation": 0,
+        "IfRunningAction": 0,
+        "Visibility": 0,
+        "UriToOpen": ""
+      },
+      "Profiles": [],
+      "IsActive": false
+    }
+  },
+  "ProfileDictionary": {},
+  "ShortcutsByOperationType": {
+    "RemapShortcut": [
+      "74244013-f134-4deb-9c23-55ead12cd3fb"
+    ]
+  },
+  "ActiveProfile": ""
+}

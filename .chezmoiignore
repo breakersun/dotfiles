@@ -16,7 +16,9 @@ display_switch.exe
   .config/icons
   .config/profile.ps1
   .config/requirements.psd1
-  .config/kanata/
+    .config/kanata/
+  komorebi.json
+  komorebi.bar.json
   .config/yasb/
   .wslconfig
   scoop

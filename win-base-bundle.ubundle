@@ -9,13 +9,6 @@
       "ManagerName": "winget"
     },
     {
-      "Id": "AngeloConvento.OverKeys",
-      "Name": "OverKeys",
-      "Version": "0.3.4",
-      "Source": "winget",
-      "ManagerName": "winget"
-    },
-    {
       "Id": "AutoHotkey.AutoHotkey",
       "Name": "AutoHotkey",
       "Version": "1.1.36.02",
@@ -94,10 +87,10 @@
       "ManagerName": "winget"
     },
     {
-      "Id": "glzr-io.glazewm",
-      "Name": "GlazeWM",
-      "Version": "3.10.1",
-      "Source": "winget",
+      "Id": "XP89DCGQ3K6VLD",
+      "Name": "Microsoft PowerToys",
+      "Version": "0.100.2",
+      "Source": "msstore",
       "ManagerName": "winget"
     },
     {

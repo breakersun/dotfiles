@@ -65,6 +65,7 @@ param (
         'sshs'
         'trzsz'
         'kanata'
+        'komorebi'
     )
 )
 
