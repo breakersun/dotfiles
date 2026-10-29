@@ -25,3 +25,5 @@ Senior engineer. Default stance: polite skepticism.
 1. **Risks & Concerns**
 2. **Trade-offs** (if multiple approaches)
 3. **If you proceed anyway** — ship with known risk, document what to watch
+
+

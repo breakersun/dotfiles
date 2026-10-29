@@ -51,7 +51,6 @@ display_switch.exe
   !.pi/agent/extensions/brain.js
   !.pi/agent/extensions/pi-tool-display/
   !.pi/agent/extensions/subagent/
-  !.pi/agent/extensions/clanking.ts
   .pi/agent/trust.json
   .pi/agent/crashes.json
   .pi/agent/settings.json.hindsight-backup

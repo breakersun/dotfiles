@@ -150,9 +150,6 @@ fi
 # deepseek-vl-support: make node fetch honor https_proxy (opencode-zen needs local proxy)
 export NODE_USE_ENV_PROXY=1
 
-# clanking (agent soundscape): use PulseAudio pacat — WSLg has no PipeWire
-export CLANKING_PLAYER=pacat
-
 spf() {
     os=$(uname -s)
 
@@ -176,3 +173,23 @@ spf() {
 
 # zoxide — must stay LAST: hook appends to final PROMPT_COMMAND
 eval "$(zoxide init bash)"
+
+# >>> peekme >>>
+# Opens Claude Code, Codex, GitHub Copilot CLI and Kiro CLI with peekme when you type `claude`, `codex`, `copilot` or `kiro-cli`. Remove with: peekme uninstall
+function claude {
+  if [ -x "$HOME/.local/share/peekme/bin/claude" ]; then "$HOME/.local/share/peekme/bin/claude" "$@"; else command claude "$@"; fi
+}
+function codex {
+  if [ -x "$HOME/.local/share/peekme/bin/codex" ]; then "$HOME/.local/share/peekme/bin/codex" "$@"; else command codex "$@"; fi
+}
+function copilot {
+  if [ -x "$HOME/.local/share/peekme/bin/copilot" ]; then "$HOME/.local/share/peekme/bin/copilot" "$@"; else command copilot "$@"; fi
+}
+function kiro-cli {
+  if [ -x "$HOME/.local/share/peekme/bin/kiro-cli" ]; then "$HOME/.local/share/peekme/bin/kiro-cli" "$@"; else command kiro-cli "$@"; fi
+}
+case ":$PATH:" in
+  *":$HOME/.local/share/peekme/bin:"*) ;;
+  *) export PATH="$HOME/.local/share/peekme/bin:$PATH" ;;
+esac
+# <<< peekme <<<
