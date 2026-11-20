@@ -8,6 +8,15 @@
       ],
       "command": "npx",
       "disabled": false
+    },
+    "firecrawl": {
+      "args": [
+        "-y",
+        "mcp-remote",
+        "https://mcp.firecrawl.dev/v2/mcp-oauth"
+      ],
+      "command": "npx",
+      "disabled": false
     }
   }
 }
