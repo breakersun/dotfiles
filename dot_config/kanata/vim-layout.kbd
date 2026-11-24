@@ -51,7 +51,7 @@
 (deflayer komo
   A-esc   A-f1  A-f2  A-f3  A-f4  A-f5  A-f6  A-f7  A-f8  A-f9 A-f10 A-f11  A-f12
   A-grv  @kws1 @kws2  A-3  A-4  A-5  A-6  A-7  A-8  A-9  A-0  @krshd @krshi A-bspc
-  A-tab  @kclose A-w  A-e  A-r  @kmt @kflip_v A-u @kshortcuts A-o @kpause @kcys_p @kcys_n A-\
+  A-tab  @kclose A-w  A-e  A-r  @kmt @kflip_v A-u @kshortcuts @korca @kpause @kcys_p @kcys_n A-\
   A-caps A-a  A-s  A-d  @kmonocle A-g  @kfoc_l @kfoc_d @kfoc_u @kfoc_r @kunstack A-' A-ret
   (layer-while-held kshift)  A-z @kflip_h A-c A-v A-b A-n @kmin A-, A-. A-/ (layer-while-held kshift)
   lctl    lmet _               A-spc          ralt rctl
@@ -63,7 +63,7 @@
 (deflayer kshift
   _      _    _    _    _    _    _    _    _    _    _    _    _
   _      @kmws1 @kmws2 _ _ _ _ _ _ _ _ @krsvd @krsvi _
-  _      _    _    _    @kretile _    _    _    _    @kreload _ @kcyf_p @kcyf_n _
+  _      _    _    _    @kretile _    _    @picgo _ @kreload _ @kcyf_p @kcyf_n _
   _      _    _    _    @kmaximize _ @kmov_l @kmov_d @kmov_u @kmov_r _ @kpromote _
   _      _    _    _    _    _    _    _    _    _    _    _
   _      _    _                _                _    _
@@ -100,6 +100,8 @@
 
   lalt (tap-hold-press $tap-time $hold-time lalt (layer-while-held komo))
   kmt  (cmd komorebic toggle-float)
+  korca (cmd powershell -NoProfile -ExecutionPolicy Bypass -File C:\Users\leosu\.config\Toggle-Orca.ps1)
+  picgo (cmd powershell -WindowStyle Hidden -NoProfile -NonInteractive -ExecutionPolicy Bypass -STA -File C:\Users\leosu\.config\kanata\upload-clipboard-image.ps1)
 
   kclose     (switch
                ((input real lctl) (input real rctl)) A-q break
